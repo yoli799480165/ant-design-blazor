@@ -1,5 +1,6 @@
 ﻿using System;
 using CssInCSharp;
+using CssInCSharp.Colors;
 using static AntDesign.GlobalStyle;
 using static AntDesign.Theme;
 using static AntDesign.StyleUtil;
@@ -326,10 +327,9 @@ namespace AntDesign
                             Cursor = "not-allowed",
                             Width = token.HandleSize,
                             Height = token.HandleSize,
-                            BoxShadow = "",
-            //                BoxShadow = @$"0 0 0 {token.HandleLineWidth}px {new TinyColor(token.ColorTextDisabled)
-            //.onBackground(token.ColorBgContainer)
-            //.toHexShortString()}",
+                            BoxShadow = @$"0 0 0 {token.HandleLineWidth}px {new TinyColor(token.ColorTextDisabled)
+                                .OnBackground(token.ColorBgContainer)
+                                .ToHexShortString()}",
                             InsetInlineStart = 0,
                             InsetBlockStart = 0,
                         },

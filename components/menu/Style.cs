@@ -1,5 +1,6 @@
 ﻿using System;
 using CssInCSharp;
+using CssInCSharp.Colors;
 using static AntDesign.GlobalStyle;
 using static AntDesign.Theme;
 using static AntDesign.StyleUtil;
@@ -1003,7 +1004,7 @@ namespace AntDesign
                     var fontSizeLG = token.FontSizeLG;
                     var colorTextLightSolid = token.ColorTextLightSolid;
                     var colorErrorHover = token.ColorErrorHover;
-                    var colorTextDark = ""; // new TinyColor(colorTextLightSolid).SetAlpha(0.65).ToRgbString();
+                    var colorTextDark = new TinyColor(colorTextLightSolid).SetAlpha(0.65).ToRgbString();
                     return new MenuToken()
                     {
                         DropdownWidth = 160,
@@ -1068,7 +1069,7 @@ namespace AntDesign
                         IconMarginInlineEnd = controlHeightSM - fontSize,
                         CollapsedIconSize = fontSizeLG,
                         GroupTitleFontSize = fontSize,
-                        DarkItemDisabledColor = "", // new TinyColor(colorTextLightSolid).SetAlpha(0.25),
+                        DarkItemDisabledColor = new TinyColor(colorTextLightSolid).SetAlpha(0.25).ToRgbString(),
                         DarkItemColor = colorTextDark,
                         DarkDangerItemColor = colorError,
                         DarkItemBg = "#001529",
