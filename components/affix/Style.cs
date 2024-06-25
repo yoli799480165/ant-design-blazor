@@ -6,7 +6,7 @@ using static AntDesign.StyleUtil;
 
 namespace AntDesign
 {
-    public class AffixToken : TokenWithCommonCls
+    public partial class AffixToken : TokenWithCommonCls
     {
         public double ZIndexPopup
         {
@@ -16,9 +16,13 @@ namespace AntDesign
 
     }
 
+    public partial class AffixToken
+    {
+    }
+
     public partial class Affix
     {
-        public CSSObject GenSharedAffixStyle(AffixToken token)
+        public CSSInterpolation GenSharedAffixStyle(AffixToken token)
         {
             var componentCls = token.ComponentCls;
             return new CSSObject()
@@ -31,20 +35,17 @@ namespace AntDesign
             };
         }
 
+        public AffixToken PrepareComponentToken(GlobalToken token)
+        {
+            return new AffixToken()
+            {
+                ZIndexPopup = token.ZIndexBase + 10,
+            };
+        }
+
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
-                "Affix",
-                (token) =>
-                {
-                    var affixToken = MergeToken(
-                        token,
-                        new AffixToken()
-                        {
-                            ZIndexPopup = token.ZIndexBase + 10,
-                        });
-                    return new CSSInterpolation[] { GenSharedAffixStyle(affixToken) };
-                });
+            return GenStyleHooks("Affix", GenSharedAffixStyle, PrepareComponentToken);
         }
 
     }

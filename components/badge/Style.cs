@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using CssInCSharp;
 using static AntDesign.GlobalStyle;
 using static AntDesign.Theme;
@@ -125,86 +125,92 @@ namespace AntDesign
 
     public partial class Badge
     {
-        private Keyframes _antStatusProcessing = new Keyframes("antStatusProcessing")
-        {
-            ["0%"] = new CSSObject()
+        private Keyframes _antStatusProcessing = new Keyframes("antStatusProcessing",
+            new CSSObject()
             {
-                Transform = "scale(0.8)",
-                Opacity = 0.5f,
-            },
-            ["100%"] = new CSSObject()
-            {
-                Transform = "scale(2.4)",
-                Opacity = 0,
-            },
-        };
+                ["0%"] = new CSSObject()
+                {
+                    Transform = "scale(0.8)",
+                    Opacity = 0.5f,
+                },
+                ["100%"] = new CSSObject()
+                {
+                    Transform = "scale(2.4)",
+                    Opacity = 0,
+                },
+            });
 
-        private Keyframes _antZoomBadgeIn = new Keyframes("antZoomBadgeIn")
-        {
-            ["0%"] = new CSSObject()
+        private Keyframes _antZoomBadgeIn = new Keyframes("antZoomBadgeIn",
+            new CSSObject()
             {
-                Transform = "scale(0) translate(50%, -50%)",
-                Opacity = 0,
-            },
-            ["100%"] = new CSSObject()
-            {
-                Transform = "scale(1) translate(50%, -50%)",
-            },
-        };
+                ["0%"] = new CSSObject()
+                {
+                    Transform = "scale(0) translate(50%, -50%)",
+                    Opacity = 0,
+                },
+                ["100%"] = new CSSObject()
+                {
+                    Transform = "scale(1) translate(50%, -50%)",
+                },
+            });
 
-        private Keyframes _antZoomBadgeOut = new Keyframes("antZoomBadgeOut")
-        {
-            ["0%"] = new CSSObject()
+        private Keyframes _antZoomBadgeOut = new Keyframes("antZoomBadgeOut",
+            new CSSObject()
             {
-                Transform = "scale(1) translate(50%, -50%)",
-            },
-            ["100%"] = new CSSObject()
-            {
-                Transform = "scale(0) translate(50%, -50%)",
-                Opacity = 0,
-            },
-        };
+                ["0%"] = new CSSObject()
+                {
+                    Transform = "scale(1) translate(50%, -50%)",
+                },
+                ["100%"] = new CSSObject()
+                {
+                    Transform = "scale(0) translate(50%, -50%)",
+                    Opacity = 0,
+                },
+            });
 
-        private Keyframes _antNoWrapperZoomBadgeIn = new Keyframes("antNoWrapperZoomBadgeIn")
-        {
-            ["0%"] = new CSSObject()
+        private Keyframes _antNoWrapperZoomBadgeIn = new Keyframes("antNoWrapperZoomBadgeIn",
+            new CSSObject()
             {
-                Transform = "scale(0)",
-                Opacity = 0,
-            },
-            ["100%"] = new CSSObject()
-            {
-                Transform = "scale(1)",
-            },
-        };
+                ["0%"] = new CSSObject()
+                {
+                    Transform = "scale(0)",
+                    Opacity = 0,
+                },
+                ["100%"] = new CSSObject()
+                {
+                    Transform = "scale(1)",
+                },
+            });
 
-        private Keyframes _antNoWrapperZoomBadgeOut = new Keyframes("antNoWrapperZoomBadgeOut")
-        {
-            ["0%"] = new CSSObject()
+        private Keyframes _antNoWrapperZoomBadgeOut = new Keyframes("antNoWrapperZoomBadgeOut",
+            new CSSObject()
             {
-                Transform = "scale(1)",
-            },
-            ["100%"] = new CSSObject()
-            {
-                Transform = "scale(0)",
-                Opacity = 0,
-            },
-        };
+                ["0%"] = new CSSObject()
+                {
+                    Transform = "scale(1)",
+                },
+                ["100%"] = new CSSObject()
+                {
+                    Transform = "scale(0)",
+                    Opacity = 0,
+                },
+            });
 
-        private Keyframes _antBadgeLoadingCircle = new Keyframes("antBadgeLoadingCircle")
-        {
-            ["0%"] = new CSSObject()
+        private Keyframes _antBadgeLoadingCircle = new Keyframes("antBadgeLoadingCircle",
+            new CSSObject()
             {
-                TransformOrigin = "50%",
-            },
-            ["100%"] = new CSSObject()
-            {
-                Transform = "translate(50%, -50%) rotate(360deg)",
-                TransformOrigin = "50%",
-            },
-        };
+                ["0%"] = new CSSObject()
+                {
+                    TransformOrigin = "50%",
+                },
+                ["100%"] = new CSSObject()
+                {
+                    Transform = "translate(50%, -50%) rotate(360deg)",
+                    TransformOrigin = "50%",
+                },
+            });
 
-        public CSSObject GenSharedBadgeStyle(BadgeToken token)
+        public CSSInterpolation GenSharedBadgeStyle(BadgeToken token)
         {
             var componentCls = token.ComponentCls;
             var iconCls = token.IconCls;
@@ -219,6 +225,7 @@ namespace AntDesign
             var indicatorHeight = token.IndicatorHeight;
             var indicatorHeightSM = token.IndicatorHeightSM;
             var marginXS = token.MarginXS;
+            var calc = token.Calc;
             var numberPrefixCls = @$"{antCls}-scroll-number";
             var colorPreset = GenPresetColor(
                 token,
@@ -234,6 +241,10 @@ namespace AntDesign
                             {
                                 Color = darkColor,
                             },
+                            ["a:hover &"] = new CSSObject()
+                            {
+                                Background = darkColor,
+                            },
                         },
                     };
                 });
@@ -248,18 +259,20 @@ namespace AntDesign
                     LineHeight = 1,
                     [$"{componentCls}-count"] = new CSSObject()
                     {
+                        Display = "inline-flex",
+                        JustifyContent = "center",
                         ZIndex = token.IndicatorZIndex,
                         MinWidth = indicatorHeight,
                         Height = indicatorHeight,
                         Color = token.BadgeTextColor,
                         FontWeight = textFontWeight,
                         FontSize = textFontSize,
-                        LineHeight = @$"{indicatorHeight}px",
+                        LineHeight = Unit(indicatorHeight),
                         WhiteSpace = "nowrap",
                         TextAlign = "center",
                         Background = token.BadgeColor,
-                        BorderRadius = indicatorHeight / 2,
-                        BoxShadow = @$"0 0 0 {badgeShadowSize}px {token.BadgeShadowColor}",
+                        BorderRadius = token.Calc(indicatorHeight).Div(2).Equal(),
+                        BoxShadow = @$"0 0 0 {Unit(badgeShadowSize)} {token.BadgeShadowColor}",
                         Transition = @$"background {token.MotionDurationMid}",
                         ["a"] = new CSSObject()
                         {
@@ -279,12 +292,12 @@ namespace AntDesign
                         MinWidth = indicatorHeightSM,
                         Height = indicatorHeightSM,
                         FontSize = textFontSizeSM,
-                        LineHeight = @$"{indicatorHeightSM}px",
-                        BorderRadius = indicatorHeightSM / 2,
+                        LineHeight = Unit(indicatorHeightSM),
+                        BorderRadius = token.Calc(indicatorHeightSM).Div(2).Equal()
                     },
                     [$"{componentCls}-multiple-words"] = new CSSObject()
                     {
-                        Padding = @$"0 {token.PaddingXS}px",
+                        Padding = @$"0 {Unit(token.PaddingXS)}",
                         ["bdi"] = new CSSObject()
                         {
                             UnicodeBidi = "plaintext",
@@ -298,7 +311,7 @@ namespace AntDesign
                         Height = dotSize,
                         Background = token.BadgeColor,
                         BorderRadius = "100%",
-                        BoxShadow = @$"0 0 0 {badgeShadowSize}px {token.BadgeShadowColor}",
+                        BoxShadow = @$"0 0 0 {Unit(badgeShadowSize)} {token.BadgeShadowColor}",
                     },
                     [$"{componentCls}-dot{numberPrefixCls}"] = new CSSObject()
                     {
@@ -340,8 +353,9 @@ namespace AntDesign
                         [$"{componentCls}-status-processing"] = new CSSObject()
                         {
                             Overflow = "visible",
-                            Color = token.ColorPrimary,
-                            BackgroundColor = token.ColorPrimary,
+                            Color = token.ColorInfo,
+                            BackgroundColor = token.ColorInfo,
+                            BorderColor = "currentcolor",
                             ["&::after"] = new CSSObject()
                             {
                                 Position = "absolute",
@@ -435,7 +449,7 @@ namespace AntDesign
                             Transition = @$"all {token.MotionDurationSlow} {token.MotionEaseOutBack}",
                             WebkitTransformStyle = "preserve-3d",
                             WebkitBackfaceVisibility = "hidden",
-                            [$"> p{numberPrefixCls}-only-unit"] = new CSSObject()
+                            [$"> p{numberPrefixCls}-only-Unit"] = new CSSObject()
                             {
                                 Height = indicatorHeight,
                                 Margin = 0,
@@ -460,14 +474,13 @@ namespace AntDesign
             };
         }
 
-        public BadgeToken PrepareToken(BadgeToken token)
+        public BadgeToken PrepareToken(GlobalToken token)
         {
-            var fontSize = token.FontSize;
-            var lineHeight = token.LineHeight;
+            var fontHeight = token.FontHeight;
             var lineWidth = token.LineWidth;
             var marginXS = token.MarginXS;
             var colorBorderBg = token.ColorBorderBg;
-            var badgeFontHeight = Math.Round(fontSize * lineHeight);
+            var badgeFontHeight = fontHeight;
             var badgeShadowSize = lineWidth;
             var badgeTextColor = token.ColorBgContainer;
             var badgeColor = token.ColorError;
@@ -511,12 +524,12 @@ namespace AntDesign
 
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "Badge",
                 (token) =>
                 {
                     var badgeToken = PrepareToken(token);
-                    return new CSSInterpolation[] { GenSharedBadgeStyle(badgeToken) };
+                    return GenSharedBadgeStyle(badgeToken);
                 },
                 PrepareComponentToken);
         }

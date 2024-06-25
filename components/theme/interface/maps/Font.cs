@@ -80,6 +80,24 @@ namespace AntDesign
             set => _tokens["lineHeightSM"] = value;
         }
 
+        public double FontHeight
+        {
+            get => (double)_tokens["fontHeight"];
+            set => _tokens["fontHeight"] = value;
+        }
+
+        public double FontHeightSM
+        {
+            get => (double)_tokens["fontHeightSM"];
+            set => _tokens["fontHeightSM"] = value;
+        }
+
+        public double FontHeightLG
+        {
+            get => (double)_tokens["fontHeightLG"];
+            set => _tokens["fontHeightLG"] = value;
+        }
+
         public double LineHeightHeading1
         {
             get => (double)_tokens["lineHeightHeading1"];

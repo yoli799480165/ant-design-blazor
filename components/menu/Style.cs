@@ -905,7 +905,7 @@ namespace AntDesign
 
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            var useOriginHook = GenComponentStyleHook(
+            var useOriginHook = GenStyleHooks(
                 "Menu",
                 (token) =>
                 {

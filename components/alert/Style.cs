@@ -38,8 +38,8 @@ namespace AntDesign
         {
             return new CSSObject()
             {
-                BackgroundColor = bgColor,
-                Border = @$"{token.LineWidth}px {token.LineType} {borderColor}",
+                Background = bgColor,
+                Border = @$"{Unit(token.LineWidth)} {token.LineType} {borderColor}",
                 [$"{alertCls}-icon"] = new CSSObject()
                 {
                     Color = iconColor,
@@ -205,7 +205,7 @@ namespace AntDesign
                         Padding = 0,
                         Overflow = "hidden",
                         FontSize = fontSizeIcon,
-                        LineHeight = @$"{fontSizeIcon}px",
+                        LineHeight = Unit(fontSizeIcon),
                         BackgroundColor = "transparent",
                         Border = "none",
                         Outline = "none",
@@ -233,34 +233,31 @@ namespace AntDesign
             };
         }
 
-        public CSSInterpolation GenAlertStyle(AlertToken token)
+        public AlertToken PrepareComponentToken(GlobalToken token)
         {
-            return new CSSInterpolation[]
+            var paddingHorizontal = 12;
+            return new AlertToken()
             {
-                GenBaseStyle(token),
-                GenTypeStyle(token),
-                GenActionStyle(token)
+                WithDescriptionIconSize = token.FontSizeHeading3,
+                DefaultPadding = @$"{token.PaddingContentVerticalSM}px {paddingHorizontal}px",
+                WithDescriptionPadding = @$"{token.PaddingMD}px {token.PaddingContentHorizontalLG}px",
             };
         }
 
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "Alert",
                 (token) =>
                 {
-                    return new CSSInterpolation[] { GenAlertStyle(token) };
-                },
-                (token) =>
-                {
-                    var paddingHorizontal = 12;
-                    return new AlertToken()
+                    return new CSSInterpolation[]
                     {
-                        WithDescriptionIconSize = token.FontSizeHeading3,
-                        DefaultPadding = @$"{token.PaddingContentVerticalSM}px {paddingHorizontal}px",
-                        WithDescriptionPadding = @$"{token.PaddingMD}px {token.PaddingContentHorizontalLG}px",
+                        GenBaseStyle(token),
+                        GenTypeStyle(token),
+                        GenActionStyle(token),
                     };
-                });
+                },
+                PrepareComponentToken);
         }
 
     }

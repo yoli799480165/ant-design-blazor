@@ -191,7 +191,7 @@ namespace AntDesign
     {
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook("Grid", (token) =>
+            return GenStyleHooks("Grid", (token) =>
             {
                 return new CSSInterpolation[] { GenGridRowStyle(MergeToken(token, new GridRowToken())) };
             });
@@ -202,7 +202,7 @@ namespace AntDesign
     {
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook("Grid", (token) =>
+            return GenStyleHooks("Grid", (token) =>
             {
                 var gridToken = MergeToken<GridColToken>(token, new GridColToken
                 {

@@ -82,6 +82,11 @@ namespace AntDesign
             return Hash($"{salt}_{FlattenToken(token)}");
         }
 
+        public CSSCalculator Calc(double num)
+        {
+            return new CSSCalculator();
+        }
+
         private string FlattenToken(Dictionary<string, object> token)
         {
             var sb = new StringBuilder();

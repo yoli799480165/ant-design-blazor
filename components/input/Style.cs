@@ -1168,7 +1168,7 @@ namespace AntDesign
     {
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "Input",
                 (token) =>
                 {

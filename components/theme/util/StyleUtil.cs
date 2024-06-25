@@ -20,24 +20,34 @@ namespace AntDesign
 
     internal class StyleUtil
     {
-        internal static UseComponentStyleResult GenComponentStyleHook(
+        internal static string Unit(OneOf.OneOf<double, string> num)
+        {
+            if (num.IsT0)
+            {
+                return $"{num}px";
+            }
+
+            return num.AsT1;
+        }
+
+        internal static UseComponentStyleResult GenStyleHooks(
             string componentName,
             Func<TokenWithCommonCls, CSSInterpolation> styleFn)
         {
-            return GenComponentStyleHook<TokenWithCommonCls>(componentName, styleFn);
+            return GenStyleHooks<TokenWithCommonCls>(componentName, styleFn);
         }
 
-        internal static UseComponentStyleResult GenComponentStyleHook<T>(
+        internal static UseComponentStyleResult GenStyleHooks<T>(
             string componentName,
             Func<T, CSSInterpolation> styleFn,
             Func<GlobalToken, T> getDefaultToken = null,
             GenOptions options = null) where T : IToken, new()
 
         {
-            return GenComponentStyleHook(new[] { componentName, componentName }, styleFn, getDefaultToken);
+            return GenStyleHooks(new[] { componentName, componentName }, styleFn, getDefaultToken);
         }
 
-        internal static UseComponentStyleResult GenComponentStyleHook<T>(
+        internal static UseComponentStyleResult GenStyleHooks<T>(
             string[] componentNames,
             Func<T, CSSInterpolation> styleFn,
             Func<GlobalToken, T> getDefaultToken = null) where T : IToken, new()

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using CssInCSharp;
 using static AntDesign.GlobalStyle;
 using static AntDesign.Theme;
@@ -48,27 +48,27 @@ namespace AntDesign
             set => _tokens["backTopSize"] = value;
         }
 
-        public double BackTopBlockEnd
+        public string BackTopBlockEnd
         {
-            get => (double)_tokens["backTopBlockEnd"];
+            get => (string)_tokens["backTopBlockEnd"];
             set => _tokens["backTopBlockEnd"] = value;
         }
 
-        public double BackTopInlineEnd
+        public string BackTopInlineEnd
         {
-            get => (double)_tokens["backTopInlineEnd"];
+            get => (string)_tokens["backTopInlineEnd"];
             set => _tokens["backTopInlineEnd"] = value;
         }
 
-        public double BackTopInlineEndMD
+        public string BackTopInlineEndMD
         {
-            get => (double)_tokens["backTopInlineEndMD"];
+            get => (string)_tokens["backTopInlineEndMD"];
             set => _tokens["backTopInlineEndMD"] = value;
         }
 
-        public double BackTopInlineEndXS
+        public string BackTopInlineEndXS
         {
-            get => (double)_tokens["backTopInlineEndXS"];
+            get => (string)_tokens["backTopInlineEndXS"];
             set => _tokens["backTopInlineEndXS"] = value;
         }
 
@@ -117,7 +117,7 @@ namespace AntDesign
                     [$"{componentCls}-icon"] = new CSSObject()
                     {
                         FontSize = backTopFontSize,
-                        LineHeight = @$"{backTopSize}px",
+                        LineHeight = Unit(backTopSize)
                     },
                 },
             };
@@ -126,28 +126,40 @@ namespace AntDesign
         public CSSObject GenMediaBackTopStyle(BackTopToken token)
         {
             var componentCls = token.ComponentCls;
+            var screenMD = token.ScreenMD;
+            var screenXS = token.ScreenXS;
+            var backTopInlineEndMD = token.BackTopInlineEndMD;
+            var backTopInlineEndXS = token.BackTopInlineEndXS;
             return new CSSObject()
             {
-                [$"@media (max-width: {token.ScreenMD}px)"] = new CSSObject()
+                [$"@media (max-width: {Unit(screenMD)})"] = new CSSObject()
                 {
                     [componentCls] = new CSSObject()
                     {
-                        InsetInlineEnd = token.BackTopInlineEndMD,
+                        InsetInlineEnd = backTopInlineEndMD,
                     },
                 },
-                [$"@media (max-width: {token.ScreenXS}px)"] = new CSSObject()
+                [$"@media (max-width: {Unit(screenXS)})"] = new CSSObject()
                 {
                     [componentCls] = new CSSObject()
                     {
-                        InsetInlineEnd = token.BackTopInlineEndXS,
+                        InsetInlineEnd = backTopInlineEndXS,
                     },
                 },
             };
         }
 
+        public BackTopToken PrepareComponentToken(GlobalToken token)
+        {
+            return new BackTopToken()
+            {
+                ZIndexPopup = token.ZIndexBase + 10,
+            };
+        }
+
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "BackTop",
                 (token) =>
                 {
@@ -156,6 +168,7 @@ namespace AntDesign
                     var colorTextLightSolid = token.ColorTextLightSolid;
                     var colorText = token.ColorText;
                     var controlHeightLG = token.ControlHeightLG;
+                    var calc = token.Calc;
                     var backTopToken = MergeToken(
                         token,
                         new BackTopToken()
@@ -165,24 +178,18 @@ namespace AntDesign
                             BackTopHoverBackground = colorText,
                             BackTopFontSize = fontSizeHeading3,
                             BackTopSize = controlHeightLG,
-                            BackTopBlockEnd = controlHeightLG * 1.25,
-                            BackTopInlineEnd = controlHeightLG * 2.5,
-                            BackTopInlineEndMD = controlHeightLG * 1.5,
-                            BackTopInlineEndXS = controlHeightLG * 0.5,
+                            BackTopBlockEnd = token.Calc(controlHeightLG).Mul(1.25).Equal(),
+                            BackTopInlineEnd = token.Calc(controlHeightLG).Mul(2.5).Equal(),
+                            BackTopInlineEndMD = token.Calc(controlHeightLG).Mul(1.5).Equal(),
+                            BackTopInlineEndXS = token.Calc(controlHeightLG).Mul(0.5).Equal()
                         });
                     return new CSSInterpolation[]
                     {
                         GenSharedBackTopStyle(backTopToken),
-                        GenMediaBackTopStyle(backTopToken)
+                        GenMediaBackTopStyle(backTopToken),
                     };
                 },
-                (token) =>
-                {
-                    return new BackTopToken()
-                    {
-                        ZIndexPopup = token.ZIndexBase + 10,
-                    };
-                });
+                PrepareComponentToken);
         }
 
     }

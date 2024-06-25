@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using CssInCSharp;
 using static AntDesign.GlobalStyle;
 using static AntDesign.Theme;
@@ -111,21 +111,10 @@ namespace AntDesign
                 {
                     Width = size,
                     Height = size,
-                    LineHeight = @$"{size - lineWidth * 2}px",
                     BorderRadius = "50%",
                     [$"&{componentCls}-square"] = new CSSObject()
                     {
                         BorderRadius = radius,
-                    },
-                    [$"{componentCls}-string"] = new CSSObject()
-                    {
-                        Position = "absolute",
-                        Left = new PropertySkip()
-                        {
-                            SkipCheck = true,
-                            Value = "50%",
-                        },
-                        TransformOrigin = "0 center",
                     },
                     [$"&{componentCls}-icon"] = new CSSObject()
                     {
@@ -143,14 +132,16 @@ namespace AntDesign
                 {
                     ["..."] = ResetComponent(token),
                     Position = "relative",
-                    Display = "inline-block",
+                    Display = "inline-flex",
+                    JustifyContent = "center",
+                    AlignItems = "center",
                     Overflow = "hidden",
                     Color = avatarColor,
                     WhiteSpace = "nowrap",
                     TextAlign = "center",
                     VerticalAlign = "middle",
                     Background = avatarBg,
-                    Border = @$"{lineWidth}px {lineType} transparent",
+                    Border = @$"{Unit(lineWidth)} {lineType} transparent",
                     ["&-image"] = new CSSObject()
                     {
                         Background = "transparent",
@@ -209,9 +200,35 @@ namespace AntDesign
             };
         }
 
+        public AvatarToken PrepareComponentToken(GlobalToken token)
+        {
+            var controlHeight = token.ControlHeight;
+            var controlHeightLG = token.ControlHeightLG;
+            var controlHeightSM = token.ControlHeightSM;
+            var fontSize = token.FontSize;
+            var fontSizeLG = token.FontSizeLG;
+            var fontSizeXL = token.FontSizeXL;
+            var fontSizeHeading3 = token.FontSizeHeading3;
+            var marginXS = token.MarginXS;
+            var marginXXS = token.MarginXXS;
+            var colorBorderBg = token.ColorBorderBg;
+            return new AvatarToken()
+            {
+                ContainerSize = controlHeight,
+                ContainerSizeLG = controlHeightLG,
+                ContainerSizeSM = controlHeightSM,
+                TextFontSize = Math.Round((fontSizeLG + fontSizeXL) / 2),
+                TextFontSizeLG = fontSizeHeading3,
+                TextFontSizeSM = fontSize,
+                GroupSpace = marginXXS,
+                GroupOverlapping = -marginXS,
+                GroupBorderColor = colorBorderBg,
+            };
+        }
+
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "Avatar",
                 (token) =>
                 {
@@ -227,34 +244,10 @@ namespace AntDesign
                     return new CSSInterpolation[]
                     {
                         GenBaseStyle(avatarToken),
-                        GenGroupStyle(avatarToken)
+                        GenGroupStyle(avatarToken),
                     };
                 },
-                (token) =>
-                {
-                    var controlHeight = token.ControlHeight;
-                    var controlHeightLG = token.ControlHeightLG;
-                    var controlHeightSM = token.ControlHeightSM;
-                    var fontSize = token.FontSize;
-                    var fontSizeLG = token.FontSizeLG;
-                    var fontSizeXL = token.FontSizeXL;
-                    var fontSizeHeading3 = token.FontSizeHeading3;
-                    var marginXS = token.MarginXS;
-                    var marginXXS = token.MarginXXS;
-                    var colorBorderBg = token.ColorBorderBg;
-                    return new AvatarToken()
-                    {
-                        ContainerSize = controlHeight,
-                        ContainerSizeLG = controlHeightLG,
-                        ContainerSizeSM = controlHeightSM,
-                        TextFontSize = Math.Round((fontSizeLG + fontSizeXL) / 2),
-                        TextFontSizeLG = fontSizeHeading3,
-                        TextFontSizeSM = fontSize,
-                        GroupSpace = marginXXS,
-                        GroupOverlapping = -marginXS,
-                        GroupBorderColor = colorBorderBg,
-                    };
-                });
+                PrepareComponentToken);
         }
 
     }

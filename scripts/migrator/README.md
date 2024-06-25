@@ -4,14 +4,14 @@ Migrator can migrate antd style to v5.
 ### Usage
 In the root dir, exec migrate command.
 ```sh
-npm run migrate
+npm run migrate:v5
 ```
 
 ### Config
 ```ts
 const config = {
-    version: '5.11.4',
-    gitHash: '3fbed04e4b03ef1754a78a9245a2bb59f8b72fd1',
+    version: '5.18.3',
+    gitHash: '4380c6b72dcc0efdbda1c0e600fc0fea6e9f7689',
     remotePath: 'https://github.com/ant-design/ant-design.git',
     localPath: '../ant-design'
 }

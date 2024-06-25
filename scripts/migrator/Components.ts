@@ -143,13 +143,16 @@ const completed: Component[] = [
             propertyMap: '_tokens',
             typeMap: [
                 { from: 'Unknown1', to: 'AffixToken', includes: [1] },
-                { from: 'Unknown2', to: 'AffixToken', includes: [1] },
-                { from: 'Unknown2', to: 'CSSInterpolation[]', includes: [2] },
+                { from: 'Unknown2', to: 'AffixToken', includes: [1, 3] },
+                { from: 'Unknown2', to: 'GlobalToken', includes: [2] },
             ],
             transforms: [
-                { source: 'class AffixToken', target: 'class AffixToken : TokenWithCommonCls' },
+                { source: 'CSSObject GenSharedAffixStyle', target: 'CSSInterpolation GenSharedAffixStyle' },
+                { source: 'class ComponentToken', target: 'partial class AffixToken : TokenWithCommonCls' },
+                { source: 'class AffixToken', target: 'partial class AffixToken' },
                 { source: 'class Affix', target: 'partial class Affix' },
                 { source: 'public UseComponentStyleResult ExportDefault', target: 'protected override UseComponentStyleResult UseComponentStyle' },
+                { source: 'genSharedAffixStyle, prepareComponentToken', target: 'GenSharedAffixStyle, PrepareComponentToken' },
             ]
         }
     },
@@ -163,15 +166,19 @@ const completed: Component[] = [
             propertyMap: '_tokens',
             typeMap: [
                 { from: 'Padding<string | number>', to: 'string' },
+                { from: 'Unknown5', to: 'AlertToken', includes: [1, 3] },
+                { from: 'Unknown5', to: 'GlobalToken', includes: [2] },
                 { from: 'Unknown6', to: 'CSSInterpolation', includes: [1] },
                 { from: 'Unknown6', to: 'AlertToken', includes: [2] },
             ],
             transforms: [
+                { source: 'unit', target: 'Unit' },
                 { source: 'class ComponentToken', target: 'partial class AlertToken : TokenWithCommonCls' },
                 { source: 'class AlertToken', target: 'partial class AlertToken' },
                 { source: 'class Alert', target: 'partial class Alert' },
                 { source: 'public UseComponentStyleResult ExportDefault', target: 'protected override UseComponentStyleResult UseComponentStyle' },
-                { source: 'new CSSInterpolation', target: 'new CSSInterpolation[]' }
+                { source: 'new CSSInterpolation', target: 'new CSSInterpolation[]' },
+                { source: ' prepareComponentToken', target: ' PrepareComponentToken' },
             ]
         }
     },
@@ -184,11 +191,18 @@ const completed: Component[] = [
             defaultClass: 'Anchor',
             propertyMap: '_tokens',
             typeMap: [
-                { from: 'Unknown1', to: 'AnchorToken', includes: [1] },
-                { from: 'Unknown2', to: 'AnchorToken', includes: [1] },
-                { from: 'Unknown3', to: 'AnchorToken', includes: [1] },
-                { from: 'Unknown3', to: 'CSSInterpolation[]', includes: [2] },
-                { from: 'Unknown3', to: 'AnchorToken', includes: [3] },
+                { from: 'string | number', to: 'string' },
+                { from: 'Unknown1', to: 'AnchorToken', includes: [2] },
+                { from: 'Unknown1', to: 'CSSInterpolation', includes: [1] },
+                { from: 'Unknown1', to: 'CSSObject', ranges: [[3, 16]] },
+                { from: 'Unknown2', to: 'AnchorToken', includes: [2] },
+                { from: 'Unknown2', to: 'CSSInterpolation', includes: [1] },
+                { from: 'Unknown2', to: 'CSSObject', ranges: [[3, 11]] },
+                { from: 'Unknown2', to: 'PropertySkip', includes: [6, 7] },
+                { from: 'Unknown3', to: 'AnchorToken', includes: [1, 3] },
+                { from: 'Unknown3', to: 'GlobalToken', includes: [2] },
+                { from: 'Unknown4', to: 'AnchorToken', includes: [1] },
+                { from: 'Unknown4', to: 'CSSInterpolation[]', includes: [2] },
             ],
             transforms: [
                 { source: 'class ComponentToken', target: 'partial class AnchorToken : TokenWithCommonCls' },
@@ -212,9 +226,10 @@ const completed: Component[] = [
                 { from: 'Unknown1', to: 'AvatarToken', includes: [2] },
                 { from: 'Unknown2', to: 'CSSObject', ranges: [[1, 8]] },
                 { from: 'Unknown2', to: 'AvatarToken', includes: [2] },
-                { from: 'Unknown3', to: 'AvatarToken', includes: [1] },
-                { from: 'Unknown3', to: 'CSSInterpolation[]', includes: [2] },
-                { from: 'Unknown3', to: 'AvatarToken', includes: [3] },
+                { from: 'Unknown3', to: 'AvatarToken', includes: [1, 3] },
+                { from: 'Unknown3', to: 'GlobalToken', includes: [2] },
+                { from: 'Unknown4', to: 'AvatarToken', includes: [1] },
+                { from: 'Unknown4', to: 'CSSInterpolation[]', includes: [2] },
             ],
             transforms: [
                 { source: 'class ComponentToken', target: 'partial class AvatarToken : TokenWithCommonCls' },
@@ -234,13 +249,16 @@ const completed: Component[] = [
             defaultClass: 'BackTop',
             propertyMap: '_tokens',
             typeMap: [
+                { from: 'string | number', to: 'string' },
                 { from: 'Unknown1', to: 'BackTopToken', includes: [1] },
                 { from: 'Unknown2', to: 'BackTopToken', includes: [1] },
-                { from: 'Unknown3', to: 'BackTopToken', includes: [1] },
-                { from: 'Unknown3', to: 'CSSInterpolation[]', includes: [2] },
-                { from: 'Unknown3', to: 'BackTopToken', includes: [3] },
+                { from: 'Unknown3', to: 'BackTopToken', includes: [1, 3] },
+                { from: 'Unknown3', to: 'GlobalToken', includes: [2] },
+                { from: 'Unknown4', to: 'BackTopToken', includes: [1] },
+                { from: 'Unknown4', to: 'CSSInterpolation[]', includes: [2] },
             ],
             transforms: [
+                { source: 'unit', target: 'Unit' },
                 { source: 'class ComponentToken', target: 'partial class BackTopToken : TokenWithCommonCls' },
                 { source: 'class BackTopToken', target: 'partial class BackTopToken' },
                 { source: 'class BackTop', target: 'partial class BackTop' },
@@ -258,13 +276,25 @@ const completed: Component[] = [
             defaultClass: 'Badge',
             propertyMap: '_tokens',
             typeMap: [
-                { from: 'Keyframes', to: 'CSSObject' },
-                { from: 'Unknown7', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'string | number', to: 'string' },
+                { from: 'Unknown1', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'Unknown2', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'Unknown3', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'Unknown4', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'Unknown5', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'Unknown6', to: 'CSSObject', includes: [1, 2, 3] },
+                { from: 'Unknown7', to: 'CSSInterpolation', includes: [1] },
+                { from: 'Unknown7', to: 'BadgeToken', includes: [2] },
+                { from: 'Unknown7', to: 'CSSObject', ranges: [[3, 42]] },
                 { from: 'Unknown8', to: 'BadgeToken', includes: [1, 2, 3] },
-                { from: 'Unknown9', to: 'BadgeToken', includes: [1, 2] },
-                { from: 'Unknown10', to: 'CSSInterpolation[]', includes: [1] },
+                { from: 'Unknown8', to: 'GlobalToken', includes: [2] },
+                { from: 'Unknown9', to: 'BadgeToken', includes: [1, 3] },
+                { from: 'Unknown9', to: 'GlobalToken', includes: [2] },
+                // { from: 'Unknown10', to: 'CSSInterpolation[]', includes: [1] },
             ],
             transforms: [
+                { source: 'unit', target: 'Unit' },
+                { source: 'Calc', target: 'token.Calc' },
                 { source: 'antStatusProcessing', target: '_antStatusProcessing' },
                 { source: 'antZoomBadgeIn', target: '_antZoomBadgeIn' },
                 { source: 'antZoomBadgeOut', target: '_antZoomBadgeOut' },
@@ -1816,6 +1846,4 @@ const uncompleted: Component[] = [
 ];
 
 // 用于生成的实例，将需要生成的组件配置放到这里
-export const components: Component[] = [
-    
-];
+export const components: Component[] = completed.slice(5, 6);

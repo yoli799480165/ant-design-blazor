@@ -186,7 +186,7 @@ namespace AntDesign
 
         public UseComponentStyleResult ExportDefault()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "Message",
                 (token) =>
                 {

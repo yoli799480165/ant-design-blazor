@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using CssInCSharp;
 using static AntDesign.GlobalStyle;
 using static AntDesign.Theme;
@@ -30,21 +30,21 @@ namespace AntDesign
             set => _tokens["holderOffsetBlock"] = value;
         }
 
-        public double AnchorPaddingBlockSecondary
+        public string AnchorPaddingBlockSecondary
         {
-            get => (double)_tokens["anchorPaddingBlockSecondary"];
+            get => (string)_tokens["anchorPaddingBlockSecondary"];
             set => _tokens["anchorPaddingBlockSecondary"] = value;
         }
 
-        public double AnchorBallSize
+        public string AnchorBallSize
         {
-            get => (double)_tokens["anchorBallSize"];
+            get => (string)_tokens["anchorBallSize"];
             set => _tokens["anchorBallSize"] = value;
         }
 
-        public double AnchorTitleBlock
+        public string AnchorTitleBlock
         {
-            get => (double)_tokens["anchorTitleBlock"];
+            get => (string)_tokens["anchorTitleBlock"];
             set => _tokens["anchorTitleBlock"] = value;
         }
 
@@ -52,7 +52,7 @@ namespace AntDesign
 
     public partial class Anchor
     {
-        public CSSObject GenSharedAnchorStyle(AnchorToken token)
+        public CSSInterpolation GenSharedAnchorStyle(AnchorToken token)
         {
             var componentCls = token.ComponentCls;
             var holderOffsetBlock = token.HolderOffsetBlock;
@@ -61,11 +61,12 @@ namespace AntDesign
             var colorPrimary = token.ColorPrimary;
             var lineType = token.LineType;
             var colorSplit = token.ColorSplit;
+            var calc = token.Calc;
             return new CSSObject()
             {
                 [$"{componentCls}-wrapper"] = new CSSObject()
                 {
-                    MarginBlockStart = -holderOffsetBlock,
+                    MarginBlockStart = token.Calc(holderOffsetBlock).Mul(-1).Equal(),
                     PaddingBlockStart = holderOffsetBlock,
                     [componentCls] = new CSSObject()
                     {
@@ -75,7 +76,7 @@ namespace AntDesign
                         [$"{componentCls}-link"] = new CSSObject()
                         {
                             PaddingBlock = token.LinkPaddingBlock,
-                            PaddingInline = @$"{token.LinkPaddingInlineStart}px 0",
+                            PaddingInline = @$"{Unit(token.LinkPaddingInlineStart)} 0",
                             ["&-title"] = new CSSObject()
                             {
                                 ["..."] = TextEllipsis,
@@ -109,7 +110,7 @@ namespace AntDesign
                                 InsetInlineStart = 0,
                                 Top = 0,
                                 Height = "100%",
-                                BorderInlineStart = @$"{lineWidthBold}px {lineType} {colorSplit}",
+                                BorderInlineStart = @$"{Unit(lineWidthBold)} {lineType} {colorSplit}",
                                 Content = "\" \"",
                             },
                             [$"{componentCls}-ink"] = new CSSObject()
@@ -136,7 +137,7 @@ namespace AntDesign
             };
         }
 
-        public CSSObject GenSharedAnchorHorizontalStyle(AnchorToken token)
+        public CSSInterpolation GenSharedAnchorHorizontalStyle(AnchorToken token)
         {
             var componentCls = token.ComponentCls;
             var motionDurationSlow = token.MotionDurationSlow;
@@ -161,7 +162,7 @@ namespace AntDesign
                             Value = 0,
                         },
                         Bottom = 0,
-                        BorderBottom = @$"1px {token.LineType} {token.ColorSplit}",
+                        BorderBottom = @$"{Unit(token.LineWidth)} {token.LineType} {token.ColorSplit}",
                         Content = "\" \"",
                     },
                     [componentCls] = new CSSObject()
@@ -191,38 +192,41 @@ namespace AntDesign
             };
         }
 
+        public AnchorToken PrepareComponentToken(GlobalToken token)
+        {
+            return new AnchorToken()
+            {
+                LinkPaddingBlock = token.PaddingXXS,
+                LinkPaddingInlineStart = token.Padding,
+            };
+        }
+
         protected override UseComponentStyleResult UseComponentStyle()
         {
-            return GenComponentStyleHook(
+            return GenStyleHooks(
                 "Anchor",
                 (token) =>
                 {
                     var fontSize = token.FontSize;
                     var fontSizeLG = token.FontSizeLG;
                     var paddingXXS = token.PaddingXXS;
+                    var calc = token.Calc;
                     var anchorToken = MergeToken(
                         token,
                         new AnchorToken()
                         {
                             HolderOffsetBlock = paddingXXS,
-                            AnchorPaddingBlockSecondary = paddingXXS / 2,
-                            AnchorTitleBlock = (fontSize / 14) * 3,
-                            AnchorBallSize = fontSizeLG / 2,
+                            AnchorPaddingBlockSecondary = token.Calc(paddingXXS).Div(2).Equal(),
+                            AnchorTitleBlock = token.Calc(fontSize).Div(14).Mul(3).Equal(),
+                            AnchorBallSize = token.Calc(fontSizeLG).Div(2).Equal()
                         });
                     return new CSSInterpolation[]
                     {
                         GenSharedAnchorStyle(anchorToken),
-                        GenSharedAnchorHorizontalStyle(anchorToken)
+                        GenSharedAnchorHorizontalStyle(anchorToken),
                     };
                 },
-                (token) =>
-                {
-                    return new AnchorToken()
-                    {
-                        LinkPaddingBlock = token.PaddingXXS,
-                        LinkPaddingInlineStart = token.Padding,
-                    };
-                });
+                PrepareComponentToken);
         }
 
     }
