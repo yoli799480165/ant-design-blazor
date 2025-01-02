@@ -1,0 +1,66 @@
+{
+  "Converter": "Ts",
+  "CsOptions": {
+    "Usings": [
+      "System",
+      "AntDesign",
+      "CssInCSharp",
+      "CssInCSharp.Colors",
+      "static CssInCSharp.Css.CSSUtil",
+      "static AntDesign.GlobalStyle",
+      "static AntDesign.Theme",
+      "static AntDesign.StyleUtil",
+      "Keyframes = CssInCSharp.Keyframe"
+    ],
+    "Namespace": "AntDesign.Styles",
+    "NamePrefix": "{dir:../../}",
+    "DefaultReturnType": "object",
+    "DefaultParameterType": "object",
+    "DefaultFieldType": "object",
+    "DefaultClassName": "{dir:../../}Style",
+    "DefaultExportMethodName": "{file}Default",
+    "UsePascalCase": true,
+    "UsePartialClass": true,
+    "UseStaticMethod": true,
+    "UseTypeInference": true,
+    "TypeInferences": [
+      {
+        "Pattern": "^token$",
+        "Value": "{NamePrefix}Token"
+      },
+      {
+        "Pattern": "^\\w+Style$",
+        "Value": "CSSObject"
+      },
+      {
+        "Pattern": "^\\w+ComponentToken$",
+        "Value": "{NamePrefix}Token"
+      },
+      {
+        "Pattern": "^indexDefault$",
+        "Value": "UseComponentStyleResult"
+      }
+    ],
+    "Replacements": [
+      {
+        "Pattern": "class ComponentToken",
+        "Value": "class ComponentToken : TokenWithCommonCls"
+      },
+      {
+        "Pattern": "FullToken(\\<\\w*\\>)?",
+        "Value": "ComponentToken"
+      }
+    ]
+  },
+  "Include": [
+    {
+      "Src": "../ant-design/components/**/style/*.ts",
+      "Dest": "./components",
+      "CsOptions": null
+    }
+  ],
+  "Exclude": [
+    "../ant-design/components/style/*.ts",
+    "../ant-design/components/qrcode/style/*.ts"
+  ]
+}
