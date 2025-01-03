@@ -156,7 +156,7 @@ namespace AntDesign.Styles
                         Position = "relative",
                         Top = 100,
                         Width = "auto",
-                        MaxWidth = $@"{Unit(token.calc(token.margin).mul(2).Equal())})",
+                        MaxWidth = $@"{Unit(token.Calc(token.Margin).Mul(2).Equal())})",
                         Margin = "0 auto",
                         PaddingBottom = token.PaddingLG,
                         [$@"{componentCls}-title"] = new object
@@ -182,12 +182,9 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-close"] = new object
                         {
                             Position = "absolute",
-                            Top = token.calc(token.modalHeaderHeight).sub(token.modalCloseBtnSize).div(2).Equal(),
-                            InsetInlineEnd = token
-            .calc(token.modalHeaderHeight)
-            .sub(token.modalCloseBtnSize)
-            .div(2).Equal(),
-                            ZIndex = token.calc(token.zIndexPopupBase).add(10).Equal(),
+                            Top = token.Calc(token.ModalHeaderHeight).Sub(token.ModalCloseBtnSize).Div(2).Equal(),
+                            InsetInlineEnd = token.Calc(token.ModalHeaderHeight).Sub(token.ModalCloseBtnSize).Div(2).Equal(),
+                            ZIndex = token.Calc(token.ZIndexPopupBase).Add(10).Equal(),
                             Padding = 0,
                             Color = token.ModalCloseIconColor,
                             FontWeight = token.FontWeightStrong,
@@ -320,9 +317,7 @@ namespace AntDesign.Styles
             var headerPaddingVertical = token.Padding;
             var headerFontSize = token.FontSizeHeading5;
             var headerLineHeight = token.LineHeightHeading5;
-            var modalToken = MergeToken(token, new object { ModalHeaderHeight = token
-      .calc(token.calc(headerLineHeight).mul(headerFontSize).equal())
-      .add(token.calc(headerPaddingVertical).mul(2).equal()).Equal(), ModalFooterBorderColorSplit = token.ColorSplit, ModalFooterBorderStyle = token.LineType, ModalFooterBorderWidth = token.LineWidth, ModalCloseIconColor = token.ColorIcon, ModalCloseIconHoverColor = token.ColorIconHover, ModalCloseBtnSize = token.ControlHeight, ModalConfirmIconSize = token.FontHeight, ModalTitleHeight = token.calc(token.titleFontSize).mul(token.titleLineHeight).Equal(), });
+            var modalToken = MergeToken(token, new object { ModalHeaderHeight = token.Calc(token.Calc(headerLineHeight).Mul(headerFontSize).Equal()).Add(token.Calc(headerPaddingVertical).Mul(2).Equal()).Equal(), ModalFooterBorderColorSplit = token.ColorSplit, ModalFooterBorderStyle = token.LineType, ModalFooterBorderWidth = token.LineWidth, ModalCloseIconColor = token.ColorIcon, ModalCloseIconHoverColor = token.ColorIconHover, ModalCloseBtnSize = token.ControlHeight, ModalConfirmIconSize = token.FontHeight, ModalTitleHeight = token.Calc(token.TitleFontSize).Mul(token.TitleLineHeight).Equal(), });
             return modalToken;
         }
 
@@ -363,7 +358,7 @@ namespace AntDesign.Styles
                     GenModalMaskStyle(modalToken),
                     InitZoomMotion(modalToken, "zoom")
                 };
-            }, prepareComponentToken, new object { Unitless = new object { TitleLineHeight = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { TitleLineHeight = true, }, });
         }
     }
 }

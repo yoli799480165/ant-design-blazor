@@ -51,7 +51,11 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-item, {componentCls}-submenu-title"] = new CSSObject
                     {
-                        Transition = [`border-color ${motionDurationSlow}`, `background ${motionDurationSlow}`].Join(","),
+                        Transition = new object[]
+                        {
+                            $@"{motionDurationSlow}",
+                            $@"{motionDurationSlow}"
+                        }.Join(","),
                     },
                     [$@"{componentCls}-submenu-arrow"] = new CSSObject
                     {

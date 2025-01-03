@@ -18,7 +18,7 @@ namespace AntDesign.Styles
             var colorPrimaryHover = token.ColorPrimaryHover;
             var lineWidth = token.LineWidth;
             var calc = token.Calc;
-            var insetOffset = calc(lineWidth).mul(-1).Equal();
+            var insetOffset = Calc(lineWidth).Mul(-1).Equal();
             var getCompactBorderStyle = (boolean vertical) =>
             {
                 return (new object
@@ -58,7 +58,7 @@ namespace AntDesign.Styles
                     GenCompactItemVerticalStyle(buttonToken),
                     GenButtonCompactStyle(buttonToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

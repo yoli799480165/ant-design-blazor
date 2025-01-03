@@ -65,7 +65,7 @@ namespace AntDesign.Styles
 
         public static object ExplainDefault()
         {
-            return genFormValidateMotionStyle;
+            return GenFormValidateMotionStyle;
         }
     }
 }

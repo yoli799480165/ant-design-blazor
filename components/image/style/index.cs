@@ -53,7 +53,7 @@ namespace AntDesign.Styles
                 AlignItems = "center",
                 JustifyContent = "center",
                 Color = colorTextLightSolid,
-                Background = new TinyColor('#000').setAlpha(0.5).ToRgbString(),
+                Background = new TinyColor("#000").SetAlpha(0.5).ToRgbString(),
                 Cursor = "pointer",
                 Opacity = 0,
                 Transition = $@"{motionDurationSlow}",
@@ -87,7 +87,7 @@ namespace AntDesign.Styles
             var iconCls = token.IconCls;
             var colorTextLightSolid = token.ColorTextLightSolid;
             var operationBg = new TinyColor(modalMaskBg).SetAlpha(0.1);
-            var operationBgHover = operationBg.clone().SetAlpha(0.2);
+            var operationBgHover = operationBg.Clone().SetAlpha(0.2);
             return new CSSObject
             {
                 [$@"{previewCls}-footer"] = new CSSObject
@@ -181,20 +181,20 @@ namespace AntDesign.Styles
             var zIndexPopup = token.ZIndexPopup;
             var motionDurationSlow = token.MotionDurationSlow;
             var operationBg = new TinyColor(modalMaskBg).SetAlpha(0.1);
-            var operationBgHover = operationBg.clone().SetAlpha(0.2);
+            var operationBgHover = operationBg.Clone().SetAlpha(0.2);
             return new CSSObject
             {
                 [$@"{previewCls}-switch-left, {previewCls}-switch-right"] = new CSSObject
                 {
                     Position = "fixed",
                     InsetBlockStart = "50%",
-                    ZIndex = token.calc(zIndexPopup).add(1).Equal(),
+                    ZIndex = token.Calc(zIndexPopup).Add(1).Equal(),
                     Display = "flex",
                     AlignItems = "center",
                     JustifyContent = "center",
                     Width = token.ImagePreviewSwitchSize,
                     Height = token.ImagePreviewSwitchSize,
-                    MarginTop = token.calc(token.imagePreviewSwitchSize).mul(-1).div(2).Equal(),
+                    MarginTop = token.Calc(token.ImagePreviewSwitchSize).Mul(-1).Div(2).Equal(),
                     Color = token.PreviewOperationColor,
                     Background = operationBg.ToRgbString(),
                     BorderRadius = "50%",
@@ -316,7 +316,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-preview-operations-wrapper"] = new object
                     {
                         Position = "fixed",
-                        ZIndex = token.calc(token.zIndexPopup).add(1).Equal(),
+                        ZIndex = token.Calc(token.ZIndexPopup).Add(1).Equal(),
                     },
                     ["&"] = new object[]
                     {
@@ -381,10 +381,9 @@ namespace AntDesign.Styles
             return new ImageToken
             {
                 ZIndexPopup = token.ZIndexPopupBase + 80,
-                PreviewOperationColor = new TinyColor(token.colorTextLightSolid).setAlpha(0.65).ToRgbString(),
-                PreviewOperationHoverColor = new TinyColor(token.colorTextLightSolid).setAlpha(0.85).ToRgbString(),
-                PreviewOperationColorDisabled = new TinyColor(token.colorTextLightSolid)
-    .setAlpha(0.25).ToRgbString(),
+                PreviewOperationColor = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.65).ToRgbString(),
+                PreviewOperationHoverColor = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.85).ToRgbString(),
+                PreviewOperationColorDisabled = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.25).ToRgbString(),
                 PreviewOperationSize = token.FontSizeIcon * 1.5,
             };
         }
@@ -394,7 +393,7 @@ namespace AntDesign.Styles
             return GenStyleHooks("Image", (ImageToken token) =>
             {
                 var previewCls = $@"{token.ComponentCls}-preview";
-                var imageToken = MergeToken(token, new object { ModalMaskBg = new TinyColor('#000').setAlpha(0.45).ToRgbString(), ImagePreviewSwitchSize = token.ControlHeightLG, });
+                var imageToken = MergeToken(token, new object { ModalMaskBg = new TinyColor("#000").SetAlpha(0.45).ToRgbString(), ImagePreviewSwitchSize = token.ControlHeightLG, });
                 return new object[]
                 {
                     GenImageStyle(imageToken),
@@ -402,7 +401,7 @@ namespace AntDesign.Styles
                     GenModalMaskStyle(MergeToken(imageToken, new object { ComponentCls = previewCls, })),
                     GenPreviewMotion(imageToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

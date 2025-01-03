@@ -279,7 +279,7 @@ namespace AntDesign.Styles
                                 InsetBlockStart = "50%",
                                 InsetInlineEnd = 0,
                                 Width = lineWidth,
-                                Height = token.calc(token.fontHeight).sub(token.calc(token.marginXXS).mul(2)).Equal(),
+                                Height = token.Calc(token.FontHeight).Sub(token.Calc(token.MarginXXS).Mul(2)).Equal(),
                                 Transform = "translateY(-50%)",
                                 BackgroundColor = token.ColorSplit,
                             },
@@ -424,7 +424,7 @@ namespace AntDesign.Styles
                     GenBorderedStyle(listToken),
                     GenResponsiveStyle(listToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

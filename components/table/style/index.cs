@@ -203,9 +203,9 @@ namespace AntDesign.Styles
                                 {
                                     [componentCls] = new CSSObject
                                     {
-                                        MarginBlock = Unit(calc(tablePaddingVertical).mul(-1).Equal()),
-                                        MarginInline = $@"{Unit(calc(tableExpandColumnWidth).sub(tablePaddingHorizontal).Equal())}
-                {Unit(calc(tablePaddingHorizontal).mul(-1).Equal())}",
+                                        MarginBlock = Unit(Calc(tablePaddingVertical).Mul(-1).Equal()),
+                                        MarginInline = $@"{Unit(Calc(tableExpandColumnWidth).Sub(tablePaddingHorizontal).Equal())}
+                {Unit(Calc(tablePaddingHorizontal).Mul(-1).Equal())}",
                                         [$@"{componentCls}-tbody > tr:last-child > td"] = new CSSObject
                                         {
                                             BorderBottom = 0,
@@ -263,12 +263,9 @@ namespace AntDesign.Styles
             var colorIconHover = token.ColorIconHover;
             var opacityLoading = token.OpacityLoading;
             var controlInteractiveSize = token.ControlInteractiveSize;
-            var colorFillSecondarySolid = new TinyColor(colorFillSecondary)
-    .onBackground(colorBgContainer).ToHexShortString();
-            var colorFillContentSolid = new TinyColor(colorFillContent)
-    .onBackground(colorBgContainer).ToHexShortString();
-            var colorFillAlterSolid = new TinyColor(colorFillAlter)
-    .onBackground(colorBgContainer).ToHexShortString();
+            var colorFillSecondarySolid = new TinyColor(colorFillSecondary).OnBackground(colorBgContainer).ToHexShortString();
+            var colorFillContentSolid = new TinyColor(colorFillContent).OnBackground(colorBgContainer).ToHexShortString();
+            var colorFillAlterSolid = new TinyColor(colorFillAlter).OnBackground(colorBgContainer).ToHexShortString();
             var baseColorAction = new TinyColor(colorIcon);
             var baseColorActionHover = new TinyColor(colorIconHover);
             var expandIconHalfInner = controlInteractiveSize / 2 - lineWidth;
@@ -307,12 +304,8 @@ namespace AntDesign.Styles
                 StickyScrollBarBg = colorTextPlaceholder,
                 StickyScrollBarBorderRadius = 100,
                 ExpandIconMarginTop = (fontSize * lineHeight - lineWidth * 3) / 2 - Math.Ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
-                HeaderIconColor = baseColorAction
-      .clone()
-      .setAlpha(baseColorAction.getAlpha() * opacityLoading).ToRgbString(),
-                HeaderIconHoverColor = baseColorActionHover
-      .clone()
-      .setAlpha(baseColorActionHover.getAlpha() * opacityLoading).ToRgbString(),
+                HeaderIconColor = baseColorAction.Clone().SetAlpha(baseColorAction.GetAlpha() * opacityLoading).ToRgbString(),
+                HeaderIconHoverColor = baseColorActionHover.Clone().SetAlpha(baseColorActionHover.GetAlpha() * opacityLoading).ToRgbString(),
                 ExpandIconScale = controlInteractiveSize / expandIconSize,
             };
         }
@@ -356,7 +349,7 @@ namespace AntDesign.Styles
                 var selectionColumnWidth = token.SelectionColumnWidth;
                 var stickyScrollBarBg = token.StickyScrollBarBg;
                 var calc = token.Calc;
-                var tableToken = MergeToken(token, new object { TableFontSize = cellFontSize, TableBg = colorBgContainer, TableRadius = headerBorderRadius, TablePaddingVertical = cellPaddingBlock, TablePaddingHorizontal = cellPaddingInline, TablePaddingVerticalMiddle = cellPaddingBlockMD, TablePaddingHorizontalMiddle = cellPaddingInlineMD, TablePaddingVerticalSmall = cellPaddingBlockSM, TablePaddingHorizontalSmall = cellPaddingInlineSM, TableBorderColor = borderColor, TableHeaderTextColor = headerColor, TableHeaderBg = headerBg, TableFooterTextColor = footerColor, TableFooterBg = footerBg, TableHeaderCellSplitColor = headerSplitColor, TableHeaderSortBg = headerSortActiveBg, TableHeaderSortHoverBg = headerSortHoverBg, TableBodySortBg = bodySortBg, TableFixedHeaderSortActiveBg = fixedHeaderSortActiveBg, TableHeaderFilterActiveBg = headerFilterHoverBg, TableFilterDropdownBg = filterDropdownBg, TableRowHoverBg = rowHoverBg, TableSelectedRowBg = rowSelectedBg, TableSelectedRowHoverBg = rowSelectedHoverBg, ZIndexTableSticky = calc(zIndexTableFixed).add(1).Equal(new object { Unit = false, }), TableFontSizeMiddle = cellFontSizeMD, TableFontSizeSmall = cellFontSizeSM, TableSelectionColumnWidth = selectionColumnWidth, TableExpandIconBg = expandIconBg, TableExpandColumnWidth = calc(checkboxSize).add(calc(token.padding).mul(2)).Equal(), TableExpandedRowBg = rowExpandedBg, TableFilterDropdownWidth = 120, TableFilterDropdownHeight = 264, TableFilterDropdownSearchWidth = 140, TableScrollThumbSize = 8, TableScrollThumbBg = stickyScrollBarBg, TableScrollThumbBgHover = colorTextHeading, TableScrollBg = colorSplit, });
+                var tableToken = MergeToken(token, new object { TableFontSize = cellFontSize, TableBg = colorBgContainer, TableRadius = headerBorderRadius, TablePaddingVertical = cellPaddingBlock, TablePaddingHorizontal = cellPaddingInline, TablePaddingVerticalMiddle = cellPaddingBlockMD, TablePaddingHorizontalMiddle = cellPaddingInlineMD, TablePaddingVerticalSmall = cellPaddingBlockSM, TablePaddingHorizontalSmall = cellPaddingInlineSM, TableBorderColor = borderColor, TableHeaderTextColor = headerColor, TableHeaderBg = headerBg, TableFooterTextColor = footerColor, TableFooterBg = footerBg, TableHeaderCellSplitColor = headerSplitColor, TableHeaderSortBg = headerSortActiveBg, TableHeaderSortHoverBg = headerSortHoverBg, TableBodySortBg = bodySortBg, TableFixedHeaderSortActiveBg = fixedHeaderSortActiveBg, TableHeaderFilterActiveBg = headerFilterHoverBg, TableFilterDropdownBg = filterDropdownBg, TableRowHoverBg = rowHoverBg, TableSelectedRowBg = rowSelectedBg, TableSelectedRowHoverBg = rowSelectedHoverBg, ZIndexTableSticky = Calc(zIndexTableFixed).Add(1).Equal(new object { Unit = false, }), TableFontSizeMiddle = cellFontSizeMD, TableFontSizeSmall = cellFontSizeSM, TableSelectionColumnWidth = selectionColumnWidth, TableExpandIconBg = expandIconBg, TableExpandColumnWidth = Calc(checkboxSize).Add(Calc(token.Padding).Mul(2)).Equal(), TableExpandedRowBg = rowExpandedBg, TableFilterDropdownWidth = 120, TableFilterDropdownHeight = 264, TableFilterDropdownSearchWidth = 140, TableScrollThumbSize = 8, TableScrollThumbBg = stickyScrollBarBg, TableScrollThumbBgHover = colorTextHeading, TableScrollBg = colorSplit, });
                 return new object[]
                 {
                     GenTableStyle(tableToken),
@@ -377,7 +370,7 @@ namespace AntDesign.Styles
                     GenRtlStyle(tableToken),
                     GenVirtualStyle(tableToken)
                 };
-            }, prepareComponentToken, new object { Unitless = new object { ExpandIconScale = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { ExpandIconScale = true, }, });
         }
     }
 }

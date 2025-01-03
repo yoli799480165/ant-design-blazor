@@ -49,6 +49,14 @@
       {
         "Pattern": "FullToken(\\<\\w*\\>)?",
         "Value": "ComponentToken"
+      },
+      {
+        "Pattern": "(?<!var) gen(\\w+)",
+        "Value": " Gen$1"
+      },
+      {
+        "Pattern": "prepare(\\w+)",
+        "Value": "Prepare$1"
       }
     ]
   },

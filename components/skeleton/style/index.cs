@@ -74,8 +74,8 @@ namespace AntDesign.Styles
         {
             return new CSSObject
             {
-                Width = calc(size).mul(5).Equal(),
-                MinWidth = calc(size).mul(5).Equal(),
+                Width = Calc(size).Mul(5).Equal(),
+                MinWidth = Calc(size).Mul(5).Equal(),
                 ["..."] = GenSkeletonElementCommonSize(size),
             };
         }
@@ -167,7 +167,7 @@ namespace AntDesign.Styles
                     VerticalAlign = "middle",
                     Background = gradientFromColor,
                     BorderRadius = borderRadiusSM,
-                    ["..."] = GenSkeletonElementImageSize(calc(imageSizeBase).mul(2).Equal()),
+                    ["..."] = GenSkeletonElementImageSize(Calc(imageSizeBase).Mul(2).Equal()),
                     [$@"{skeletonImageCls}-path"] = new CSSObject
                     {
                         ["fill"] = "#bfbfbf",
@@ -175,8 +175,8 @@ namespace AntDesign.Styles
                     [$@"{skeletonImageCls}-svg"] = new CSSObject
                     {
                         ["..."] = GenSkeletonElementImageSize(imageSizeBase),
-                        MaxWidth = calc(imageSizeBase).mul(4).Equal(),
-                        MaxHeight = calc(imageSizeBase).mul(4).Equal(),
+                        MaxWidth = Calc(imageSizeBase).Mul(4).Equal(),
+                        MaxHeight = Calc(imageSizeBase).Mul(4).Equal(),
                     },
                     [$@"{skeletonImageCls}-svg{skeletonImageCls}-svg-circle"] = new CSSObject
                     {
@@ -212,8 +212,8 @@ namespace AntDesign.Styles
         {
             return new CSSObject
             {
-                Width = calc(size).mul(2).Equal(),
-                MinWidth = calc(size).mul(2).Equal(),
+                Width = Calc(size).Mul(2).Equal(),
+                MinWidth = Calc(size).Mul(2).Equal(),
                 ["..."] = GenSkeletonElementCommonSize(size),
             };
         }
@@ -235,8 +235,8 @@ namespace AntDesign.Styles
                     VerticalAlign = "top",
                     Background = gradientFromColor,
                     BorderRadius = borderRadiusSM,
-                    Width = calc(controlHeight).mul(2).Equal(),
-                    MinWidth = calc(controlHeight).mul(2).Equal(),
+                    Width = Calc(controlHeight).Mul(2).Equal(),
+                    MinWidth = Calc(controlHeight).Mul(2).Equal(),
                     ["..."] = GenSkeletonElementButtonSize(controlHeight, calc),
                 },
                 ["..."] = GenSkeletonElementButtonShape(token, controlHeight, skeletonButtonCls),
@@ -420,12 +420,12 @@ namespace AntDesign.Styles
             {
                 var componentCls = token.ComponentCls;
                 var calc = token.Calc;
-                var skeletonToken = MergeToken(token, new object { SkeletonAvatarCls = $@"{componentCls}-avatar", SkeletonTitleCls = $@"{componentCls}-title", SkeletonParagraphCls = $@"{componentCls}-paragraph", SkeletonButtonCls = $@"{componentCls}-button", SkeletonInputCls = $@"{componentCls}-input", SkeletonImageCls = $@"{componentCls}-image", ImageSizeBase = calc(token.controlHeight).mul(1.5).Equal(), BorderRadius = 100, SkeletonLoadingBackground = $@"{token.GradientFromColor} 25%, {token.GradientToColor} 37%, {token.GradientFromColor} 63%)", SkeletonLoadingMotionDuration = "1.4s", });
+                var skeletonToken = MergeToken(token, new object { SkeletonAvatarCls = $@"{componentCls}-avatar", SkeletonTitleCls = $@"{componentCls}-title", SkeletonParagraphCls = $@"{componentCls}-paragraph", SkeletonButtonCls = $@"{componentCls}-button", SkeletonInputCls = $@"{componentCls}-input", SkeletonImageCls = $@"{componentCls}-image", ImageSizeBase = Calc(token.ControlHeight).Mul(1.5).Equal(), BorderRadius = 100, SkeletonLoadingBackground = $@"{token.GradientFromColor} 25%, {token.GradientToColor} 37%, {token.GradientFromColor} 63%)", SkeletonLoadingMotionDuration = "1.4s", });
                 return new object[]
                 {
                     GenBaseStyle(skeletonToken)
                 };
-            }, prepareComponentToken, new object { DeprecatedTokens = new object[] { new object[] { "color", "gradientFromColor" }, new object[] { "colorGradientEnd", "gradientToColor" } }, });
+            }, PrepareComponentToken, new object { DeprecatedTokens = new object[] { new object[] { "color", "gradientFromColor" }, new object[] { "colorGradientEnd", "gradientToColor" } }, });
         }
     }
 }

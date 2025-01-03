@@ -65,7 +65,7 @@ namespace AntDesign.Styles
 
         public static object MotionDefault()
         {
-            return genMotionStyle;
+            return GenMotionStyle;
         }
     }
 }

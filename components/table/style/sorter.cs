@@ -122,7 +122,7 @@ namespace AntDesign.Styles
 
         public static object SorterDefault()
         {
-            return genSorterStyle;
+            return GenSorterStyle;
         }
     }
 }

@@ -137,7 +137,7 @@ namespace AntDesign.Styles
             var motionDurationSlow = token.MotionDurationSlow;
             var arrowSize = token.ArrowSize;
             var arrowOffset = token.ArrowOffset;
-            var arrowLength = token.calc(arrowSize).div(Math.SQRT2).Equal();
+            var arrowLength = token.Calc(arrowSize).Div(Math.SQRT2).Equal();
             return new object[]
             {
                 new object
@@ -174,8 +174,8 @@ namespace AntDesign.Styles
                             {
                                 BoxSizing = "border-box",
                                 Position = "absolute",
-                                Top = token.calc(arrowSize).sub(arrowLength).div(2).Equal(),
-                                InsetInlineStart = token.calc(arrowSize).sub(arrowLength).div(2).Equal(),
+                                Top = token.Calc(arrowSize).Sub(arrowLength).Div(2).Equal(),
+                                InsetInlineStart = token.Calc(arrowSize).Sub(arrowLength).Div(2).Equal(),
                                 Display = "inline-block",
                                 Width = arrowLength,
                                 Height = arrowLength,
@@ -280,7 +280,7 @@ namespace AntDesign.Styles
                                     ["&::after"] = new object
                                     {
                                         Position = "absolute",
-                                        Inset = token.calc(dotGap).mul(-1).Equal(),
+                                        Inset = token.Calc(dotGap).Mul(-1).Equal(),
                                         Content = "\"\"",
                                     },
                                 },
@@ -441,7 +441,7 @@ namespace AntDesign.Styles
                     GenCarouselVerticalStyle(token),
                     GenCarouselRtlStyle(token)
                 };
-            }, prepareComponentToken, new object { DeprecatedTokens = new object[] { new object[] { "dotWidthActive", "dotActiveWidth" } }, });
+            }, PrepareComponentToken, new object { DeprecatedTokens = new object[] { new object[] { "dotWidthActive", "dotActiveWidth" } }, });
         }
     }
 }

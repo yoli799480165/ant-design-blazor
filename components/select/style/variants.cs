@@ -207,7 +207,7 @@ namespace AntDesign.Styles
 
         public static object VariantsDefault()
         {
-            return genVariantsStyle;
+            return GenVariantsStyle;
         }
     }
 }

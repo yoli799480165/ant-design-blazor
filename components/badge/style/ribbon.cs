@@ -60,7 +60,7 @@ namespace AntDesign.Styles
                         Width = badgeRibbonOffset,
                         Height = badgeRibbonOffset,
                         Color = "currentcolor",
-                        Border = $@"{Unit(calc(badgeRibbonOffset).div(2).Equal())} solid",
+                        Border = $@"{Unit(Calc(badgeRibbonOffset).Div(2).Equal())} solid",
                         Transform = token.BadgeRibbonCornerTransform,
                         TransformOrigin = "top",
                         Filter = token.BadgeRibbonCornerFilter,
@@ -68,7 +68,7 @@ namespace AntDesign.Styles
                     ["..."] = statusRibbonPreset,
                     [$@"{ribbonPrefixCls}-placement-end"] = new CSSObject
                     {
-                        InsetInlineEnd = calc(badgeRibbonOffset).mul(-1).Equal(),
+                        InsetInlineEnd = Calc(badgeRibbonOffset).Mul(-1).Equal(),
                         BorderEndEndRadius = 0,
                         [$@"{ribbonPrefixCls}-corner"] = new CSSObject
                         {
@@ -79,7 +79,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{ribbonPrefixCls}-placement-start"] = new CSSObject
                     {
-                        InsetInlineStart = calc(badgeRibbonOffset).mul(-1).Equal(),
+                        InsetInlineStart = Calc(badgeRibbonOffset).Mul(-1).Equal(),
                         BorderEndStartRadius = 0,
                         [$@"{ribbonPrefixCls}-corner"] = new CSSObject
                         {
@@ -102,7 +102,7 @@ namespace AntDesign.Styles
             {
                 var badgeToken = PrepareToken(token);
                 return GenRibbonStyle(badgeToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

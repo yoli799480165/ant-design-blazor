@@ -121,13 +121,16 @@ namespace AntDesign.Styles
                             Height = token.Margin,
                             Width = "100%",
                             InsetInline = 0,
-                            Bottom = token.calc(token.margin).mul(-1).Equal(),
+                            Bottom = token.Calc(token.Margin).Mul(-1).Equal(),
                             Background = "transparent",
                             PointerEvents = "auto",
                         },
                     },
                 },
-                ["..."] = NotificationPlacements.map((placement) => genPlacementStackStyle(token, placement)).Reduce((object acc, object cur) =>
+                ["..."] = NotificationPlacements.Map((object placement) =>
+                {
+                    return GenPlacementStackStyle(token, placement);
+                }).Reduce((object acc, object cur) =>
                 {
                     return new object
                     {
@@ -140,7 +143,7 @@ namespace AntDesign.Styles
 
         public static object StackDefault()
         {
-            return genStackStyle;
+            return GenStackStyle;
         }
     }
 }

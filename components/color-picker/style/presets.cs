@@ -63,7 +63,7 @@ namespace AntDesign.Styles
                     {
                         Display = "flex",
                         FlexWrap = "wrap",
-                        Gap = token.calc(marginXXS).mul(1.5).Equal(),
+                        Gap = token.Calc(marginXXS).Mul(1.5).Equal(),
                         [$@"{componentCls}-presets-color"] = new CSSObject
                         {
                             Position = "relative",
@@ -74,13 +74,11 @@ namespace AntDesign.Styles
                             {
                                 Content = "\"\"",
                                 PointerEvents = "none",
-                                Width = token.calc(colorPickerPresetColorSize).add(token.calc(lineWidth).mul(4)).Equal(),
-                                Height = token
-              .calc(colorPickerPresetColorSize)
-              .add(token.calc(lineWidth).mul(4)).Equal(),
+                                Width = token.Calc(colorPickerPresetColorSize).Add(token.Calc(lineWidth).Mul(4)).Equal(),
+                                Height = token.Calc(colorPickerPresetColorSize).Add(token.Calc(lineWidth).Mul(4)).Equal(),
                                 Position = "absolute",
-                                Top = token.calc(lineWidth).mul(-2).Equal(),
-                                InsetInlineStart = token.calc(lineWidth).mul(-2).Equal(),
+                                Top = token.Calc(lineWidth).Mul(-2).Equal(),
+                                InsetInlineStart = token.Calc(lineWidth).Mul(-2).Equal(),
                                 Border = $@"{Unit(lineWidth)} solid transparent",
                                 Transition = $@"{token.MotionDurationMid} {token.MotionEaseInBack}",
                             },
@@ -95,8 +93,8 @@ namespace AntDesign.Styles
                                 Top = "50%",
                                 InsetInlineStart = "21.5%",
                                 Display = "table",
-                                Width = token.calc(colorPickerPresetColorSize).div(13).mul(5).Equal(),
-                                Height = token.calc(colorPickerPresetColorSize).div(13).mul(8).Equal(),
+                                Width = token.Calc(colorPickerPresetColorSize).Div(13).Mul(5).Equal(),
+                                Height = token.Calc(colorPickerPresetColorSize).Div(13).Mul(8).Equal(),
                                 Border = $@"{Unit(token.LineWidthBold)} solid {token.ColorWhite}",
                                 BorderTop = 0,
                                 BorderInlineStart = 0,
@@ -135,7 +133,7 @@ namespace AntDesign.Styles
 
         public static object PresetsDefault()
         {
-            return genPresetsStyle;
+            return GenPresetsStyle;
         }
     }
 }

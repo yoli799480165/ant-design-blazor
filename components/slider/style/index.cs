@@ -135,10 +135,10 @@ namespace AntDesign.Styles
                         {
                             Content = "\"\"",
                             Position = "absolute",
-                            InsetInlineStart = calc(handleLineWidth).mul(-1).Equal(),
-                            InsetBlockStart = calc(handleLineWidth).mul(-1).Equal(),
-                            Width = calc(handleSize).add(calc(handleLineWidth).mul(2)).Equal(),
-                            Height = calc(handleSize).add(calc(handleLineWidth).mul(2)).Equal(),
+                            InsetInlineStart = Calc(handleLineWidth).Mul(-1).Equal(),
+                            InsetBlockStart = Calc(handleLineWidth).Mul(-1).Equal(),
+                            Width = Calc(handleSize).Add(Calc(handleLineWidth).Mul(2)).Equal(),
+                            Height = Calc(handleSize).Add(Calc(handleLineWidth).Mul(2)).Equal(),
                             BackgroundColor = "transparent",
                         },
                         ["&::after"] = new CSSObject
@@ -166,18 +166,10 @@ namespace AntDesign.Styles
                         {
                             ["&::before"] = new CSSObject
                             {
-                                InsetInlineStart = calc(handleSizeHover)
-              .sub(handleSize)
-              .div(2)
-              .add(handleLineWidthHover)
-              .mul(-1).Equal(),
-                                InsetBlockStart = calc(handleSizeHover)
-              .sub(handleSize)
-              .div(2)
-              .add(handleLineWidthHover)
-              .mul(-1).Equal(),
-                                Width = calc(handleSizeHover).add(calc(handleLineWidthHover).mul(2)).Equal(),
-                                Height = calc(handleSizeHover).add(calc(handleLineWidthHover).mul(2)).Equal(),
+                                InsetInlineStart = Calc(handleSizeHover).Sub(handleSize).Div(2).Add(handleLineWidthHover).Mul(-1).Equal(),
+                                InsetBlockStart = Calc(handleSizeHover).Sub(handleSize).Div(2).Add(handleLineWidthHover).Mul(-1).Equal(),
+                                Width = Calc(handleSizeHover).Add(Calc(handleLineWidthHover).Mul(2)).Equal(),
+                                Height = Calc(handleSizeHover).Add(Calc(handleLineWidthHover).Mul(2)).Equal(),
                             },
                             ["&::after"] = new CSSObject
                             {
@@ -185,8 +177,8 @@ namespace AntDesign.Styles
                                 Outline = $@"{handleActiveOutlineColor}",
                                 Width = handleSizeHover,
                                 Height = handleSizeHover,
-                                InsetInlineStart = token.calc(handleSize).sub(handleSizeHover).div(2).Equal(),
-                                InsetBlockStart = token.calc(handleSize).sub(handleSizeHover).div(2).Equal(),
+                                InsetInlineStart = token.Calc(handleSize).Sub(handleSizeHover).Div(2).Equal(),
+                                InsetBlockStart = token.Calc(handleSize).Sub(handleSizeHover).Div(2).Equal(),
                             },
                         },
                     },
@@ -295,23 +287,23 @@ namespace AntDesign.Styles
             var part = horizontal ? "height" : "width";
             var handlePos = horizontal ? "insetBlockStart" : "insetInlineStart";
             var markInset = horizontal ? "top" : "insetInlineStart";
-            var handlePosSize = calc(railSize).mul(3).sub(handleSize).div(2).Equal();
-            var draggableBorderSize = calc(handleSize).sub(railSize).div(2).Equal();
+            var handlePosSize = Calc(railSize).Mul(3).Sub(handleSize).Div(2).Equal();
+            var draggableBorderSize = Calc(handleSize).Sub(railSize).Div(2).Equal();
             var draggableBorder = horizontal ? new object
             {
                 BorderWidth = $@"{Unit(draggableBorderSize)} 0",
-                Transform = $@"{Unit(calc(draggableBorderSize).mul(-1).Equal())})",
+                Transform = $@"{Unit(Calc(draggableBorderSize).Mul(-1).Equal())})",
             }
 
             : new object
             {
                 BorderWidth = $@"{Unit(draggableBorderSize)}",
-                Transform = $@"{Unit(token.calc(draggableBorderSize).mul(-1).Equal())})",
+                Transform = $@"{Unit(token.Calc(draggableBorderSize).Mul(-1).Equal())})",
             };
             return new CSSObject
             {
                 [railPadding] = railSize,
-                [part] = calc(railSize).mul(3).Equal(),
+                [part] = Calc(railSize).Mul(3).Equal(),
                 [$@"{componentCls}-rail"] = new CSSObject
                 {
                     [full] = "100%",
@@ -333,9 +325,7 @@ namespace AntDesign.Styles
                 {
                     InsetInlineStart = 0,
                     Top = 0,
-                    [markInset] = calc(railSize)
-        .mul(3)
-        .add(horizontal ? 0 : marginFull).Equal(),
+                    [markInset] = Calc(railSize).Mul(3).Add(horizontal ? 0 : marginFull).Equal(),
                     [full] = "100%",
                 },
                 [$@"{componentCls}-step"] = new CSSObject
@@ -349,7 +339,7 @@ namespace AntDesign.Styles
                 [$@"{componentCls}-dot"] = new CSSObject
                 {
                     Position = "absolute",
-                    [handlePos] = calc(railSize).sub(dotSize).div(2).Equal(),
+                    [handlePos] = Calc(railSize).Sub(dotSize).Div(2).Equal(),
                 },
             };
         }
@@ -392,7 +382,7 @@ namespace AntDesign.Styles
             var handleLineWidth = token.LineWidth + increaseHandleWidth;
             var handleLineWidthHover = token.LineWidth + increaseHandleWidth * 1.5;
             var handleActiveColor = token.ColorPrimary;
-            var handleActiveOutlineColor = new TinyColor(handleActiveColor).setAlpha(0.2).ToRgbString();
+            var handleActiveOutlineColor = new TinyColor(handleActiveColor).SetAlpha(0.2).ToRgbString();
             return new SliderToken
             {
                 RailSize = 4,
@@ -404,8 +394,7 @@ namespace AntDesign.Styles
                 TrackBg = token.ColorPrimaryBorder,
                 TrackHoverBg = token.ColorPrimaryBorderHover,
                 HandleColor = token.ColorPrimaryBorder,
-                HandleColorDisabled = new TinyColor(token.colorTextDisabled)
-      .onBackground(token.colorBgContainer).ToHexShortString(),
+                HandleColorDisabled = new TinyColor(token.ColorTextDisabled).OnBackground(token.ColorBgContainer).ToHexShortString(),
                 DotBorderColor = token.ColorBorderSecondary,
                 DotActiveBorderColor = token.ColorPrimaryBorder,
                 TrackBgDisabled = token.ColorBgContainerDisabled,
@@ -416,14 +405,14 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks("Slider", (SliderToken token) =>
             {
-                var sliderToken = MergeToken(token, new object { MarginPart = token.calc(token.controlHeight).sub(token.controlSize).div(2).Equal(), MarginFull = token.calc(token.controlSize).div(2).Equal(), MarginPartWithMark = token.calc(token.controlHeightLG).sub(token.controlSize).Equal(), });
+                var sliderToken = MergeToken(token, new object { MarginPart = token.Calc(token.ControlHeight).Sub(token.ControlSize).Div(2).Equal(), MarginFull = token.Calc(token.ControlSize).Div(2).Equal(), MarginPartWithMark = token.Calc(token.ControlHeightLG).Sub(token.ControlSize).Equal(), });
                 return new object[]
                 {
                     GenBaseStyle(sliderToken),
                     GenHorizontalStyle(sliderToken),
                     GenVerticalStyle(sliderToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

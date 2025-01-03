@@ -98,7 +98,7 @@ namespace AntDesign.Styles
                             BorderRadius = borderRadiusLG,
                             [$@"{componentCls}-input"] = new object
                             {
-                                Height = calc(controlHeightLG).sub(calc(lineWidth).mul(2)).Equal(),
+                                Height = Calc(controlHeightLG).Sub(Calc(lineWidth).Mul(2)).Equal(),
                                 Padding = $@"{Unit(paddingBlockLG)} {Unit(paddingInlineLG)}",
                             },
                         },
@@ -109,7 +109,7 @@ namespace AntDesign.Styles
                             BorderRadius = borderRadiusSM,
                             [$@"{componentCls}-input"] = new object
                             {
-                                Height = calc(controlHeightSM).sub(calc(lineWidth).mul(2)).Equal(),
+                                Height = Calc(controlHeightSM).Sub(Calc(lineWidth).Mul(2)).Equal(),
                                 Padding = $@"{Unit(paddingBlockSM)} {Unit(paddingInlineSM)}",
                             },
                         },
@@ -432,7 +432,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-affix-wrapper-without-controls):hover {componentCls}-suffix"] = new object
                     {
-                        MarginInlineEnd = token.calc(token.handleWidth).add(paddingInline).Equal(),
+                        MarginInlineEnd = token.Calc(token.HandleWidth).Add(paddingInline).Equal(),
                     },
                 },
             };
@@ -449,7 +449,7 @@ namespace AntDesign.Styles
                     GenAffixWrapperStyles(inputNumberToken),
                     GenCompactItemStyle(inputNumberToken)
                 };
-            }, prepareComponentToken, new object { Unitless = new object { HandleOpacity = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { HandleOpacity = true, }, });
         }
     }
 }

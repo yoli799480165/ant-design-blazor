@@ -30,7 +30,7 @@ namespace AntDesign.Styles
                 {
                     [$@"{componentCls}-palette"] = new CSSObject
                     {
-                        MinHeight = token.calc(controlHeightLG).mul(4).Equal(),
+                        MinHeight = token.Calc(controlHeightLG).Mul(4).Equal(),
                         Overflow = "hidden",
                         BorderRadius = borderRadiusSM,
                     },
@@ -58,7 +58,7 @@ namespace AntDesign.Styles
 
         public static object PickerDefault()
         {
-            return genPickerStyle;
+            return GenPickerStyle;
         }
     }
 }

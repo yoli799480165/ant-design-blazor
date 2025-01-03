@@ -40,10 +40,8 @@ namespace AntDesign.Styles
             var paddingXS = token.PaddingXS;
             var arrowOffsetHorizontal = token.ArrowOffsetHorizontal;
             var sizePopupArrow = token.SizePopupArrow;
-            var edgeAlignMinWidth = calc(tooltipBorderRadius)
-    .add(sizePopupArrow)
-    .add(arrowOffsetHorizontal).Equal();
-            var centerAlignMinWidth = calc(tooltipBorderRadius).mul(2).add(sizePopupArrow).Equal();
+            var edgeAlignMinWidth = Calc(tooltipBorderRadius).Add(sizePopupArrow).Add(arrowOffsetHorizontal).Equal();
+            var centerAlignMinWidth = Calc(tooltipBorderRadius).Mul(2).Add(sizePopupArrow).Equal();
             return new object[]
             {
                 new object
@@ -58,7 +56,11 @@ namespace AntDesign.Styles
                         MaxWidth = tooltipMaxWidth,
                         Visibility = "visible",
                         ["--valid-offset-x"] = "var(--arrow-offset-horizontal, var(--arrow-x))",
-                        TransformOrigin = [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].Join(" "),
+                        TransformOrigin = new object[]
+                        {
+                            "var(--valid-offset-x, 50%)",
+                            "var(--arrow-y, 50%)"
+                        }.Join(" "),
                         ["&-hidden"] = new object
                         {
                             Display = "none",
@@ -68,7 +70,7 @@ namespace AntDesign.Styles
                         {
                             MinWidth = centerAlignMinWidth,
                             MinHeight = controlHeight,
-                            Padding = $@"{Unit(token.calc(paddingSM).div(2).Equal())} {Unit(paddingXS)}",
+                            Padding = $@"{Unit(token.Calc(paddingSM).Div(2).Equal())} {Unit(paddingXS)}",
                             Color = tooltipColor,
                             TextAlign = "start",
                             TextDecoration = "none",
@@ -78,23 +80,11 @@ namespace AntDesign.Styles
                             BoxShadow = boxShadowSecondary,
                             BoxSizing = "border-box",
                         },
-                        [[
-          `&-placement-topLeft`,
-          `&-placement-topRight`,
-          `&-placement-bottomLeft`,
-          `&-placement-bottomRight`,
-        ].Join(",")] = new object
+                        [new object[] { "&-placement-topLeft", "&-placement-topRight", "&-placement-bottomLeft", "&-placement-bottomRight" }.Join(",")] = new object
                         {
                             MinWidth = edgeAlignMinWidth,
                         },
-                        [[
-          `&-placement-left`,
-          `&-placement-leftTop`,
-          `&-placement-leftBottom`,
-          `&-placement-right`,
-          `&-placement-rightTop`,
-          `&-placement-rightBottom`,
-        ].Join(",")] = new object
+                        [new object[] { "&-placement-left", "&-placement-leftTop", "&-placement-leftBottom", "&-placement-right", "&-placement-rightTop", "&-placement-rightBottom" }.Join(",")] = new object
                         {
                             [$@"{componentCls}-inner"] = new object
                             {
@@ -166,7 +156,7 @@ namespace AntDesign.Styles
                         GenTooltipStyle(TooltipToken),
                         InitZoomMotion(token, "zoom-big-fast")
                     };
-                }, prepareComponentToken, new object { ResetStyle = false, });
+                }, PrepareComponentToken, new object { ResetStyle = false, });
                 return UseStyle(prefixCls);
             };
         }

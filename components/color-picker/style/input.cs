@@ -69,7 +69,7 @@ namespace AntDesign.Styles
                             },
                             [$@"{antCls}-select-selection-item"] = new CSSObject
                             {
-                                PaddingInlineEnd = token.calc(fontSizeIcon).add(marginXXS).Equal(),
+                                PaddingInlineEnd = token.Calc(fontSizeIcon).Add(marginXXS).Equal(),
                                 FontSize = fontSizeSM,
                                 LineHeight = Unit(controlHeightSM),
                             },
@@ -111,7 +111,7 @@ namespace AntDesign.Styles
                             {
                                 FontSize = fontSizeSM,
                                 TextTransform = "uppercase",
-                                LineHeight = Unit(token.calc(controlHeightSM).sub(token.calc(lineWidth).mul(2)).Equal()),
+                                LineHeight = Unit(token.Calc(controlHeightSM).Sub(token.Calc(lineWidth).Mul(2)).Equal()),
                             },
                             [$@"{antCls}-input-prefix"] = new CSSObject
                             {
@@ -125,7 +125,7 @@ namespace AntDesign.Styles
 
         public static object InputDefault()
         {
-            return genInputStyle;
+            return GenInputStyle;
         }
     }
 }

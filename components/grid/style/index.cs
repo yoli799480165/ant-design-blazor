@@ -142,7 +142,7 @@ namespace AntDesign.Styles
             };
         }
 
-        public object useRowStyle = GenStyleHooks("Grid", genGridRowStyle, prepareRowComponentToken);
+        public object useRowStyle = GenStyleHooks("Grid", GenGridRowStyle, PrepareRowComponentToken);
         public object useColStyle = GenStyleHooks("Grid", (GridToken token) =>
         {
             var gridToken = MergeToken(token, new object { GridColumns = 24, });
@@ -159,8 +159,10 @@ namespace AntDesign.Styles
                 GenGridColStyle(gridToken),
                 GenGridStyle(gridToken, ""),
                 GenGridStyle(gridToken, "-xs"),
-                Object.keys(gridMediaSizesMap)
-        .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key as GridMediaSize], key)).Reduce((object pre, object cur) =>
+                Object.Keys(gridMediaSizesMap).Map((object key) =>
+                {
+                    return GenGridMediaStyle(gridToken, gridMediaSizesMap[key as GridMediaSize], key);
+                }).Reduce((object pre, object cur) =>
                 {
                     return new object
                     {
@@ -169,6 +171,6 @@ namespace AntDesign.Styles
                     };
                 }, new object { })
             };
-        }, prepareColComponentToken);
+        }, PrepareColComponentToken);
     }
 }

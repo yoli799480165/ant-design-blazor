@@ -95,7 +95,7 @@ namespace AntDesign.Styles
 
         public static object DraggerDefault()
         {
-            return genDraggerStyle;
+            return GenDraggerStyle;
         }
     }
 }

@@ -79,7 +79,7 @@ namespace AntDesign.Styles
                         {
                             Position = "absolute",
                             Top = headerHeight,
-                            InsetInlineEnd = token.calc(zeroTriggerWidth).mul(-1).Equal(),
+                            InsetInlineEnd = token.Calc(zeroTriggerWidth).Mul(-1).Equal(),
                             ZIndex = 1,
                             Width = zeroTriggerWidth,
                             Height = zeroTriggerHeight,
@@ -109,7 +109,7 @@ namespace AntDesign.Styles
                             },
                             ["&-right"] = new CSSObject
                             {
-                                InsetInlineStart = token.calc(zeroTriggerWidth).mul(-1).Equal(),
+                                InsetInlineStart = token.Calc(zeroTriggerWidth).Mul(-1).Equal(),
                                 BorderStartStartRadius = borderRadius,
                                 BorderStartEndRadius = 0,
                                 BorderEndEndRadius = 0,
@@ -145,7 +145,7 @@ namespace AntDesign.Styles
                 {
                     GenSiderStyle(token)
                 };
-            }, prepareComponentToken, new object { DeprecatedTokens = DEPRECATED_TOKENS, });
+            }, PrepareComponentToken, new object { DeprecatedTokens = DEPRECATED_TOKENS, });
         }
     }
 }

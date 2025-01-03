@@ -75,7 +75,7 @@ namespace AntDesign.Styles
                 var lineWidth = token.LineWidth;
                 var controlHeightLG = token.ControlHeightLG;
                 var calc = token.Calc;
-                var uploadToken = MergeToken(token, new object { UploadThumbnailSize = calc(fontSizeHeading3).mul(2).Equal(), UploadProgressOffset = calc(calc(fontHeight).div(2)).add(lineWidth).Equal(), UploadPicCardSize = calc(controlHeightLG).mul(2.55).Equal(), });
+                var uploadToken = MergeToken(token, new object { UploadThumbnailSize = Calc(fontSizeHeading3).Mul(2).Equal(), UploadProgressOffset = Calc(Calc(fontHeight).Div(2)).Add(lineWidth).Equal(), UploadPicCardSize = Calc(controlHeightLG).Mul(2.55).Equal(), });
                 return new object[]
                 {
                     GenBaseStyle(uploadToken),
@@ -87,7 +87,7 @@ namespace AntDesign.Styles
                     GenRtlStyle(uploadToken),
                     GenCollapseMotion(uploadToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

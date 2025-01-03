@@ -48,7 +48,7 @@ namespace AntDesign.Styles
 
         public static object EllipsisDefault()
         {
-            return genEllipsisStyle;
+            return GenEllipsisStyle;
         }
     }
 }

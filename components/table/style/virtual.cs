@@ -76,7 +76,7 @@ namespace AntDesign.Styles
                                     Content = "\"\"",
                                     Position = "absolute",
                                     InsetBlock = 0,
-                                    InsetInlineStart = calc(lineWidth).mul(-1).Equal(),
+                                    InsetInlineStart = Calc(lineWidth).Mul(-1).Equal(),
                                     BorderInlineStart = tableBorder,
                                 },
                             },
@@ -96,7 +96,7 @@ namespace AntDesign.Styles
 
         public static object VirtualDefault()
         {
-            return genVirtualStyle;
+            return GenVirtualStyle;
         }
     }
 }

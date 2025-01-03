@@ -180,7 +180,7 @@ namespace AntDesign.Styles
                         LineHeight = 1,
                         [$@"{antCls}-select"] = new CSSObject
                         {
-                            Margin = $@"{Unit(token.calc(token.paddingBlock).add(1).mul(-1).Equal())} {Unit(token.calc(token.paddingInline).mul(-1).Equal())}",
+                            Margin = $@"{Unit(token.Calc(token.PaddingBlock).Add(1).Mul(-1).Equal())} {Unit(token.Calc(token.PaddingInline).Mul(-1).Equal())}",
                             [$@"{antCls}-select-single:not({antCls}-select-customize-input):not({antCls}-pagination-size-changer)"] = new CSSObject
                             {
                                 [$@"{antCls}-select-selector"] = new CSSObject
@@ -193,7 +193,7 @@ namespace AntDesign.Styles
                         },
                         [$@"{antCls}-cascader-picker"] = new CSSObject
                         {
-                            Margin = $@"{Unit(token.calc(token.paddingInline).mul(-1).Equal())}",
+                            Margin = $@"{Unit(token.Calc(token.PaddingInline).Mul(-1).Equal())}",
                             BackgroundColor = "transparent",
                             [$@"{antCls}-cascader-input"] = new CSSObject
                             {
@@ -306,7 +306,7 @@ namespace AntDesign.Styles
                     },
                     ["& > *:not(:last-child)"] = new CSSObject
                     {
-                        MarginInlineEnd = token.calc(token.lineWidth).mul(-1).Equal(),
+                        MarginInlineEnd = token.Calc(token.LineWidth).Mul(-1).Equal(),
                         BorderInlineEndWidth = token.LineWidth,
                     },
                     [componentCls] = new CSSObject
@@ -354,7 +354,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-group-wrapper + {componentCls}-group-wrapper"] = new CSSObject
                     {
-                        MarginInlineStart = token.calc(token.lineWidth).mul(-1).Equal(),
+                        MarginInlineStart = token.Calc(token.LineWidth).Mul(-1).Equal(),
                         [$@"{componentCls}-affix-wrapper"] = new CSSObject
                         {
                             BorderRadius = 0,
@@ -388,10 +388,7 @@ namespace AntDesign.Styles
             var lineWidth = token.LineWidth;
             var calc = token.Calc;
             var FIXED_CHROME_COLOR_HEIGHT = 16;
-            var colorSmallPadding = calc(controlHeightSM)
-    .sub(calc(lineWidth).mul(2))
-    .sub(FIXED_CHROME_COLOR_HEIGHT)
-    .div(2).Equal();
+            var colorSmallPadding = Calc(controlHeightSM).Sub(Calc(lineWidth).Mul(2)).Sub(FIXED_CHROME_COLOR_HEIGHT).Div(2).Equal();
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -674,7 +671,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-lg"] = new CSSObject
                     {
-                        LineHeight = token.calc(token.lineHeightLG).sub(0.0002).Equal(),
+                        LineHeight = token.Calc(token.LineHeightLG).Sub(0.0002).Equal(),
                     },
                     [$@"{componentCls}-group"] = new CSSObject
                     {
@@ -745,7 +742,7 @@ namespace AntDesign.Styles
                             {
                                 [$@"{componentCls}-search-button"] = new CSSObject
                                 {
-                                    MarginInlineEnd = token.calc(token.lineWidth).mul(-1).Equal(),
+                                    MarginInlineEnd = token.Calc(token.LineWidth).Mul(-1).Equal(),
                                     BorderRadius = 0,
                                 },
                             },
@@ -794,7 +791,7 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-data-count"] = new CSSObject
                         {
                             Position = "absolute",
-                            Bottom = token.calc(token.fontSize).mul(token.lineHeight).mul(-1).Equal(),
+                            Bottom = token.Calc(token.FontSize).Mul(token.LineHeight).Mul(-1).Equal(),
                             InsetInlineEnd = 0,
                             Color = token.ColorTextDescription,
                             WhiteSpace = "nowrap",

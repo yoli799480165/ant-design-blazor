@@ -219,9 +219,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{treeCls}-switcher, {treeCls}-checkbox"] = new CSSObject
                     {
-                        MarginInlineEnd = token
-          .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
-          .div(2).Equal(),
+                        MarginInlineEnd = token.Calc(token.Calc(titleHeight).Sub(token.ControlInteractiveSize)).Div(2).Equal(),
                     },
                     [$@"{treeCls}-switcher"] = new CSSObject
                     {
@@ -277,8 +275,8 @@ namespace AntDesign.Styles
                             {
                                 Position = "absolute",
                                 Top = 0,
-                                InsetInlineEnd = token.calc(titleHeight).div(2).Equal(),
-                                Bottom = token.calc(treeNodePadding).mul(-1).Equal(),
+                                InsetInlineEnd = token.Calc(titleHeight).Div(2).Equal(),
+                                Bottom = token.Calc(treeNodePadding).Mul(-1).Equal(),
                                 MarginInlineStart = -1,
                                 BorderInlineEnd = $@"{token.ColorBorder}",
                                 Content = "\"\"",
@@ -286,8 +284,8 @@ namespace AntDesign.Styles
                             ["&:after"] = new CSSObject
                             {
                                 Position = "absolute",
-                                Width = token.calc(token.calc(titleHeight).div(2).equal()).mul(0.8).Equal(),
-                                Height = token.calc(titleHeight).div(2).Equal(),
+                                Width = token.Calc(token.Calc(titleHeight).Div(2).Equal()).Mul(0.8).Equal(),
+                                Height = token.Calc(titleHeight).Div(2).Equal(),
                                 BorderBottom = $@"{token.ColorBorder}",
                                 Content = "\"\"",
                             },
@@ -344,8 +342,8 @@ namespace AntDesign.Styles
                             {
                                 Position = "absolute",
                                 Top = 0,
-                                InsetInlineEnd = token.calc(titleHeight).div(2).Equal(),
-                                Bottom = token.calc(treeNodePadding).mul(-1).Equal(),
+                                InsetInlineEnd = token.Calc(titleHeight).Div(2).Equal(),
+                                Bottom = token.Calc(treeNodePadding).Mul(-1).Equal(),
                                 BorderInlineEnd = $@"{token.ColorBorder}",
                                 Content = "\"\"",
                             },
@@ -367,7 +365,7 @@ namespace AntDesign.Styles
                     {
                         Top = "auto !important",
                         Bottom = "auto !important",
-                        Height = $@"{Unit(token.calc(titleHeight).div(2).Equal())} !important",
+                        Height = $@"{Unit(token.Calc(titleHeight).Div(2).Equal())} !important",
                     },
                 },
             };
@@ -377,7 +375,7 @@ namespace AntDesign.Styles
         {
             var treeCls = $@"{prefixCls}";
             var treeNodeCls = $@"{treeCls}-treenode";
-            var treeNodePadding = token.calc(token.paddingXS).div(2).Equal();
+            var treeNodePadding = token.Calc(token.PaddingXS).Div(2).Equal();
             var treeToken = MergeToken(token, new object { });
             return new object[]
             {
@@ -427,7 +425,7 @@ namespace AntDesign.Styles
                     GenTreeStyle(prefixCls, token),
                     GenCollapseMotion(token)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

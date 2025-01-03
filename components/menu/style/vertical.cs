@@ -23,7 +23,7 @@ namespace AntDesign.Styles
             var itemMarginBlock = token.ItemMarginBlock;
             var itemWidth = token.ItemWidth;
             var itemPaddingInline = token.ItemPaddingInline;
-            var paddingWithArrow = token.calc(menuArrowSize).add(padding).add(marginXS).Equal();
+            var paddingWithArrow = token.Calc(menuArrowSize).Add(padding).Add(marginXS).Equal();
             return new CSSObject
             {
                 [$@"{componentCls}-item"] = new CSSObject
@@ -110,7 +110,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-submenu-popup {componentCls}-vertical{componentCls}-sub"] = new object
                     {
                         MinWidth = dropdownWidth,
-                        MaxHeight = $@"{Unit(token.calc(controlHeightLG).mul(2.5).Equal())})",
+                        MaxHeight = $@"{Unit(token.Calc(controlHeightLG).Mul(2.5).Equal())})",
                         Padding = "0",
                         Overflow = "hidden",
                         BorderInlineEnd = 0,
@@ -132,11 +132,12 @@ namespace AntDesign.Styles
                             {
                                 Display = "flex",
                                 AlignItems = "center",
-                                Transition = [
-              `border-color ${motionDurationSlow}`,
-              `background ${motionDurationSlow}`,
-              `padding ${motionDurationFast} ${motionEaseOut}`,
-            ].Join(","),
+                                Transition = new object[]
+                                {
+                                    $@"{motionDurationSlow}",
+                                    $@"{motionDurationSlow}",
+                                    $@"{motionDurationFast} {motionEaseOut}"
+                                }.Join(","),
                                 [$@"{componentCls}-title-content"] = new object
                                 {
                                     Flex = "auto",
@@ -187,7 +188,7 @@ namespace AntDesign.Styles
           > {componentCls}-submenu > {componentCls}-submenu-title"] = new object
                         {
                             InsetInlineStart = 0,
-                            PaddingInline = $@"{Unit(token.calc(collapsedIconSize).div(2).Equal())} - {Unit(itemMarginInline)})",
+                            PaddingInline = $@"{Unit(token.Calc(collapsedIconSize).Div(2).Equal())} - {Unit(itemMarginInline)})",
                             TextOverflow = "clip",
                             [$@"{componentCls}-submenu-arrow,
             {componentCls}-submenu-expand-icon

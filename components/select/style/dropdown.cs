@@ -149,7 +149,7 @@ namespace AntDesign.Styles
                                 },
                                 ["&-grouped"] = new object
                                 {
-                                    PaddingInlineStart = token.calc(token.controlPaddingHorizontal).mul(2).Equal(),
+                                    PaddingInlineStart = token.Calc(token.ControlPaddingHorizontal).Mul(2).Equal(),
                                 },
                             },
                             ["&-empty"] = new object
@@ -173,7 +173,7 @@ namespace AntDesign.Styles
 
         public static object DropdownDefault()
         {
-            return genSingleStyle;
+            return GenSingleStyle;
         }
     }
 }

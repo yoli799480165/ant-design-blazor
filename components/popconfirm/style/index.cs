@@ -96,7 +96,7 @@ namespace AntDesign.Styles
             return GenStyleHooks("Popconfirm", (PopconfirmToken token) =>
             {
                 return GenBaseStyle(token);
-            }, prepareComponentToken, new object { ResetStyle = false, });
+            }, PrepareComponentToken, new object { ResetStyle = false, });
         }
     }
 }

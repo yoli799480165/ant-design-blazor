@@ -95,7 +95,7 @@ namespace AntDesign.Styles
                         {
                             Position = "absolute",
                             InsetInlineEnd = 0,
-                            InsetBlockStart = calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).Equal(),
+                            InsetBlockStart = Calc(fontSize).Mul(lineHeight).Mul(0.5).Add(paddingBlock).Equal(),
                             Transform = "translateY(-50%)",
                             Margin = 0,
                             Color = colorTextQuaternary,
@@ -130,7 +130,7 @@ namespace AntDesign.Styles
                         {
                             Color = colorText,
                             BoxSizing = "border-box",
-                            MinHeight = token.calc(controlHeight).Sub(2),
+                            MinHeight = token.Calc(controlHeight).Sub(2),
                             Margin = 0,
                             Padding = $@"{Unit(paddingBlock)} {Unit(paddingInline)}",
                             Overflow = "inherit",
@@ -269,7 +269,7 @@ namespace AntDesign.Styles
                 {
                     GenMentionsStyle(mentionsToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

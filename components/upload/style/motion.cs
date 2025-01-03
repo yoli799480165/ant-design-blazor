@@ -15,8 +15,8 @@ namespace AntDesign.Styles
         public static CSSObject GenMotionStyle(UploadToken token)
         {
             var componentCls = token.ComponentCls;
-            var uploadAnimateInlineIn = new Keyframes("uploadAnimateInlineIn", new object { From = new object { Width = 0, Height = 0, Padding = 0, Opacity = 0, Margin = token.calc(token.marginXS).div(-2).Equal(), }, });
-            var uploadAnimateInlineOut = new Keyframes("uploadAnimateInlineOut", new object { ["to"] = new object { Width = 0, Height = 0, Padding = 0, Opacity = 0, Margin = token.calc(token.marginXS).div(-2).Equal(), }, });
+            var uploadAnimateInlineIn = new Keyframes("uploadAnimateInlineIn", new object { From = new object { Width = 0, Height = 0, Padding = 0, Opacity = 0, Margin = token.Calc(token.MarginXS).Div(-2).Equal(), }, });
+            var uploadAnimateInlineOut = new Keyframes("uploadAnimateInlineOut", new object { ["to"] = new object { Width = 0, Height = 0, Padding = 0, Opacity = 0, Margin = token.Calc(token.MarginXS).Div(-2).Equal(), }, });
             var inlineCls = $@"{componentCls}-animate-inline";
             return new object[]
             {
@@ -51,7 +51,7 @@ namespace AntDesign.Styles
 
         public static object MotionDefault()
         {
-            return genMotionStyle;
+            return GenMotionStyle;
         }
     }
 }

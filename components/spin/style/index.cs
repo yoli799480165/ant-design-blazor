@@ -53,7 +53,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-text"] = new CSSObject
                     {
                         FontSize = token.FontSize,
-                        PaddingTop = calc(calc(token.dotSize).sub(token.fontSize)).div(2).add(2).Equal(),
+                        PaddingTop = Calc(Calc(token.DotSize).Sub(token.FontSize)).Div(2).Add(2).Equal(),
                     },
                     ["&-fullscreen"] = new CSSObject
                     {
@@ -105,7 +105,7 @@ namespace AntDesign.Styles
                                 Position = "absolute",
                                 Top = "50%",
                                 InsetInlineStart = "50%",
-                                Margin = calc(token.dotSize).mul(-1).div(2).Equal(),
+                                Margin = Calc(token.DotSize).Mul(-1).Div(2).Equal(),
                             },
                             [$@"{componentCls}-text"] = new CSSObject
                             {
@@ -116,36 +116,36 @@ namespace AntDesign.Styles
                             },
                             [$@"{componentCls}-show-text {componentCls}-dot"] = new CSSObject
                             {
-                                MarginTop = calc(token.dotSize).div(2).mul(-1).sub(10).Equal(),
+                                MarginTop = Calc(token.DotSize).Div(2).Mul(-1).Sub(10).Equal(),
                             },
                             ["&-sm"] = new CSSObject
                             {
                                 [$@"{componentCls}-dot"] = new CSSObject
                                 {
-                                    Margin = calc(token.dotSizeSM).mul(-1).div(2).Equal(),
+                                    Margin = Calc(token.DotSizeSM).Mul(-1).Div(2).Equal(),
                                 },
                                 [$@"{componentCls}-text"] = new CSSObject
                                 {
-                                    PaddingTop = calc(calc(token.dotSizeSM).sub(token.fontSize)).div(2).add(2).Equal(),
+                                    PaddingTop = Calc(Calc(token.DotSizeSM).Sub(token.FontSize)).Div(2).Add(2).Equal(),
                                 },
                                 [$@"{componentCls}-show-text {componentCls}-dot"] = new CSSObject
                                 {
-                                    MarginTop = calc(token.dotSizeSM).div(2).mul(-1).sub(10).Equal(),
+                                    MarginTop = Calc(token.DotSizeSM).Div(2).Mul(-1).Sub(10).Equal(),
                                 },
                             },
                             ["&-lg"] = new CSSObject
                             {
                                 [$@"{componentCls}-dot"] = new CSSObject
                                 {
-                                    Margin = calc(token.dotSizeLG).mul(-1).div(2).Equal(),
+                                    Margin = Calc(token.DotSizeLG).Mul(-1).Div(2).Equal(),
                                 },
                                 [$@"{componentCls}-text"] = new CSSObject
                                 {
-                                    PaddingTop = calc(calc(token.dotSizeLG).sub(token.fontSize)).div(2).add(2).Equal(),
+                                    PaddingTop = Calc(Calc(token.DotSizeLG).Sub(token.FontSize)).Div(2).Add(2).Equal(),
                                 },
                                 [$@"{componentCls}-show-text {componentCls}-dot"] = new CSSObject
                                 {
-                                    MarginTop = calc(token.dotSizeLG).div(2).mul(-1).sub(10).Equal(),
+                                    MarginTop = Calc(token.DotSizeLG).Div(2).Mul(-1).Sub(10).Equal(),
                                 },
                             },
                         },
@@ -221,8 +221,8 @@ namespace AntDesign.Styles
                         {
                             Position = "absolute",
                             Display = "block",
-                            Width = calc(token.dotSize).sub(calc(token.marginXXS).div(2)).div(2).Equal(),
-                            Height = calc(token.dotSize).sub(calc(token.marginXXS).div(2)).div(2).Equal(),
+                            Width = Calc(token.DotSize).Sub(Calc(token.MarginXXS).Div(2)).Div(2).Equal(),
+                            Height = Calc(token.DotSize).Sub(Calc(token.MarginXXS).Div(2)).Div(2).Equal(),
                             Background = "currentColor",
                             BorderRadius = "100%",
                             Transform = "scale(0.75)",
@@ -269,8 +269,17 @@ namespace AntDesign.Styles
                         ["&-circle"] = new CSSObject
                         {
                             StrokeLinecap = "round",
-                            Transition = ['stroke-dashoffset', 'stroke-dasharray', 'stroke', 'stroke-width', 'opacity']
-            .map((item) => `${item} ${token.motionDurationSlow} ease`).Join(","),
+                            Transition = new object[]
+                            {
+                                "stroke-dashoffset",
+                                "stroke-dasharray",
+                                "stroke",
+                                "stroke-width",
+                                "opacity"
+                            }.Map((object item) =>
+                            {
+                                return $@"{item} {token.MotionDurationSlow} ease";
+                            }).Join(","),
                             FillOpacity = 0,
                             ["stroke"] = "currentcolor",
                         },
@@ -290,10 +299,8 @@ namespace AntDesign.Styles
                     {
                         ["i"] = new CSSObject
                         {
-                            Width = calc(calc(token.dotSizeSM).sub(calc(token.marginXXS).div(2)))
-            .div(2).Equal(),
-                            Height = calc(calc(token.dotSizeSM).sub(calc(token.marginXXS).div(2)))
-            .div(2).Equal(),
+                            Width = Calc(Calc(token.DotSizeSM).Sub(Calc(token.MarginXXS).Div(2))).Div(2).Equal(),
+                            Height = Calc(Calc(token.DotSizeSM).Sub(Calc(token.MarginXXS).Div(2))).Div(2).Equal(),
                         },
                     },
                     [$@"{componentCls}-dot"] = new CSSObject
@@ -307,8 +314,8 @@ namespace AntDesign.Styles
                     {
                         ["i"] = new CSSObject
                         {
-                            Width = calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).Equal(),
-                            Height = calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).Equal(),
+                            Width = Calc(Calc(token.DotSizeLG).Sub(token.MarginXXS)).Div(2).Equal(),
+                            Height = Calc(Calc(token.DotSizeLG).Sub(token.MarginXXS)).Div(2).Equal(),
                         },
                     },
                     [$@"{componentCls}-show-text {componentCls}-text"] = new CSSObject
@@ -341,7 +348,7 @@ namespace AntDesign.Styles
                 {
                     GenSpinStyle(spinToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

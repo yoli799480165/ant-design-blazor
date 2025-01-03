@@ -175,8 +175,8 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-close"] = new CSSObject
                     {
                         Display = "inline-flex",
-                        Width = calc(fontSizeLG).add(paddingXS).Equal(),
-                        Height = calc(fontSizeLG).add(paddingXS).Equal(),
+                        Width = Calc(fontSizeLG).Add(paddingXS).Equal(),
+                        Height = Calc(fontSizeLG).Add(paddingXS).Equal(),
                         BorderRadius = borderRadiusSM,
                         JustifyContent = "center",
                         AlignItems = "center",
@@ -263,7 +263,7 @@ namespace AntDesign.Styles
                     GenDrawerStyle(drawerToken),
                     GenMotionStyle(drawerToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -80,8 +80,15 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-loading-icon"] = new CSSObject
                     {
-                        Transition = ['width', 'opacity', 'margin']
-          .map((transition) => `${transition} ${motionDurationSlow} ${motionEaseInOut}`).Join(","),
+                        Transition = new object[]
+                        {
+                            "width",
+                            "opacity",
+                            "margin"
+                        }.Map((object transition) =>
+                        {
+                            return $@"{transition} {motionDurationSlow} {motionEaseInOut}";
+                        }).Join(","),
                     },
                     [$@"{componentCls}-icon-end)"] = new CSSObject
                     {
@@ -89,7 +96,7 @@ namespace AntDesign.Styles
                         {
                             ["&-appear-start, &-enter-start"] = new CSSObject
                             {
-                                MarginInlineEnd = calc(marginXS).mul(-1).Equal(),
+                                MarginInlineEnd = Calc(marginXS).Mul(-1).Equal(),
                             },
                             ["&-appear-active, &-enter-active"] = new CSSObject
                             {
@@ -101,7 +108,7 @@ namespace AntDesign.Styles
                             },
                             ["&-leave-active"] = new CSSObject
                             {
-                                MarginInlineEnd = calc(marginXS).mul(-1).Equal(),
+                                MarginInlineEnd = Calc(marginXS).Mul(-1).Equal(),
                             },
                         },
                     },
@@ -112,7 +119,7 @@ namespace AntDesign.Styles
                         {
                             ["&-appear-start, &-enter-start"] = new CSSObject
                             {
-                                MarginInlineStart = calc(marginXS).mul(-1).Equal(),
+                                MarginInlineStart = Calc(marginXS).Mul(-1).Equal(),
                             },
                             ["&-appear-active, &-enter-active"] = new CSSObject
                             {
@@ -124,7 +131,7 @@ namespace AntDesign.Styles
                             },
                             ["&-leave-active"] = new CSSObject
                             {
-                                MarginInlineStart = calc(marginXS).mul(-1).Equal(),
+                                MarginInlineStart = Calc(marginXS).Mul(-1).Equal(),
                             },
                         },
                     },
@@ -160,8 +167,8 @@ namespace AntDesign.Styles
             return new CSSObject
             {
                 BorderRadius = token.ControlHeight,
-                PaddingInlineStart = token.calc(token.controlHeight).div(2).Equal(),
-                PaddingInlineEnd = token.calc(token.controlHeight).div(2).Equal(),
+                PaddingInlineStart = token.Calc(token.ControlHeight).Div(2).Equal(),
+                PaddingInlineEnd = token.Calc(token.ControlHeight).Div(2).Equal(),
             };
         }
 
@@ -222,8 +229,12 @@ namespace AntDesign.Styles
 
         public static CSSObject GenVariantButtonStyle(ButtonToken token, CSSObject hoverStyle, CSSObject activeStyle, ButtonVariantType variant)
         {
-            var isPureDisabled = variant && ['link', 'text'].Includes(variant);
-            var genDisabledButtonStyle = isPureDisabled ? genPureDisabledButtonStyle : genSolidDisabledButtonStyle;
+            var isPureDisabled = variant && new object[]
+            {
+                "link",
+                "text"
+            }.Includes(variant);
+            var genDisabledButtonStyle = isPureDisabled ? GenPureDisabledButtonStyle : GenSolidDisabledButtonStyle;
             return new CSSObject
             {
                 ["..."] = GenDisabledButtonStyle(token),
@@ -445,7 +456,7 @@ namespace AntDesign.Styles
                     GenCompatibleButtonStyle(buttonToken),
                     GenGroupStyle(buttonToken)
                 };
-            }, prepareComponentToken, new object { Unitless = new object { FontWeight = true, ContentLineHeight = true, ContentLineHeightSM = true, ContentLineHeightLG = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { FontWeight = true, ContentLineHeight = true, ContentLineHeightSM = true, ContentLineHeightLG = true, }, });
         }
     }
 }

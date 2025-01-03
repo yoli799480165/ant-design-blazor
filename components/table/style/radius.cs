@@ -69,7 +69,7 @@ namespace AntDesign.Styles
 
         public static object RadiusDefault()
         {
-            return genRadiusStyle;
+            return GenRadiusStyle;
         }
     }
 }

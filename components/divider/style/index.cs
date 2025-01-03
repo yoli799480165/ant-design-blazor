@@ -212,7 +212,7 @@ namespace AntDesign.Styles
                 {
                     GenSharedDividerStyle(dividerToken)
                 };
-            }, prepareComponentToken, new object { Unitless = new object { OrientationMargin = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { OrientationMargin = true, }, });
         }
     }
 }

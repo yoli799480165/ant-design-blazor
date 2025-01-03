@@ -44,7 +44,7 @@ namespace AntDesign.Styles
             {
                 var tagToken = PrepareToken(token);
                 return GenPresetStyle(tagToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -54,15 +54,11 @@ namespace AntDesign.Styles
                             Flex = "none",
                             FontSize = modalConfirmIconSize,
                             MarginInlineEnd = token.ConfirmIconMarginInlineEnd,
-                            MarginTop = token
-            .calc(token.calc(fontHeight).sub(modalConfirmIconSize).equal())
-            .div(2).Equal(),
+                            MarginTop = token.Calc(token.Calc(fontHeight).Sub(modalConfirmIconSize).Equal()).Div(2).Equal(),
                         },
                         [$@"{token.IconCls}"] = new CSSObject
                         {
-                            MarginTop = token
-            .calc(token.calc(modalTitleHeight).sub(modalConfirmIconSize).equal())
-            .div(2).Equal(),
+                            MarginTop = token.Calc(token.Calc(modalTitleHeight).Sub(modalConfirmIconSize).Equal()).Div(2).Equal(),
                         },
                     },
                     [$@"{confirmComponentCls}-paragraph"] = new CSSObject
@@ -75,7 +71,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{token.IconCls} + {confirmComponentCls}-paragraph"] = new CSSObject
                     {
-                        MaxWidth = $@"{Unit(token.calc(token.modalConfirmIconSize).add(token.marginSM).Equal())})",
+                        MaxWidth = $@"{Unit(token.Calc(token.ModalConfirmIconSize).Add(token.MarginSM).Equal())})",
                     },
                     [$@"{confirmComponentCls}-title"] = new CSSObject
                     {
@@ -128,7 +124,7 @@ namespace AntDesign.Styles
                 {
                     GenModalConfirmStyle(modalToken)
                 };
-            }, prepareComponentToken, new object { Order = -1000, });
+            }, PrepareComponentToken, new object { Order = -1000, });
         }
     }
 }

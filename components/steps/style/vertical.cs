@@ -37,7 +37,7 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-item-content"] = new CSSObject
                         {
                             Display = "block",
-                            MinHeight = token.calc(token.controlHeight).mul(1.5).Equal(),
+                            MinHeight = token.Calc(token.ControlHeight).Mul(1.5).Equal(),
                             Overflow = "hidden",
                         },
                         [$@"{componentCls}-item-title"] = new CSSObject
@@ -53,10 +53,10 @@ namespace AntDesign.Styles
                     {
                         Position = "absolute",
                         Top = 0,
-                        InsetInlineStart = token.calc(iconSize).div(2).sub(token.lineWidth).Equal(),
+                        InsetInlineStart = token.Calc(iconSize).Div(2).Sub(token.LineWidth).Equal(),
                         Width = token.LineWidth,
                         Height = "100%",
-                        Padding = $@"{Unit(token.calc(token.marginXXS).mul(1.5).add(iconSize).Equal())} 0 {Unit(token.calc(token.marginXXS).mul(1.5).Equal())}",
+                        Padding = $@"{Unit(token.Calc(token.MarginXXS).Mul(1.5).Add(iconSize).Equal())} 0 {Unit(token.Calc(token.MarginXXS).Mul(1.5).Equal())}",
                         ["&::after"] = new CSSObject
                         {
                             Width = token.LineWidth,
@@ -80,8 +80,8 @@ namespace AntDesign.Styles
                         {
                             Position = "absolute",
                             Top = 0,
-                            InsetInlineStart = token.calc(iconSizeSM).div(2).sub(token.lineWidth).Equal(),
-                            Padding = $@"{Unit(token.calc(token.marginXXS).mul(1.5).add(iconSizeSM).Equal())} 0 {Unit(token.calc(token.marginXXS).mul(1.5).Equal())}",
+                            InsetInlineStart = token.Calc(iconSizeSM).Div(2).Sub(token.LineWidth).Equal(),
+                            Padding = $@"{Unit(token.Calc(token.MarginXXS).Mul(1.5).Add(iconSizeSM).Equal())} 0 {Unit(token.Calc(token.MarginXXS).Mul(1.5).Equal())}",
                         },
                         [$@"{componentCls}-item-title"] = new CSSObject
                         {
@@ -94,7 +94,7 @@ namespace AntDesign.Styles
 
         public static object VerticalDefault()
         {
-            return genStepsVerticalStyle;
+            return GenStepsVerticalStyle;
         }
     }
 }

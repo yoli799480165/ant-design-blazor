@@ -126,7 +126,7 @@ namespace AntDesign.Styles
                 {
                     GenBorderedStyle(paginationToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

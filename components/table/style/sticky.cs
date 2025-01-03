@@ -74,7 +74,7 @@ namespace AntDesign.Styles
 
         public static object StickyDefault()
         {
-            return genStickyStyle;
+            return GenStickyStyle;
         }
     }
 }

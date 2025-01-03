@@ -170,7 +170,7 @@ namespace AntDesign.Styles
                 {
                     GenLayoutStyle(token)
                 };
-            }, prepareComponentToken, new object { DeprecatedTokens = DEPRECATED_TOKENS, });
+            }, PrepareComponentToken, new object { DeprecatedTokens = DEPRECATED_TOKENS, });
         }
     }
 }

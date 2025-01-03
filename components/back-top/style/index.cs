@@ -121,13 +121,13 @@ namespace AntDesign.Styles
                 var colorText = token.ColorText;
                 var controlHeightLG = token.ControlHeightLG;
                 var calc = token.Calc;
-                var backTopToken = MergeToken(token, new object { BackTopBackground = colorTextDescription, BackTopColor = colorTextLightSolid, BackTopHoverBackground = colorText, BackTopFontSize = fontSizeHeading3, BackTopSize = controlHeightLG, BackTopBlockEnd = calc(controlHeightLG).mul(1.25).Equal(), BackTopInlineEnd = calc(controlHeightLG).mul(2.5).Equal(), BackTopInlineEndMD = calc(controlHeightLG).mul(1.5).Equal(), BackTopInlineEndXS = calc(controlHeightLG).mul(0.5).Equal(), });
+                var backTopToken = MergeToken(token, new object { BackTopBackground = colorTextDescription, BackTopColor = colorTextLightSolid, BackTopHoverBackground = colorText, BackTopFontSize = fontSizeHeading3, BackTopSize = controlHeightLG, BackTopBlockEnd = Calc(controlHeightLG).Mul(1.25).Equal(), BackTopInlineEnd = Calc(controlHeightLG).Mul(2.5).Equal(), BackTopInlineEndMD = Calc(controlHeightLG).Mul(1.5).Equal(), BackTopInlineEndXS = Calc(controlHeightLG).Mul(0.5).Equal(), });
                 return new object[]
                 {
                     GenSharedBackTopStyle(backTopToken),
                     GenMediaBackTopStyle(backTopToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

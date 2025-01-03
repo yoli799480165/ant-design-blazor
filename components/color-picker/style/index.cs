@@ -89,8 +89,8 @@ namespace AntDesign.Styles
                     {
                         Content = "\"\"",
                         Position = "absolute",
-                        InsetInlineEnd = token.calc(lineWidth).mul(-1).Equal(),
-                        Top = token.calc(lineWidth).mul(-1).Equal(),
+                        InsetInlineEnd = token.Calc(lineWidth).Mul(-1).Equal(),
+                        Top = token.Calc(lineWidth).Mul(-1).Equal(),
                         Display = "block",
                         Width = 40,
                         Height = 2,
@@ -262,13 +262,11 @@ namespace AntDesign.Styles
                             JustifyContent = "center",
                             Transition = $@"{motionDurationMid}",
                             Background = colorBgElevated,
-                            Padding = token.calc(paddingXXS).sub(lineWidth).Equal(),
+                            Padding = token.Calc(paddingXXS).Sub(lineWidth).Equal(),
                             [$@"{componentCls}-trigger-text"] = new object
                             {
                                 MarginInlineStart = marginXS,
-                                MarginInlineEnd = token
-              .calc(marginXS)
-              .sub(token.calc(paddingXXS).sub(lineWidth)).Equal(),
+                                MarginInlineEnd = token.Calc(marginXS).Sub(token.Calc(paddingXXS).Sub(lineWidth)).Equal(),
                                 Color = colorText,
                                 AlignSelf = "center",
                                 ["&-cell"] = new object
@@ -324,10 +322,7 @@ namespace AntDesign.Styles
                 var colorTextQuaternary = token.ColorTextQuaternary;
                 var marginSM = token.MarginSM;
                 var colorPickerSliderHeight = 8;
-                var colorPickerToken = MergeToken(token, new object { ColorPickerWidth = 234, ColorPickerHandlerSize = 16, ColorPickerHandlerSizeSM = 12, ColorPickerAlphaInputWidth = 44, ColorPickerInputNumberHandleWidth = 16, ColorPickerPresetColorSize = 24, ColorPickerInsetShadow = $@"{colorTextQuaternary}", ColorPickerPreviewSize = token
-      .calc(colorPickerSliderHeight)
-      .mul(2)
-      .add(marginSM).Equal() as number, });
+                var colorPickerToken = MergeToken(token, new object { ColorPickerWidth = 234, ColorPickerHandlerSize = 16, ColorPickerHandlerSizeSM = 12, ColorPickerAlphaInputWidth = 44, ColorPickerInputNumberHandleWidth = 16, ColorPickerPresetColorSize = 24, ColorPickerInsetShadow = $@"{colorTextQuaternary}", ColorPickerPreviewSize = token.Calc(colorPickerSliderHeight).Mul(2).Add(marginSM).Equal() as number, });
                 return new object[]
                 {
                     GenColorPickerStyle(colorPickerToken)

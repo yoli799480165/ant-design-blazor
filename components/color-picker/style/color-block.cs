@@ -52,7 +52,7 @@ namespace AntDesign.Styles
 
         public static object ColorBlockDefault()
         {
-            return genColorBlockStyle;
+            return GenColorBlockStyle;
         }
     }
 }

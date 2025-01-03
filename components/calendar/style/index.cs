@@ -178,8 +178,8 @@ namespace AntDesign.Styles
                         Display = "block",
                         Width = "auto",
                         Height = "auto",
-                        Margin = $@"{Unit(token.calc(token.marginXS).div(2).Equal())}",
-                        Padding = $@"{Unit(token.calc(token.paddingXS).div(2).Equal())} {Unit(token.PaddingXS)} 0",
+                        Margin = $@"{Unit(token.Calc(token.MarginXS).Div(2).Equal())}",
+                        Padding = $@"{Unit(token.Calc(token.PaddingXS).Div(2).Equal())} {Unit(token.PaddingXS)} 0",
                         Border = 0,
                         BorderTop = $@"{Unit(token.LineWidthBold)} {token.LineType} {token.ColorSplit}",
                         BorderRadius = 0,
@@ -260,15 +260,12 @@ namespace AntDesign.Styles
             return GenStyleHooks("Calendar", (CalendarToken token) =>
             {
                 var calendarCls = $@"{token.ComponentCls}-calendar";
-                var calendarToken = MergeToken(token, InitPickerPanelToken(token), new object { PickerCellInnerCls = $@"{token.ComponentCls}-cell-inner", DateValueHeight = token.ControlHeightSM, WeekHeight = token.calc(token.controlHeightSM).mul(0.75).Equal() as number, DateContentHeight = token
-        .calc(token.calc(token.fontHeightSM).add(token.marginXS))
-        .mul(3)
-        .add(token.calc(token.lineWidth).mul(2)).Equal() as number, });
+                var calendarToken = MergeToken(token, InitPickerPanelToken(token), new object { PickerCellInnerCls = $@"{token.ComponentCls}-cell-inner", DateValueHeight = token.ControlHeightSM, WeekHeight = token.Calc(token.ControlHeightSM).Mul(0.75).Equal() as number, DateContentHeight = token.Calc(token.Calc(token.FontHeightSM).Add(token.MarginXS)).Mul(3).Add(token.Calc(token.LineWidth).Mul(2)).Equal() as number, });
                 return new object[]
                 {
                     GenCalendarStyles(calendarToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

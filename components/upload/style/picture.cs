@@ -33,9 +33,7 @@ namespace AntDesign.Styles
                         [itemCls] = new CSSObject
                         {
                             Position = "relative",
-                            Height = calc(uploadThumbnailSize)
-            .add(calc(token.lineWidth).mul(2))
-            .add(calc(token.paddingXS).mul(2)).Equal(),
+                            Height = Calc(uploadThumbnailSize).Add(Calc(token.LineWidth).Mul(2)).Add(Calc(token.PaddingXS).Mul(2)).Equal(),
                             Padding = token.PaddingXS,
                             Border = $@"{Unit(token.LineWidth)} {token.LineType} {token.ColorBorder}",
                             BorderRadius = token.BorderRadiusLG,
@@ -48,7 +46,7 @@ namespace AntDesign.Styles
                                 ["..."] = textEllipsis,
                                 Width = uploadThumbnailSize,
                                 Height = uploadThumbnailSize,
-                                LineHeight = Unit(calc(uploadThumbnailSize).add(token.paddingSM).Equal()),
+                                LineHeight = Unit(Calc(uploadThumbnailSize).Add(token.PaddingSM).Equal()),
                                 TextAlign = "center",
                                 Flex = "none",
                                 [iconCls] = new CSSObject
@@ -67,9 +65,9 @@ namespace AntDesign.Styles
                             [$@"{itemCls}-progress"] = new CSSObject
                             {
                                 Bottom = uploadProgressOffset,
-                                Width = $@"{Unit(calc(token.paddingSM).mul(2).Equal())})",
+                                Width = $@"{Unit(Calc(token.PaddingSM).Mul(2).Equal())})",
                                 MarginTop = 0,
-                                PaddingInlineStart = calc(uploadThumbnailSize).add(token.paddingXS).Equal(),
+                                PaddingInlineStart = Calc(uploadThumbnailSize).Add(token.PaddingXS).Equal(),
                             },
                         },
                         [$@"{itemCls}-error"] = new CSSObject
@@ -188,8 +186,8 @@ namespace AntDesign.Styles
                             {
                                 Position = "absolute",
                                 ZIndex = 1,
-                                Width = $@"{Unit(calc(token.paddingXS).mul(2).Equal())})",
-                                Height = $@"{Unit(calc(token.paddingXS).mul(2).Equal())})",
+                                Width = $@"{Unit(Calc(token.PaddingXS).Mul(2).Equal())})",
+                                Height = $@"{Unit(Calc(token.PaddingXS).Mul(2).Equal())})",
                                 BackgroundColor = token.ColorBgMask,
                                 Opacity = 0,
                                 Transition = $@"{token.MotionDurationSlow}",
@@ -253,7 +251,7 @@ namespace AntDesign.Styles
                             Position = "absolute",
                             Bottom = token.Margin,
                             Display = "block",
-                            Width = $@"{Unit(calc(token.paddingXS).mul(2).Equal())})",
+                            Width = $@"{Unit(Calc(token.PaddingXS).Mul(2).Equal())})",
                         },
                         [$@"{itemCls}-uploading"] = new CSSObject
                         {
@@ -269,7 +267,7 @@ namespace AntDesign.Styles
                         [$@"{itemCls}-progress"] = new CSSObject
                         {
                             Bottom = token.MarginXL,
-                            Width = $@"{Unit(calc(token.paddingXS).mul(2).Equal())})",
+                            Width = $@"{Unit(Calc(token.PaddingXS).Mul(2).Equal())})",
                             PaddingInlineStart = 0,
                         },
                     },

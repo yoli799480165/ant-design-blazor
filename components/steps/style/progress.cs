@@ -23,10 +23,8 @@ namespace AntDesign.Styles
             var lineWidthBold = token.LineWidthBold;
             var lineWidth = token.LineWidth;
             var paddingXXS = token.PaddingXXS;
-            var progressSize = token.calc(iconSize).add(token.calc(lineWidthBold).mul(4).equal()).Equal();
-            var progressSizeSM = token
-    .calc(iconSizeSM)
-    .add(token.calc(token.lineWidth).mul(4).equal()).Equal();
+            var progressSize = token.Calc(iconSize).Add(token.Calc(lineWidthBold).Mul(4).Equal()).Equal();
+            var progressSizeSM = token.Calc(iconSizeSM).Add(token.Calc(token.LineWidth).Mul(4).Equal()).Equal();
             return new CSSObject
             {
                 [$@"{componentCls}-with-progress"] = new CSSObject
@@ -45,7 +43,7 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-item-container > {componentCls}-item-tail"] = new CSSObject
                         {
                             Top = marginXXS,
-                            InsetInlineStart = token.calc(iconSize).div(2).sub(lineWidth).add(paddingXXS).Equal(),
+                            InsetInlineStart = token.Calc(iconSize).Div(2).Sub(lineWidth).Add(paddingXXS).Equal(),
                         },
                     },
                     [$@"{componentCls}-small"] = new CSSObject
@@ -58,11 +56,11 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-small{componentCls}-vertical > {componentCls}-item > {componentCls}-item-container > {componentCls}-item-tail"] = new CSSObject
                     {
-                        InsetInlineStart = token.calc(iconSizeSM).div(2).sub(lineWidth).add(paddingXXS).Equal(),
+                        InsetInlineStart = token.Calc(iconSizeSM).Div(2).Sub(lineWidth).Add(paddingXXS).Equal(),
                     },
                     [$@"{componentCls}-label-vertical {componentCls}-item {componentCls}-item-tail"] = new CSSObject
                     {
-                        Top = token.calc(iconSize).div(2).add(paddingXXS).Equal(),
+                        Top = token.Calc(iconSize).Div(2).Add(paddingXXS).Equal(),
                     },
                     [$@"{componentCls}-item-icon"] = new CSSObject
                     {
@@ -84,7 +82,7 @@ namespace AntDesign.Styles
                     {
                         [$@"{componentCls}-label-vertical {componentCls}-item {componentCls}-item-tail"] = new CSSObject
                         {
-                            Top = token.calc(iconSizeSM).div(2).add(paddingXXS).Equal(),
+                            Top = token.Calc(iconSizeSM).Div(2).Add(paddingXXS).Equal(),
                         },
                         [$@"{componentCls}-item-icon {antCls}-progress-inner"] = new CSSObject
                         {
@@ -98,7 +96,7 @@ namespace AntDesign.Styles
 
         public static object ProgressDefault()
         {
-            return genStepsProgressStyle;
+            return GenStepsProgressStyle;
         }
     }
 }

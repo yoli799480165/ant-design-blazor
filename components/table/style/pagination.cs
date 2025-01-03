@@ -53,7 +53,7 @@ namespace AntDesign.Styles
 
         public static object PaginationDefault()
         {
-            return genPaginationStyle;
+            return GenPaginationStyle;
         }
     }
 }

@@ -88,7 +88,7 @@ namespace AntDesign.Styles
         {
             return new QrCodeToken
             {
-                QRCodeMaskBackgroundColor = new TinyColor(token.colorBgContainer).setAlpha(0.96).ToRgbString(),
+                QRCodeMaskBackgroundColor = new TinyColor(token.ColorBgContainer).SetAlpha(0.96).ToRgbString(),
             };
         }
 
@@ -98,7 +98,7 @@ namespace AntDesign.Styles
             {
                 var mergedToken = MergeToken(token, new object { QRCodeTextColor = token.ColorText, });
                 return GenQRCodeStyle(mergedToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -380,7 +380,7 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks("Progress", (ProgressToken token) =>
             {
-                var progressStepMarginInlineEnd = token.calc(token.marginXXS).div(2).Equal();
+                var progressStepMarginInlineEnd = token.Calc(token.MarginXXS).Div(2).Equal();
                 var progressToken = MergeToken(token, new object { ProgressStepMinWidth = progressStepMarginInlineEnd, ProgressActiveMotionDuration = "2.4s", });
                 return new object[]
                 {
@@ -389,7 +389,7 @@ namespace AntDesign.Styles
                     GenStepStyle(progressToken),
                     GenSmallLine(progressToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

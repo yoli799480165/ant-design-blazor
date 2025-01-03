@@ -61,7 +61,7 @@ namespace AntDesign.Styles
 
         public static object RtlDefault()
         {
-            return genStepsRTLStyle;
+            return GenStepsRTLStyle;
         }
     }
 }

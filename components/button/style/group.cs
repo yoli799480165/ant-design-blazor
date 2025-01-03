@@ -69,7 +69,7 @@ namespace AntDesign.Styles
                             },
                             ["&:not(:first-child)"] = new object
                             {
-                                MarginInlineStart = token.calc(lineWidth).mul(-1).Equal(),
+                                MarginInlineStart = token.Calc(lineWidth).Mul(-1).Equal(),
                                 [$@"{componentCls}"] = new object
                                 {
                                     BorderStartStartRadius = 0,
@@ -102,7 +102,7 @@ namespace AntDesign.Styles
 
         public static object GroupDefault()
         {
-            return genGroupStyle;
+            return GenGroupStyle;
         }
     }
 }

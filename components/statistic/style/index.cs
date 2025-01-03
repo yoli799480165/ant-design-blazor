@@ -93,7 +93,7 @@ namespace AntDesign.Styles
                 {
                     GenStatisticStyle(statisticToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

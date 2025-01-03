@@ -37,20 +37,15 @@ namespace AntDesign.Styles
                         Width = tableSelectionColumnWidth,
                         [$@"{componentCls}-selection-col-with-dropdown"] = new CSSObject
                         {
-                            Width = calc(tableSelectionColumnWidth)
-            .add(fontSizeIcon)
-            .add(calc(padding).div(4)).Equal(),
+                            Width = Calc(tableSelectionColumnWidth).Add(fontSizeIcon).Add(Calc(padding).Div(4)).Equal(),
                         },
                     },
                     [$@"{componentCls}-bordered {componentCls}-selection-col"] = new CSSObject
                     {
-                        Width = calc(tableSelectionColumnWidth).add(calc(paddingXS).mul(2)).Equal(),
+                        Width = Calc(tableSelectionColumnWidth).Add(Calc(paddingXS).Mul(2)).Equal(),
                         [$@"{componentCls}-selection-col-with-dropdown"] = new CSSObject
                         {
-                            Width = calc(tableSelectionColumnWidth)
-            .add(fontSizeIcon)
-            .add(calc(padding).div(4))
-            .add(calc(paddingXS).mul(2)).Equal(),
+                            Width = Calc(tableSelectionColumnWidth).Add(fontSizeIcon).Add(Calc(padding).Div(4)).Add(Calc(paddingXS).Mul(2)).Equal(),
                         },
                     },
                     [$@"{componentCls}-selection-column,
@@ -68,7 +63,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-selection-column{componentCls}-cell-fix-left"] = new CSSObject
                     {
-                        ZIndex = calc(token.zIndexTableFixed).add(1).Equal(new object { Unit = false, }),
+                        ZIndex = Calc(token.ZIndexTableFixed).Add(1).Equal(new object { Unit = false, }),
                     },
                     [$@"{componentCls}-selection-column::after"] = new CSSObject
                     {
@@ -88,7 +83,7 @@ namespace AntDesign.Styles
                         Cursor = "pointer",
                         Transition = $@"{token.MotionDurationSlow}",
                         MarginInlineStart = "100%",
-                        PaddingInlineStart = Unit(calc(tablePaddingHorizontal).div(4).Equal()),
+                        PaddingInlineStart = Unit(Calc(tablePaddingHorizontal).Div(4).Equal()),
                         [iconCls] = new CSSObject
                         {
                             Color = headerIconColor,
@@ -127,7 +122,7 @@ namespace AntDesign.Styles
 
         public static object SelectionDefault()
         {
-            return genSelectionStyle;
+            return GenSelectionStyle;
         }
     }
 }

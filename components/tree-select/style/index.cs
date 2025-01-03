@@ -35,7 +35,7 @@ namespace AntDesign.Styles
                     {
                         new object
                         {
-                            Padding = $@"{Unit(token.PaddingXS)} {Unit(token.calc(token.paddingXS).div(2).Equal())}",
+                            Padding = $@"{Unit(token.PaddingXS)} {Unit(token.Calc(token.PaddingXS).Div(2).Equal())}",
                         },
                         GenTreeStyle(treePrefixCls, MergeToken(token, new object { ColorBgContainer = colorBgElevated, })),
                         new object
@@ -76,6 +76,6 @@ namespace AntDesign.Styles
             };
         }
 
-        public object prepareComponentToken = initComponentToken;
+        public object PrepareComponentToken = initComponentToken;
     }
 }

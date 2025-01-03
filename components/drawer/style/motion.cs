@@ -72,7 +72,13 @@ namespace AntDesign.Styles
                 [componentCls] = new CSSObject
                 {
                     [$@"{componentCls}-mask-motion"] = GetFadeStyle(0, motionDurationSlow),
-                    [$@"{componentCls}-panel-motion"] = ['left', 'right', 'top', 'bottom'].Reduce((object obj, object direction) =>
+                    [$@"{componentCls}-panel-motion"] = new object[]
+                    {
+                        "left",
+                        "right",
+                        "top",
+                        "bottom"
+                    }.Reduce((object obj, object direction) =>
                     {
                         return new object
                         {
@@ -86,7 +92,7 @@ namespace AntDesign.Styles
 
         public static object MotionDefault()
         {
-            return genMotionStyle;
+            return GenMotionStyle;
         }
     }
 }

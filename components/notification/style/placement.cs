@@ -20,7 +20,7 @@ namespace AntDesign.Styles
             var noticeCls = $@"{componentCls}-notice";
             var rightFadeIn = new Keyframes("antNotificationFadeIn", new object { ["0%"] = new object { Transform = "translate3d(100%, 0, 0)", Opacity = 0, }, ["100%"] = new object { Transform = "translate3d(0, 0, 0)", Opacity = 1, }, });
             var topFadeIn = new Keyframes("antNotificationTopFadeIn", new object { ["0%"] = new object { Top = -animationMaxHeight, Opacity = 0, }, ["100%"] = new object { Top = 0, Opacity = 1, }, });
-            var bottomFadeIn = new Keyframes("antNotificationBottomFadeIn", new object { ["0%"] = new object { Bottom = token.calc(animationMaxHeight).mul(-1).Equal(), Opacity = 0, }, ["100%"] = new object { Bottom = 0, Opacity = 1, }, });
+            var bottomFadeIn = new Keyframes("antNotificationBottomFadeIn", new object { ["0%"] = new object { Bottom = token.Calc(animationMaxHeight).Mul(-1).Equal(), Opacity = 0, }, ["100%"] = new object { Bottom = 0, Opacity = 1, }, });
             var leftFadeIn = new Keyframes("antNotificationLeftFadeIn", new object { ["0%"] = new object { Transform = "translate3d(-100%, 0, 0)", Opacity = 0, }, ["100%"] = new object { Transform = "translate3d(0, 0, 0)", Opacity = 1, }, });
             return new CSSObject
             {
@@ -83,7 +83,7 @@ namespace AntDesign.Styles
 
         public static object PlacementDefault()
         {
-            return genNotificationPlacementStyle;
+            return GenNotificationPlacementStyle;
         }
     }
 }

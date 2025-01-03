@@ -61,8 +61,8 @@ namespace AntDesign.Styles
                             Position = "relative",
                             Display = "flex",
                             AlignItems = "center",
-                            MarginBlock = calc(paddingXXS).mul(-1).Equal(),
-                            MarginInline = $@"{Unit(paddingXXS)} {Unit(calc(tablePaddingHorizontal).div(2).mul(-1).Equal())}",
+                            MarginBlock = Calc(paddingXXS).Mul(-1).Equal(),
+                            MarginInline = $@"{Unit(paddingXXS)} {Unit(Calc(tablePaddingHorizontal).Div(2).Mul(-1).Equal())}",
                             Padding = $@"{Unit(paddingXXS)}",
                             Color = headerIconColor,
                             FontSize = fontSizeSM,
@@ -155,7 +155,7 @@ namespace AntDesign.Styles
                             {
                                 Display = "flex",
                                 JustifyContent = "space-between",
-                                Padding = $@"{Unit(calc(paddingXS).sub(lineWidth).Equal())} {Unit(paddingXS)}",
+                                Padding = $@"{Unit(Calc(paddingXS).Sub(lineWidth).Equal())} {Unit(paddingXS)}",
                                 Overflow = "hidden",
                                 BorderTop = tableBorder,
                             },
@@ -184,7 +184,7 @@ namespace AntDesign.Styles
 
         public static object FilterDefault()
         {
-            return genFilterStyle;
+            return GenFilterStyle;
         }
     }
 }

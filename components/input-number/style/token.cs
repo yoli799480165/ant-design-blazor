@@ -42,8 +42,7 @@ namespace AntDesign.Styles
                 HandleFontSize = token.FontSize / 2,
                 HandleActiveBg = token.ColorFillAlter,
                 HandleBg = token.ColorBgContainer,
-                FilledHandleBg = new TinyColor(token.colorFillSecondary)
-      .onBackground(token.colorBgContainer).ToHexString(),
+                FilledHandleBg = new TinyColor(token.ColorFillSecondary).OnBackground(token.ColorBgContainer).ToHexString(),
                 HandleHoverColor = token.ColorPrimary,
                 HandleBorderColor = token.ColorBorder,
                 HandleOpacity = handleVisible == true ? 1 : 0,

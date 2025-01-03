@@ -88,7 +88,7 @@ namespace AntDesign.Styles
             var splitBarCls = $@"{componentCls}-bar";
             var splitMaskCls = $@"{componentCls}-mask";
             var splitPanelCls = $@"{componentCls}-panel";
-            var halfTriggerSize = token.calc(splitTriggerSize).div(2).Equal();
+            var halfTriggerSize = token.Calc(splitTriggerSize).Div(2).Equal();
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -333,7 +333,7 @@ namespace AntDesign.Styles
                 {
                     GenSplitterStyle(token)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

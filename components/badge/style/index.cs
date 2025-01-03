@@ -101,7 +101,7 @@ namespace AntDesign.Styles
                         WhiteSpace = "nowrap",
                         TextAlign = "center",
                         Background = token.BadgeColor,
-                        BorderRadius = calc(indicatorHeight).div(2).Equal(),
+                        BorderRadius = Calc(indicatorHeight).Div(2).Equal(),
                         BoxShadow = $@"{Unit(badgeShadowSize)} {token.BadgeShadowColor}",
                         Transition = $@"{token.MotionDurationMid}",
                         ["a"] = new CSSObject
@@ -123,7 +123,7 @@ namespace AntDesign.Styles
                         Height = indicatorHeightSM,
                         FontSize = textFontSizeSM,
                         LineHeight = Unit(indicatorHeightSM),
-                        BorderRadius = calc(indicatorHeightSM).div(2).Equal(),
+                        BorderRadius = Calc(indicatorHeightSM).Div(2).Equal(),
                     },
                     [$@"{componentCls}-multiple-words"] = new CSSObject
                     {
@@ -341,7 +341,7 @@ namespace AntDesign.Styles
             {
                 var badgeToken = PrepareToken(token);
                 return GenSharedBadgeStyle(badgeToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

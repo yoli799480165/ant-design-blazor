@@ -122,29 +122,32 @@ namespace AntDesign.Styles
                     Margin = 0,
                     WhiteSpace = "nowrap",
                     Cursor = "pointer",
-                    Transition = [
-        `border-color ${motionDurationSlow}`,
-        `background ${motionDurationSlow}`,
-        `padding calc(${motionDurationSlow} + 0.1s) ${motionEaseInOut}`,
-      ].Join(","),
+                    Transition = new object[]
+                    {
+                        $@"{motionDurationSlow}",
+                        $@"{motionDurationSlow}",
+                        $@"{motionDurationSlow} + 0.1s) {motionEaseInOut}"
+                    }.Join(","),
                     [$@"{componentCls}-item-icon, {iconCls}"] = new CSSObject
                     {
                         MinWidth = iconSize,
                         FontSize = iconSize,
-                        Transition = [
-          `font-size ${motionDurationMid} ${motionEaseOut}`,
-          `margin ${motionDurationSlow} ${motionEaseInOut}`,
-          `color ${motionDurationSlow}`,
-        ].Join(","),
+                        Transition = new object[]
+                        {
+                            $@"{motionDurationMid} {motionEaseOut}",
+                            $@"{motionDurationSlow} {motionEaseInOut}",
+                            $@"{motionDurationSlow}"
+                        }.Join(","),
                         ["+ span"] = new CSSObject
                         {
                             MarginInlineStart = iconMarginInlineEnd,
                             Opacity = 1,
-                            Transition = [
-            `opacity ${motionDurationSlow} ${motionEaseInOut}`,
-            `margin ${motionDurationSlow}`,
-            `color ${motionDurationSlow}`,
-          ].Join(","),
+                            Transition = new object[]
+                            {
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow}",
+                                $@"{motionDurationSlow}"
+                            }.Join(","),
                         },
                     },
                     [$@"{componentCls}-item-icon"] = new CSSObject
@@ -207,20 +210,21 @@ namespace AntDesign.Styles
                         ["&::before, &::after"] = new CSSObject
                         {
                             Position = "absolute",
-                            Width = token.calc(menuArrowSize).mul(0.6).Equal(),
-                            Height = token.calc(menuArrowSize).mul(0.15).Equal(),
+                            Width = token.Calc(menuArrowSize).Mul(0.6).Equal(),
+                            Height = token.Calc(menuArrowSize).Mul(0.15).Equal(),
                             BackgroundColor = "currentcolor",
-                            Transition = [
-            `background ${motionDurationSlow} ${motionEaseInOut}`,
-            `transform ${motionDurationSlow} ${motionEaseInOut}`,
-            `top ${motionDurationSlow} ${motionEaseInOut}`,
-            `color ${motionDurationSlow} ${motionEaseInOut}`,
-          ].Join(","),
+                            Transition = new object[]
+                            {
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow} {motionEaseInOut}"
+                            }.Join(","),
                             Content = "\"\"",
                         },
                         ["&::before"] = new CSSObject
                         {
-                            Transform = $@"{Unit(token.calc(menuArrowOffset).mul(-1).Equal())})",
+                            Transform = $@"{Unit(token.Calc(menuArrowOffset).Mul(-1).Equal())})",
                         },
                         ["&::after"] = new CSSObject
                         {
@@ -310,26 +314,29 @@ namespace AntDesign.Styles
                         },
                         [$@"{componentCls}-submenu"] = new object
                         {
-                            Transition = [
-            `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `background ${motionDurationSlow} ${motionEaseInOut}`,
-          ].Join(","),
+                            Transition = new object[]
+                            {
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow} {motionEaseInOut}"
+                            }.Join(","),
                         },
                         [$@"{componentCls}-submenu, {componentCls}-submenu-inline"] = new object
                         {
-                            Transition = [
-            `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `background ${motionDurationSlow} ${motionEaseInOut}`,
-            `padding ${motionDurationMid} ${motionEaseInOut}`,
-          ].Join(","),
+                            Transition = new object[]
+                            {
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationMid} {motionEaseInOut}"
+                            }.Join(","),
                         },
                         [$@"{componentCls}-submenu {componentCls}-sub"] = new object
                         {
                             Cursor = "initial",
-                            Transition = [
-            `background ${motionDurationSlow} ${motionEaseInOut}`,
-            `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ].Join(","),
+                            Transition = new object[]
+                            {
+                                $@"{motionDurationSlow} {motionEaseInOut}",
+                                $@"{motionDurationSlow} {motionEaseInOut}"
+                            }.Join(","),
                         },
                         [$@"{componentCls}-title-content"] = new object
                         {
@@ -386,7 +393,7 @@ namespace AntDesign.Styles
                                 Padding = 0,
                                 [$@"{componentCls}-item, {componentCls}-submenu-title"] = new object
                                 {
-                                    PaddingInline = $@"{Unit(token.calc(fontSize).mul(2).Equal())} {Unit(padding)}",
+                                    PaddingInline = $@"{Unit(token.Calc(fontSize).Mul(2).Equal())} {Unit(padding)}",
                                 },
                             },
                         },
@@ -471,15 +478,15 @@ namespace AntDesign.Styles
                             },
                             ["&::after"] = new object
                             {
-                                Transform = $@"{Unit(token.calc(menuArrowOffset).mul(-1).Equal())})",
+                                Transform = $@"{Unit(token.Calc(menuArrowOffset).Mul(-1).Equal())})",
                             },
                         },
                         [$@"{componentCls}-submenu-open{componentCls}-submenu-inline > {componentCls}-submenu-title > {componentCls}-submenu-arrow"] = new object
                         {
-                            Transform = $@"{Unit(token.calc(menuArrowSize).mul(0.2).mul(-1).Equal())})",
+                            Transform = $@"{Unit(token.Calc(menuArrowSize).Mul(0.2).Mul(-1).Equal())})",
                             ["&::after"] = new object
                             {
-                                Transform = $@"{Unit(token.calc(menuArrowOffset).mul(-1).Equal())})",
+                                Transform = $@"{Unit(token.Calc(menuArrowOffset).Mul(-1).Equal())})",
                             },
                             ["&::before"] = new object
                             {
@@ -529,7 +536,7 @@ namespace AntDesign.Styles
             var activeBarWidth = 0;
             var activeBarBorderWidth = lineWidth;
             var itemMarginInline = token.MarginXXS;
-            var colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).ToRgbString();
+            var colorTextDark = new TinyColor(colorTextLightSolid).SetAlpha(0.65).ToRgbString();
             return new MenuToken
             {
                 DropdownWidth = 160,
@@ -591,7 +598,7 @@ namespace AntDesign.Styles
                 IconMarginInlineEnd = controlHeightSM - fontSize,
                 CollapsedIconSize = fontSizeLG,
                 GroupTitleFontSize = fontSize,
-                DarkItemDisabledColor = new TinyColor(colorTextLightSolid).setAlpha(0.25).ToRgbString(),
+                DarkItemDisabledColor = new TinyColor(colorTextLightSolid).SetAlpha(0.25).ToRgbString(),
                 DarkItemColor = colorTextDark,
                 DarkDangerItemColor = colorError,
                 DarkItemBg = "#001529",
@@ -635,8 +642,8 @@ namespace AntDesign.Styles
                     var darkDangerItemActiveBg = token.DarkDangerItemActiveBg;
                     var popupBg = token.PopupBg;
                     var darkPopupBg = token.DarkPopupBg;
-                    var menuArrowSize = token.calc(fontSize).div(7).mul(5).Equal();
-                    var menuToken = MergeToken(token, new object { MenuHorizontalHeight = token.calc(controlHeightLG).mul(1.15).Equal(), MenuArrowOffset = token.calc(menuArrowSize).mul(0.25).Equal(), MenuSubMenuBg = colorBgElevated, Calc = token.Calc, });
+                    var menuArrowSize = token.Calc(fontSize).Div(7).Mul(5).Equal();
+                    var menuToken = MergeToken(token, new object { MenuHorizontalHeight = token.Calc(controlHeightLG).Mul(1.15).Equal(), MenuArrowOffset = token.Calc(menuArrowSize).Mul(0.25).Equal(), MenuSubMenuBg = colorBgElevated, Calc = token.Calc, });
                     var menuDarkToken = MergeToken(menuToken, new object { ItemColor = darkItemColor, ItemHoverColor = darkItemHoverColor, GroupTitleColor = darkGroupTitleColor, ItemSelectedColor = darkItemSelectedColor, ItemBg = darkItemBg, PopupBg = darkPopupBg, SubMenuItemBg = darkSubMenuItemBg, ItemActiveBg = "transparent", ItemSelectedBg = darkItemSelectedBg, ActiveBarHeight = 0, ActiveBarBorderWidth = 0, ItemHoverBg = darkItemHoverBg, ItemDisabledColor = darkItemDisabledColor, DangerItemColor = darkDangerItemColor, DangerItemHoverColor = darkDangerItemHoverColor, DangerItemSelectedColor = darkDangerItemSelectedColor, DangerItemActiveBg = darkDangerItemActiveBg, DangerItemSelectedBg = darkDangerItemSelectedBg, MenuSubMenuBg = darkSubMenuItemBg, HorizontalItemSelectedColor = darkItemSelectedColor, HorizontalItemSelectedBg = darkItemSelectedBg, });
                     return new object[]
                     {
@@ -651,7 +658,7 @@ namespace AntDesign.Styles
                         InitSlideMotion(menuToken, "slide-down"),
                         InitZoomMotion(menuToken, "zoom-big")
                     };
-                }, prepareComponentToken, new object { DeprecatedTokens = new object[] { new object[] { "colorGroupTitle", "groupTitleColor" }, new object[] { "radiusItem", "itemBorderRadius" }, new object[] { "radiusSubMenuItem", "subMenuItemBorderRadius" }, new object[] { "colorItemText", "itemColor" }, new object[] { "colorItemTextHover", "itemHoverColor" }, new object[] { "colorItemTextHoverHorizontal", "horizontalItemHoverColor" }, new object[] { "colorItemTextSelected", "itemSelectedColor" }, new object[] { "colorItemTextSelectedHorizontal", "horizontalItemSelectedColor" }, new object[] { "colorItemTextDisabled", "itemDisabledColor" }, new object[] { "colorDangerItemText", "dangerItemColor" }, new object[] { "colorDangerItemTextHover", "dangerItemHoverColor" }, new object[] { "colorDangerItemTextSelected", "dangerItemSelectedColor" }, new object[] { "colorDangerItemBgActive", "dangerItemActiveBg" }, new object[] { "colorDangerItemBgSelected", "dangerItemSelectedBg" }, new object[] { "colorItemBg", "itemBg" }, new object[] { "colorItemBgHover", "itemHoverBg" }, new object[] { "colorSubItemBg", "subMenuItemBg" }, new object[] { "colorItemBgActive", "itemActiveBg" }, new object[] { "colorItemBgSelectedHorizontal", "horizontalItemSelectedBg" }, new object[] { "colorActiveBarWidth", "activeBarWidth" }, new object[] { "colorActiveBarHeight", "activeBarHeight" }, new object[] { "colorActiveBarBorderSize", "activeBarBorderWidth" }, new object[] { "colorItemBgSelected", "itemSelectedBg" } }, Unitless = new object { GroupTitleLineHeight = true, }, });
+                }, PrepareComponentToken, new object { DeprecatedTokens = new object[] { new object[] { "colorGroupTitle", "groupTitleColor" }, new object[] { "radiusItem", "itemBorderRadius" }, new object[] { "radiusSubMenuItem", "subMenuItemBorderRadius" }, new object[] { "colorItemText", "itemColor" }, new object[] { "colorItemTextHover", "itemHoverColor" }, new object[] { "colorItemTextHoverHorizontal", "horizontalItemHoverColor" }, new object[] { "colorItemTextSelected", "itemSelectedColor" }, new object[] { "colorItemTextSelectedHorizontal", "horizontalItemSelectedColor" }, new object[] { "colorItemTextDisabled", "itemDisabledColor" }, new object[] { "colorDangerItemText", "dangerItemColor" }, new object[] { "colorDangerItemTextHover", "dangerItemHoverColor" }, new object[] { "colorDangerItemTextSelected", "dangerItemSelectedColor" }, new object[] { "colorDangerItemBgActive", "dangerItemActiveBg" }, new object[] { "colorDangerItemBgSelected", "dangerItemSelectedBg" }, new object[] { "colorItemBg", "itemBg" }, new object[] { "colorItemBgHover", "itemHoverBg" }, new object[] { "colorSubItemBg", "subMenuItemBg" }, new object[] { "colorItemBgActive", "itemActiveBg" }, new object[] { "colorItemBgSelectedHorizontal", "horizontalItemSelectedBg" }, new object[] { "colorActiveBarWidth", "activeBarWidth" }, new object[] { "colorActiveBarHeight", "activeBarHeight" }, new object[] { "colorActiveBarBorderSize", "activeBarBorderWidth" }, new object[] { "colorItemBgSelected", "itemSelectedBg" } }, Unitless = new object { GroupTitleLineHeight = true, }, });
                 return UseStyle(prefixCls, rootCls);
             };
         }

@@ -117,7 +117,7 @@ namespace AntDesign.Styles
                             [$@"{componentCls}-cover"] = new object
                             {
                                 TextAlign = "center",
-                                Padding = $@"{Unit(token.calc(padding).add(closeBtnSize).add(paddingXS).Equal())} {Unit(padding)} 0",
+                                Padding = $@"{Unit(token.Calc(padding).Add(closeBtnSize).Add(paddingXS).Equal())} {Unit(padding)} 0",
                                 ["img"] = new object
                                 {
                                     Width = "100%",
@@ -230,14 +230,7 @@ namespace AntDesign.Styles
                             Transition = $@"{motionDurationSlow}",
                         },
                     },
-                    [[
-        '&-placement-left',
-        '&-placement-leftTop',
-        '&-placement-leftBottom',
-        '&-placement-right',
-        '&-placement-rightTop',
-        '&-placement-rightBottom',
-      ].Join(",")] = new object
+                    [new object[] { "&-placement-left", "&-placement-leftTop", "&-placement-leftBottom", "&-placement-right", "&-placement-rightTop", "&-placement-rightBottom" }.Join(",")] = new object
                     {
                         [$@"{componentCls}-inner"] = new object
                         {
@@ -255,9 +248,8 @@ namespace AntDesign.Styles
             {
                 ZIndexPopup = token.ZIndexPopupBase + 70,
                 CloseBtnSize = token.FontSize * token.LineHeight,
-                PrimaryPrevBtnBg = new TinyColor(token.colorTextLightSolid).setAlpha(0.15).ToRgbString(),
-                PrimaryNextBtnHoverBg = new TinyColor(token.colorBgTextHover)
-    .onBackground(token.colorWhite).ToRgbString(),
+                PrimaryPrevBtnBg = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.15).ToRgbString(),
+                PrimaryNextBtnHoverBg = new TinyColor(token.ColorBgTextHover).OnBackground(token.ColorWhite).ToRgbString(),
                 ["..."] = GetArrowOffsetToken(new object { ContentRadius = token.BorderRadiusLG, LimitVerticalRadius = true, }),
                 ["..."] = GetArrowToken(token),
             };
@@ -273,7 +265,7 @@ namespace AntDesign.Styles
                 {
                     GenBaseStyle(TourToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

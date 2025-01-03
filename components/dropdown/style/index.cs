@@ -60,7 +60,7 @@ namespace AntDesign.Styles
                         ["&::before"] = new object
                         {
                             Position = "absolute",
-                            InsetBlock = token.calc(sizePopupArrow).div(2).sub(dropdownArrowDistance).Equal(),
+                            InsetBlock = token.Calc(sizePopupArrow).Div(2).Sub(dropdownArrowDistance).Equal(),
                             ZIndex = -9999,
                             Opacity = 0.0001,
                             Content = "\"\"",
@@ -290,7 +290,7 @@ namespace AntDesign.Styles
                             },
                             [$@"{menuCls}-submenu-title"] = new object
                             {
-                                PaddingInlineEnd = token.calc(controlPaddingHorizontal).add(token.fontSizeSM).Equal(),
+                                PaddingInlineEnd = token.Calc(controlPaddingHorizontal).Add(token.FontSizeSM).Equal(),
                             },
                             [$@"{menuCls}-submenu-vertical"] = new object
                             {
@@ -342,13 +342,13 @@ namespace AntDesign.Styles
                 var sizePopupArrow = token.SizePopupArrow;
                 var paddingXXS = token.PaddingXXS;
                 var componentCls = token.ComponentCls;
-                var dropdownToken = MergeToken(token, new object { MenuCls = $@"{componentCls}-menu", DropdownArrowDistance = token.calc(sizePopupArrow).div(2).add(marginXXS).Equal(), DropdownEdgeChildPadding = paddingXXS, });
+                var dropdownToken = MergeToken(token, new object { MenuCls = $@"{componentCls}-menu", DropdownArrowDistance = token.Calc(sizePopupArrow).Div(2).Add(marginXXS).Equal(), DropdownEdgeChildPadding = paddingXXS, });
                 return new object[]
                 {
                     GenBaseStyle(dropdownToken),
                     GenStatusStyle(dropdownToken)
                 };
-            }, prepareComponentToken, new object { ResetStyle = false, });
+            }, PrepareComponentToken, new object { ResetStyle = false, });
         }
     }
 }

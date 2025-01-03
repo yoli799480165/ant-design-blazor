@@ -49,7 +49,7 @@ namespace AntDesign.Styles
 
         public static UseComponentStyleResult IndexDefault()
         {
-            return GenStyleHooks("App", genBaseStyle, prepareComponentToken);
+            return GenStyleHooks("App", GenBaseStyle, PrepareComponentToken);
         }
     }
 }

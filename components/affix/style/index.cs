@@ -44,7 +44,7 @@ namespace AntDesign.Styles
 
         public static UseComponentStyleResult IndexDefault()
         {
-            return GenStyleHooks("Affix", genSharedAffixStyle, prepareComponentToken);
+            return GenStyleHooks("Affix", GenSharedAffixStyle, PrepareComponentToken);
         }
     }
 }

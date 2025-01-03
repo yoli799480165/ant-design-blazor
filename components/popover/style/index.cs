@@ -69,7 +69,11 @@ namespace AntDesign.Styles
                         Cursor = "auto",
                         UserSelect = "text",
                         ["--valid-offset-x"] = "var(--arrow-offset-horizontal, var(--arrow-x))",
-                        TransformOrigin = [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].Join(" "),
+                        TransformOrigin = new object[]
+                        {
+                            "var(--valid-offset-x, 50%)",
+                            "var(--arrow-y, 50%)"
+                        }.Join(" "),
                         ["--antd-arrow-background-color"] = colorBgElevated,
                         Width = "max-content",
                         MaxWidth = "100vw",
@@ -198,7 +202,7 @@ namespace AntDesign.Styles
                     GenColorStyle(popoverToken),
                     InitZoomMotion(popoverToken, "zoom-big")
                 };
-            }, prepareComponentToken, new object { ResetStyle = false, DeprecatedTokens = new object[] { new object[] { "width", "titleMinWidth" }, new object[] { "minWidth", "titleMinWidth" } }, });
+            }, PrepareComponentToken, new object { ResetStyle = false, DeprecatedTokens = new object[] { new object[] { "width", "titleMinWidth" }, new object[] { "minWidth", "titleMinWidth" } }, });
         }
     }
 }

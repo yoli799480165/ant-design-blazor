@@ -49,7 +49,7 @@ namespace AntDesign.Styles
             return GenComponentStyleHook(new object[] { "Cascader", "Panel" }, (CascaderToken token) =>
             {
                 return GenPanelStyle(token);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

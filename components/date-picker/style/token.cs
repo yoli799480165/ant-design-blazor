@@ -68,16 +68,14 @@ namespace AntDesign.Styles
             {
                 PickerCellCls = $@"{componentCls}-cell",
                 PickerCellInnerCls = $@"{componentCls}-cell-inner",
-                PickerYearMonthCellWidth = token.calc(controlHeightLG).mul(1.5).Equal(),
-                PickerQuarterPanelContentHeight = token.calc(controlHeightLG).mul(1.4).Equal(),
-                PickerCellPaddingVertical = token.calc(paddingXXS).add(token.calc(paddingXXS).div(2)).Equal(),
+                PickerYearMonthCellWidth = token.Calc(controlHeightLG).Mul(1.5).Equal(),
+                PickerQuarterPanelContentHeight = token.Calc(controlHeightLG).Mul(1.4).Equal(),
+                PickerCellPaddingVertical = token.Calc(paddingXXS).Add(token.Calc(paddingXXS).Div(2)).Equal(),
                 PickerCellBorderGap = 2,
                 PickerControlIconSize = 7,
                 PickerControlIconMargin = 4,
                 PickerControlIconBorderWidth = 1.5,
-                PickerDatePanelPaddingHorizontal = token
-      .calc(padding)
-      .add(token.calc(paddingXXS).div(2)).Equal(),
+                PickerDatePanelPaddingHorizontal = token.Calc(padding).Add(token.Calc(paddingXXS).Div(2)).Equal(),
             };
         }
 
@@ -99,8 +97,8 @@ namespace AntDesign.Styles
             {
                 CellHoverBg = token.ControlItemBgHover,
                 CellActiveWithRangeBg = token.ControlItemBgActive,
-                CellHoverWithRangeBg = new TinyColor(token.colorPrimary).lighten(35).ToHexString(),
-                CellRangeBorderColor = new TinyColor(token.colorPrimary).lighten(20).ToHexString(),
+                CellHoverWithRangeBg = new TinyColor(token.ColorPrimary).Lighten(35).ToHexString(),
+                CellRangeBorderColor = new TinyColor(token.ColorPrimary).Lighten(20).ToHexString(),
                 CellBgDisabled = colorBgContainerDisabled,
                 TimeColumnWidth = controlHeightLG * 1.4,
                 TimeColumnHeight = 28 * 8,

@@ -123,7 +123,7 @@ namespace AntDesign.Styles
                 {
                     GenTypographyStyle(token)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

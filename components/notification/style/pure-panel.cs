@@ -24,11 +24,11 @@ namespace AntDesign.Styles
                     {
                         ["..."] = GenNoticeStyle(notificationToken),
                         Width = notificationToken.Width,
-                        MaxWidth = $@"{Unit(token.calc(notificationToken.notificationMarginEdge).mul(2).Equal())})",
+                        MaxWidth = $@"{Unit(token.Calc(notificationToken.NotificationMarginEdge).Mul(2).Equal())})",
                         Margin = 0,
                     },
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

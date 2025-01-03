@@ -26,7 +26,7 @@ namespace AntDesign.Styles
 
         public static object RtlDefault()
         {
-            return genRtlStyle;
+            return GenRtlStyle;
         }
     }
 }

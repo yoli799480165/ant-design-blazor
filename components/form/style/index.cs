@@ -630,7 +630,7 @@ namespace AntDesign.Styles
                     GenCollapseMotion(formToken),
                     zoomIn
                 };
-            }, prepareComponentToken, new object { Order = -1000, });
+            }, PrepareComponentToken, new object { Order = -1000, });
         }
     }
 }

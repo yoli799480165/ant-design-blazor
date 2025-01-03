@@ -23,12 +23,8 @@ namespace AntDesign.Styles
             var colorPickerSliderHeight = token.ColorPickerSliderHeight;
             var marginSM = token.MarginSM;
             var marginXS = token.MarginXS;
-            var handleInnerSize = token
-    .calc(colorPickerHandlerSizeSM)
-    .sub(token.calc(lineWidthBold).mul(2).equal()).Equal();
-            var handleHoverSize = token
-    .calc(colorPickerHandlerSizeSM)
-    .add(token.calc(lineWidthBold).mul(2).equal()).Equal();
+            var handleInnerSize = token.Calc(colorPickerHandlerSizeSM).Sub(token.Calc(lineWidthBold).Mul(2).Equal()).Equal();
+            var handleHoverSize = token.Calc(colorPickerHandlerSizeSM).Add(token.Calc(lineWidthBold).Mul(2).Equal()).Equal();
             var activeHandleStyle = new object
             {
                 ["&:after"] = new object
@@ -47,11 +43,11 @@ namespace AntDesign.Styles
                         Margin = 0,
                         Padding = 0,
                         Height = colorPickerSliderHeight,
-                        BorderRadius = token.calc(colorPickerSliderHeight).div(2).Equal(),
+                        BorderRadius = token.Calc(colorPickerSliderHeight).Div(2).Equal(),
                         ["&-rail"] = new object
                         {
                             Height = colorPickerSliderHeight,
-                            BorderRadius = token.calc(colorPickerSliderHeight).div(2).Equal(),
+                            BorderRadius = token.Calc(colorPickerSliderHeight).Div(2).Equal(),
                             BoxShadow = colorPickerInsetShadow,
                         },
                         [$@"{componentCls}-slider-handle"] = new object
@@ -83,8 +79,8 @@ namespace AntDesign.Styles
                                 Border = $@"{Unit(lineWidthBold)} solid {colorBgElevated}",
                                 BoxShadow = $@"{colorPickerInsetShadow}, 0 0 0 1px {colorFillSecondary}",
                                 Outline = "none",
-                                InsetInlineStart = token.calc(lineWidthBold).mul(-1).Equal(),
-                                Top = token.calc(lineWidthBold).mul(-1).Equal(),
+                                InsetInlineStart = token.Calc(lineWidthBold).Mul(-1).Equal(),
+                                Top = token.Calc(lineWidthBold).Mul(-1).Equal(),
                                 Background = "transparent",
                                 Transition = "none",
                             },
@@ -126,7 +122,7 @@ namespace AntDesign.Styles
 
         public static object SliderDefault()
         {
-            return genSliderStyle;
+            return GenSliderStyle;
         }
     }
 }

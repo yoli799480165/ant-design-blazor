@@ -27,13 +27,13 @@ namespace AntDesign.Styles
                         Overflow = "visible",
                         ["&-tail"] = new CSSObject
                         {
-                            MarginInlineStart = token.calc(iconSize).div(2).add(token.controlHeightLG).Equal(),
+                            MarginInlineStart = token.Calc(iconSize).Div(2).Add(token.ControlHeightLG).Equal(),
                             Padding = $@"{Unit(token.PaddingLG)}",
                         },
                         ["&-content"] = new CSSObject
                         {
                             Display = "block",
-                            Width = token.calc(iconSize).div(2).add(token.controlHeightLG).mul(2).Equal(),
+                            Width = token.Calc(iconSize).Div(2).Add(token.ControlHeightLG).Mul(2).Equal(),
                             MarginTop = token.MarginSM,
                             TextAlign = "center",
                         },
@@ -64,11 +64,7 @@ namespace AntDesign.Styles
                         {
                             ["&-icon"] = new CSSObject
                             {
-                                MarginInlineStart = token
-              .calc(iconSize)
-              .sub(iconSizeSM)
-              .div(2)
-              .add(token.controlHeightLG).Equal(),
+                                MarginInlineStart = token.Calc(iconSize).Sub(iconSizeSM).Div(2).Add(token.ControlHeightLG).Equal(),
                             },
                         },
                     },
@@ -78,7 +74,7 @@ namespace AntDesign.Styles
 
         public static object LabelPlacementDefault()
         {
-            return genStepsLabelPlacementStyle;
+            return GenStepsLabelPlacementStyle;
         }
     }
 }

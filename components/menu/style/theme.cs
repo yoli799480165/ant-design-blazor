@@ -191,7 +191,7 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-item, > {componentCls}-submenu"] = new CSSInterpolation
                         {
                             Top = activeBarBorderWidth,
-                            MarginTop = token.calc(activeBarBorderWidth).mul(-1).Equal(),
+                            MarginTop = token.Calc(activeBarBorderWidth).Mul(-1).Equal(),
                             MarginBottom = 0,
                             BorderRadius = horizontalItemBorderRadius,
                             ["&::after"] = new CSSInterpolation
@@ -252,10 +252,11 @@ namespace AntDesign.Styles
                                 BorderInlineEnd = $@"{Unit(activeBarWidth)} solid {itemSelectedColor}",
                                 Transform = "scaleY(0.0001)",
                                 Opacity = 0,
-                                Transition = [
-              `transform ${motionDurationMid} ${motionEaseOut}`,
-              `opacity ${motionDurationMid} ${motionEaseOut}`,
-            ].Join(","),
+                                Transition = new object[]
+                                {
+                                    $@"{motionDurationMid} {motionEaseOut}",
+                                    $@"{motionDurationMid} {motionEaseOut}"
+                                }.Join(","),
                                 Content = "\"\"",
                             },
                             [$@"{componentCls}-item-danger"] = new CSSInterpolation
@@ -272,10 +273,11 @@ namespace AntDesign.Styles
                             {
                                 Transform = "scaleY(1)",
                                 Opacity = 1,
-                                Transition = [
-              `transform ${motionDurationMid} ${motionEaseInOut}`,
-              `opacity ${motionDurationMid} ${motionEaseInOut}`,
-            ].Join(","),
+                                Transition = new object[]
+                                {
+                                    $@"{motionDurationMid} {motionEaseInOut}",
+                                    $@"{motionDurationMid} {motionEaseInOut}"
+                                }.Join(","),
                             },
                         },
                     },

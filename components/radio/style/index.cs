@@ -92,8 +92,8 @@ namespace AntDesign.Styles
             var calc = token.Calc;
             var radioInnerPrefixCls = $@"{componentCls}-inner";
             var dotPadding = 4;
-            var radioDotDisabledSize = calc(radioSize).Sub(calc(dotPadding).Mul(2));
-            var radioSizeCalc = calc(1).mul(radioSize).Equal(new object { Unit = true, });
+            var radioDotDisabledSize = Calc(radioSize).Sub(Calc(dotPadding).Mul(2));
+            var radioSizeCalc = Calc(1).Mul(radioSize).Equal(new object { Unit = true, });
             return new CSSObject
             {
                 [$@"{componentCls}-wrapper"] = new CSSObject
@@ -172,8 +172,8 @@ namespace AntDesign.Styles
                             Display = "block",
                             Width = radioSizeCalc,
                             Height = radioSizeCalc,
-                            MarginBlockStart = calc(1).mul(radioSize).div(-2).Equal(new object { Unit = true, }),
-                            MarginInlineStart = calc(1).mul(radioSize).div(-2).Equal(new object { Unit = true, }),
+                            MarginBlockStart = Calc(1).Mul(radioSize).Div(-2).Equal(new object { Unit = true, }),
+                            MarginInlineStart = Calc(1).Mul(radioSize).Div(-2).Equal(new object { Unit = true, }),
                             BackgroundColor = radioColor,
                             BorderBlockStart = 0,
                             BorderInlineStart = 0,
@@ -213,7 +213,7 @@ namespace AntDesign.Styles
                             BackgroundColor = radioBgColor,
                             ["&::after"] = new CSSObject
                             {
-                                Transform = $@"{token.calc(token.dotSize).div(radioSize).Equal()})",
+                                Transform = $@"{token.Calc(token.DotSize).Div(radioSize).Equal()})",
                                 Opacity = 1,
                                 Transition = $@"{motionDurationSlow} {motionEaseInOutCirc}",
                             },
@@ -247,7 +247,7 @@ namespace AntDesign.Styles
                             {
                                 ["&::after"] = new CSSObject
                                 {
-                                    Transform = $@"{calc(radioDotDisabledSize).div(radioSize).Equal()})",
+                                    Transform = $@"{Calc(radioDotDisabledSize).Div(radioSize).Equal()})",
                                 },
                             },
                         },
@@ -305,18 +305,19 @@ namespace AntDesign.Styles
                     PaddingInline = buttonPaddingInline,
                     PaddingBlock = 0,
                     Color = buttonColor,
-                    LineHeight = Unit(calc(controlHeight).sub(calc(lineWidth).mul(2)).Equal()),
+                    LineHeight = Unit(Calc(controlHeight).Sub(Calc(lineWidth).Mul(2)).Equal()),
                     Background = buttonBg,
                     Border = $@"{Unit(lineWidth)} {lineType} {colorBorder}",
-                    BorderBlockStartWidth = calc(lineWidth).add(0.02).Equal(),
+                    BorderBlockStartWidth = Calc(lineWidth).Add(0.02).Equal(),
                     BorderInlineStartWidth = 0,
                     BorderInlineEndWidth = lineWidth,
                     Cursor = "pointer",
-                    Transition = [
-        `color ${motionDurationMid}`,
-        `background ${motionDurationMid}`,
-        `box-shadow ${motionDurationMid}`,
-      ].Join(","),
+                    Transition = new object[]
+                    {
+                        $@"{motionDurationMid}",
+                        $@"{motionDurationMid}",
+                        $@"{motionDurationMid}"
+                    }.Join(","),
                     ["a"] = new CSSObject
                     {
                         Color = buttonColor,
@@ -335,8 +336,8 @@ namespace AntDesign.Styles
                         ["&::before"] = new CSSObject
                         {
                             Position = "absolute",
-                            InsetBlockStart = calc(lineWidth).mul(-1).Equal(),
-                            InsetInlineStart = calc(lineWidth).mul(-1).Equal(),
+                            InsetBlockStart = Calc(lineWidth).Mul(-1).Equal(),
+                            InsetInlineStart = Calc(lineWidth).Mul(-1).Equal(),
                             Display = "block",
                             BoxSizing = "content-box",
                             Width = 1,
@@ -366,7 +367,7 @@ namespace AntDesign.Styles
                     {
                         Height = controlHeightLG,
                         FontSize = fontSizeLG,
-                        LineHeight = Unit(calc(controlHeightLG).sub(calc(lineWidth).mul(2)).Equal()),
+                        LineHeight = Unit(Calc(controlHeightLG).Sub(Calc(lineWidth).Mul(2)).Equal()),
                         ["&:first-child"] = new CSSObject
                         {
                             BorderStartStartRadius = borderRadiusLG,
@@ -381,9 +382,9 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-group-small &"] = new CSSObject
                     {
                         Height = controlHeightSM,
-                        PaddingInline = calc(paddingXS).sub(lineWidth).Equal(),
+                        PaddingInline = Calc(paddingXS).Sub(lineWidth).Equal(),
                         PaddingBlock = 0,
-                        LineHeight = Unit(calc(controlHeightSM).sub(calc(lineWidth).mul(2)).Equal()),
+                        LineHeight = Unit(Calc(controlHeightSM).Sub(Calc(lineWidth).Mul(2)).Equal()),
                         ["&:first-child"] = new CSSObject
                         {
                             BorderStartStartRadius = borderRadiusSM,
@@ -545,7 +546,7 @@ namespace AntDesign.Styles
                     GetRadioBasicStyle(radioToken),
                     GetRadioButtonStyle(radioToken)
                 };
-            }, prepareComponentToken, new object { Unitless = new object { RadioSize = true, DotSize = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { RadioSize = true, DotSize = true, }, });
         }
     }
 }

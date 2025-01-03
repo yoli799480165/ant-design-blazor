@@ -35,7 +35,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-sm {componentCls}-input"] = new CSSObject
                     {
-                        PaddingInline = token.calc(token.paddingXXS).div(2).Equal(),
+                        PaddingInline = token.Calc(token.PaddingXXS).Div(2).Equal(),
                     },
                     [$@"{componentCls}-lg {componentCls}-input"] = new CSSObject
                     {

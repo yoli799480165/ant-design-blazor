@@ -33,7 +33,7 @@ namespace AntDesign.Styles
                         [itemCls] = new CSSObject
                         {
                             Position = "relative",
-                            Height = calc(token.lineHeight).mul(fontSize).Equal(),
+                            Height = Calc(token.LineHeight).Mul(fontSize).Equal(),
                             MarginTop = token.MarginXS,
                             Display = "flex",
                             AlignItems = "center",
@@ -76,9 +76,9 @@ namespace AntDesign.Styles
                             [$@"{itemCls}-progress"] = new CSSObject
                             {
                                 Position = "absolute",
-                                Bottom = token.calc(token.uploadProgressOffset).mul(-1).Equal(),
+                                Bottom = token.Calc(token.UploadProgressOffset).Mul(-1).Equal(),
                                 Width = "100%",
-                                PaddingInlineStart = calc(fontSize).add(token.paddingXS).Equal(),
+                                PaddingInlineStart = Calc(fontSize).Add(token.PaddingXS).Equal(),
                                 LineHeight = 0,
                                 PointerEvents = "none",
                                 ["> div"] = new CSSObject
@@ -128,7 +128,7 @@ namespace AntDesign.Styles
 
         public static object ListDefault()
         {
-            return genListStyle;
+            return GenListStyle;
         }
     }
 }

@@ -42,7 +42,7 @@ namespace AntDesign.Styles
 
         public static object CompactDefault()
         {
-            return genSpaceCompactStyle;
+            return GenSpaceCompactStyle;
         }
     }
 }

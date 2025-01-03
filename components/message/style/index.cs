@@ -180,7 +180,7 @@ namespace AntDesign.Styles
                 {
                     GenMessageStyle(combinedToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

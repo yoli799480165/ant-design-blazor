@@ -95,7 +95,7 @@ namespace AntDesign.Styles
                 var componentCls = token.ComponentCls;
                 var controlHeightLG = token.ControlHeightLG;
                 var calc = token.Calc;
-                var emptyToken = MergeToken(token, new object { EmptyImgCls = $@"{componentCls}-img", EmptyImgHeight = calc(controlHeightLG).mul(2.5).Equal(), EmptyImgHeightMD = controlHeightLG, EmptyImgHeightSM = calc(controlHeightLG).mul(0.875).Equal(), });
+                var emptyToken = MergeToken(token, new object { EmptyImgCls = $@"{componentCls}-img", EmptyImgHeight = Calc(controlHeightLG).Mul(2.5).Equal(), EmptyImgHeightMD = controlHeightLG, EmptyImgHeightSM = Calc(controlHeightLG).Mul(0.875).Equal(), });
                 return new object[]
                 {
                     GenSharedEmptyStyle(emptyToken)

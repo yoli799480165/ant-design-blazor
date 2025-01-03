@@ -49,7 +49,7 @@ namespace AntDesign.Styles
                         LineHeight = Unit(iconSizeSM),
                         ["&::after"] = new CSSObject
                         {
-                            Top = token.calc(iconSizeSM).div(2).Equal(),
+                            Top = token.Calc(iconSizeSM).Div(2).Equal(),
                         },
                     },
                     [$@"{componentCls}-item-description"] = new CSSObject
@@ -58,7 +58,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-item-tail"] = new CSSObject
                     {
-                        Top = token.calc(iconSizeSM).div(2).sub(token.paddingXXS).Equal(),
+                        Top = token.Calc(iconSizeSM).Div(2).Sub(token.PaddingXXS).Equal(),
                     },
                     [$@"{componentCls}-item-custom {componentCls}-item-icon"] = new CSSObject
                     {
@@ -81,7 +81,7 @@ namespace AntDesign.Styles
 
         public static object SmallDefault()
         {
-            return genStepsSmallStyle;
+            return GenStepsSmallStyle;
         }
     }
 }

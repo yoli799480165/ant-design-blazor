@@ -42,7 +42,7 @@ namespace AntDesign.Styles
                     GenTagStatusStyle(tagToken, "error", "Error"),
                     GenTagStatusStyle(tagToken, "warning", "Warning")
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -187,7 +187,7 @@ namespace AntDesign.Styles
                 [$@"{stepsItemCls}-tail"] = new CSSObject
                 {
                     Position = "absolute",
-                    Top = token.calc(token.iconSize).div(2).Equal(),
+                    Top = token.Calc(token.IconSize).Div(2).Equal(),
                     InsetInlineStart = 0,
                     Width = "100%",
                     ["&::after"] = new CSSObject
@@ -212,7 +212,7 @@ namespace AntDesign.Styles
                     ["&::after"] = new CSSObject
                     {
                         Position = "absolute",
-                        Top = token.calc(token.titleLineHeight).div(2).Equal(),
+                        Top = token.Calc(token.TitleLineHeight).Div(2).Equal(),
                         InsetInlineStart = "100%",
                         Display = "block",
                         Width = 9999,
@@ -403,7 +403,7 @@ namespace AntDesign.Styles
                 {
                     GenStepsStyle(stepsToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

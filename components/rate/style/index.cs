@@ -145,7 +145,7 @@ namespace AntDesign.Styles
                 {
                     GenRateStyle(rateToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

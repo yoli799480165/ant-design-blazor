@@ -120,7 +120,7 @@ namespace AntDesign.Styles
                     GenAlignItemsStyle(flexToken),
                     GenJustifyContentStyle(flexToken)
                 };
-            }, prepareComponentToken, new object { ResetStyle = false, });
+            }, PrepareComponentToken, new object { ResetStyle = false, });
         }
     }
 }

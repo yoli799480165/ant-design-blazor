@@ -31,19 +31,16 @@ namespace AntDesign.Styles
                         },
                         ["&-tail"] = new CSSObject
                         {
-                            Top = token
-            .calc(token.dotSize)
-            .sub(token.calc(token.lineWidth).mul(3).equal())
-            .div(2).Equal(),
+                            Top = token.Calc(token.DotSize).Sub(token.Calc(token.LineWidth).Mul(3).Equal()).Div(2).Equal(),
                             Width = "100%",
                             MarginTop = 0,
                             MarginBottom = 0,
-                            MarginInline = $@"{Unit(token.calc(descriptionMaxWidth).div(2).Equal())} 0",
+                            MarginInline = $@"{Unit(token.Calc(descriptionMaxWidth).Div(2).Equal())} 0",
                             Padding = 0,
                             ["&::after"] = new CSSObject
                             {
-                                Width = $@"{Unit(token.calc(token.marginSM).mul(2).Equal())})",
-                                Height = token.calc(token.lineWidth).mul(3).Equal(),
+                                Width = $@"{Unit(token.Calc(token.MarginSM).Mul(2).Equal())})",
+                                Height = token.Calc(token.LineWidth).Mul(3).Equal(),
                                 MarginInlineStart = token.MarginSM,
                             },
                         },
@@ -51,7 +48,7 @@ namespace AntDesign.Styles
                         {
                             Width = dotSize,
                             Height = dotSize,
-                            MarginInlineStart = token.calc(token.descriptionMaxWidth).sub(dotSize).div(2).Equal(),
+                            MarginInlineStart = token.Calc(token.DescriptionMaxWidth).Sub(dotSize).Div(2).Equal(),
                             PaddingInlineEnd = 0,
                             LineHeight = Unit(dotSize),
                             Background = "transparent",
@@ -67,12 +64,9 @@ namespace AntDesign.Styles
                                 ["&::after"] = new CSSObject
                                 {
                                     Position = "absolute",
-                                    Top = token.calc(token.marginSM).mul(-1).Equal(),
-                                    InsetInlineStart = token
-                .calc(dotSize)
-                .sub(token.calc(token.controlHeightLG).mul(1.5).equal())
-                .div(2).Equal(),
-                                    Width = token.calc(token.controlHeightLG).mul(1.5).Equal(),
+                                    Top = token.Calc(token.MarginSM).Mul(-1).Equal(),
+                                    InsetInlineStart = token.Calc(dotSize).Sub(token.Calc(token.ControlHeightLG).Mul(1.5).Equal()).Div(2).Equal(),
+                                    Width = token.Calc(token.ControlHeightLG).Mul(1.5).Equal(),
                                     Height = token.ControlHeight,
                                     Background = "transparent",
                                     Content = "\"\"",
@@ -86,15 +80,12 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-item-icon"] = new CSSObject
                         {
                             Position = "relative",
-                            Top = token.calc(dotSize).sub(dotCurrentSize).div(2).Equal(),
+                            Top = token.Calc(dotSize).Sub(dotCurrentSize).Div(2).Equal(),
                             Width = dotCurrentSize,
                             Height = dotCurrentSize,
                             LineHeight = Unit(dotCurrentSize),
                             Background = "none",
-                            MarginInlineStart = token
-            .calc(token.descriptionMaxWidth)
-            .sub(dotCurrentSize)
-            .div(2).Equal(),
+                            MarginInlineStart = token.Calc(token.DescriptionMaxWidth).Sub(dotCurrentSize).Div(2).Equal(),
                         },
                         [$@"{componentCls}-icon"] = new CSSObject
                         {
@@ -109,41 +100,41 @@ namespace AntDesign.Styles
                 {
                     [$@"{componentCls}-item-icon"] = new CSSObject
                     {
-                        MarginTop = token.calc(token.controlHeight).sub(dotSize).div(2).Equal(),
+                        MarginTop = token.Calc(token.ControlHeight).Sub(dotSize).Div(2).Equal(),
                         MarginInlineStart = 0,
                         Background = "none",
                     },
                     [$@"{componentCls}-item-process {componentCls}-item-icon"] = new CSSObject
                     {
-                        MarginTop = token.calc(token.controlHeight).sub(dotCurrentSize).div(2).Equal(),
+                        MarginTop = token.Calc(token.ControlHeight).Sub(dotCurrentSize).Div(2).Equal(),
                         Top = 0,
-                        InsetInlineStart = token.calc(dotSize).sub(dotCurrentSize).div(2).Equal(),
+                        InsetInlineStart = token.Calc(dotSize).Sub(dotCurrentSize).Div(2).Equal(),
                         MarginInlineStart = 0,
                     },
                     [$@"{componentCls}-item > {componentCls}-item-container > {componentCls}-item-tail"] = new CSSObject
                     {
-                        Top = token.calc(token.controlHeight).sub(dotSize).div(2).Equal(),
+                        Top = token.Calc(token.ControlHeight).Sub(dotSize).Div(2).Equal(),
                         InsetInlineStart = 0,
                         Margin = 0,
-                        Padding = $@"{Unit(token.calc(dotSize).add(token.paddingXS).Equal())} 0 {Unit(token.PaddingXS)}",
+                        Padding = $@"{Unit(token.Calc(dotSize).Add(token.PaddingXS).Equal())} 0 {Unit(token.PaddingXS)}",
                         ["&::after"] = new CSSObject
                         {
-                            MarginInlineStart = token.calc(dotSize).sub(token.lineWidth).div(2).Equal(),
+                            MarginInlineStart = token.Calc(dotSize).Sub(token.LineWidth).Div(2).Equal(),
                         },
                     },
                     [$@"{componentCls}-small"] = new CSSObject
                     {
                         [$@"{componentCls}-item-icon"] = new CSSObject
                         {
-                            MarginTop = token.calc(token.controlHeightSM).sub(dotSize).div(2).Equal(),
+                            MarginTop = token.Calc(token.ControlHeightSM).Sub(dotSize).Div(2).Equal(),
                         },
                         [$@"{componentCls}-item-process {componentCls}-item-icon"] = new CSSObject
                         {
-                            MarginTop = token.calc(token.controlHeightSM).sub(dotCurrentSize).div(2).Equal(),
+                            MarginTop = token.Calc(token.ControlHeightSM).Sub(dotCurrentSize).Div(2).Equal(),
                         },
                         [$@"{componentCls}-item > {componentCls}-item-container > {componentCls}-item-tail"] = new CSSObject
                         {
-                            Top = token.calc(token.controlHeightSM).sub(dotSize).div(2).Equal(),
+                            Top = token.Calc(token.ControlHeightSM).Sub(dotSize).Div(2).Equal(),
                         },
                     },
                     [$@"{componentCls}-item:first-child {componentCls}-icon-dot"] = new CSSObject
@@ -160,7 +151,7 @@ namespace AntDesign.Styles
 
         public static object ProgressDotDefault()
         {
-            return genStepsProgressDotStyle;
+            return GenStepsProgressDotStyle;
         }
     }
 }

@@ -156,7 +156,7 @@ namespace AntDesign.Styles
                                 PaddingInlineStart = paddingXS,
                                 [$@"{componentCls}-expand-icon"] = new CSSObject
                                 {
-                                    MarginInlineStart = token.calc(paddingSM).sub(paddingXS).Equal(),
+                                    MarginInlineStart = token.Calc(paddingSM).Sub(paddingXS).Equal(),
                                 },
                             },
                             [$@"{componentCls}-content > {componentCls}-content-box"] = new CSSObject
@@ -178,7 +178,7 @@ namespace AntDesign.Styles
                                 [$@"{componentCls}-expand-icon"] = new CSSObject
                                 {
                                     Height = fontHeightLG,
-                                    MarginInlineStart = token.calc(paddingLG).sub(padding).Equal(),
+                                    MarginInlineStart = token.Calc(paddingLG).Sub(padding).Equal(),
                                 },
                             },
                             [$@"{componentCls}-content > {componentCls}-content-box"] = new CSSObject
@@ -328,7 +328,7 @@ namespace AntDesign.Styles
                     GenArrowStyle(collapseToken),
                     GenCollapseMotion(collapseToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

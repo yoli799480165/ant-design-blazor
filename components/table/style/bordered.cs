@@ -37,8 +37,8 @@ namespace AntDesign.Styles
                                 {
                                     [$@"{componentCls}-expanded-row-fixed"] = new object
                                     {
-                                        Margin = $@"{Unit(calc(paddingVertical).mul(-1).Equal())}
-              {Unit(calc(calc(paddingHorizontal).add(lineWidth)).mul(-1).Equal())}",
+                                        Margin = $@"{Unit(Calc(paddingVertical).Mul(-1).Equal())}
+              {Unit(Calc(Calc(paddingHorizontal).Add(lineWidth)).Mul(-1).Equal())}",
                                     },
                                 },
                             },
@@ -95,7 +95,7 @@ namespace AntDesign.Styles
                                     {
                                         [$@"{componentCls}-expanded-row-fixed"] = new CSSObject
                                         {
-                                            Margin = $@"{Unit(calc(tablePaddingVertical).mul(-1).Equal())} {Unit(calc(calc(tablePaddingHorizontal).add(lineWidth)).mul(-1).Equal())}",
+                                            Margin = $@"{Unit(Calc(tablePaddingVertical).Mul(-1).Equal())} {Unit(Calc(Calc(tablePaddingHorizontal).Add(lineWidth)).Mul(-1).Equal())}",
                                             ["&::after"] = new CSSObject
                                             {
                                                 Position = "absolute",
@@ -157,7 +157,7 @@ namespace AntDesign.Styles
 
         public static object BorderedDefault()
         {
-            return genBorderedStyle;
+            return GenBorderedStyle;
         }
     }
 }

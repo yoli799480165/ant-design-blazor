@@ -51,7 +51,7 @@ namespace AntDesign.Styles
                         {
                             Position = "absolute",
                             InsetBlockStart = token.ItemHeadSize,
-                            InsetInlineStart = calc(calc(token.itemHeadSize).sub(token.tailWidth)).div(2).Equal(),
+                            InsetInlineStart = Calc(Calc(token.ItemHeadSize).Sub(token.TailWidth)).Div(2).Equal(),
                             Height = $@"{Unit(token.ItemHeadSize)})",
                             BorderInlineStart = $@"{Unit(token.TailWidth)} {token.LineType} {token.TailColor}",
                         },
@@ -99,8 +99,8 @@ namespace AntDesign.Styles
                         ["&-head-custom"] = new CSSObject
                         {
                             Position = "absolute",
-                            InsetBlockStart = calc(token.itemHeadSize).div(2).Equal(),
-                            InsetInlineStart = calc(token.itemHeadSize).div(2).Equal(),
+                            InsetBlockStart = Calc(token.ItemHeadSize).Div(2).Equal(),
+                            InsetInlineStart = Calc(token.ItemHeadSize).Div(2).Equal(),
                             Width = "auto",
                             Height = "auto",
                             MarginBlockStart = 0,
@@ -114,10 +114,8 @@ namespace AntDesign.Styles
                         ["&-content"] = new CSSObject
                         {
                             Position = "relative",
-                            InsetBlockStart = calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
-            .mul(-1)
-            .add(token.lineWidth).Equal(),
-                            MarginInlineStart = calc(token.margin).add(token.itemHeadSize).Equal(),
+                            InsetBlockStart = Calc(Calc(token.FontSize).Mul(token.LineHeight).Sub(token.FontSize)).Mul(-1).Add(token.LineWidth).Equal(),
+                            MarginInlineStart = Calc(token.Margin).Add(token.ItemHeadSize).Equal(),
                             MarginInlineEnd = 0,
                             MarginBlockStart = 0,
                             MarginBlockEnd = 0,
@@ -131,7 +129,7 @@ namespace AntDesign.Styles
                             },
                             [$@"{componentCls}-item-content"] = new CSSObject
                             {
-                                MinHeight = calc(token.controlHeightLG).mul(1.2).Equal(),
+                                MinHeight = Calc(token.ControlHeightLG).Mul(1.2).Equal(),
                             },
                         },
                     },
@@ -147,10 +145,10 @@ namespace AntDesign.Styles
                             },
                             ["&-head"] = new CSSObject
                             {
-                                MarginInlineStart = calc(token.marginXXS).mul(-1).Equal(),
+                                MarginInlineStart = Calc(token.MarginXXS).Mul(-1).Equal(),
                                 ["&-custom"] = new CSSObject
                                 {
-                                    MarginInlineStart = calc(token.tailWidth).div(2).Equal(),
+                                    MarginInlineStart = Calc(token.TailWidth).Div(2).Equal(),
                                 },
                             },
                             ["&-left"] = new CSSObject
@@ -181,11 +179,11 @@ namespace AntDesign.Styles
             {componentCls}-item-head,
             {componentCls}-item-head-custom"] = new CSSObject
                             {
-                                InsetInlineStart = $@"{Unit(calc(calc(token.itemHeadSize).add(token.tailWidth)).div(2).Equal())})",
+                                InsetInlineStart = $@"{Unit(Calc(Calc(token.ItemHeadSize).Add(token.TailWidth)).Div(2).Equal())})",
                             },
                             [$@"{componentCls}-item-content"] = new CSSObject
                             {
-                                Width = $@"{Unit(calc(token.itemHeadSize).add(token.marginXS).Equal())})",
+                                Width = $@"{Unit(Calc(token.ItemHeadSize).Add(token.MarginXS).Equal())})",
                             },
                         },
                     },
@@ -214,7 +212,7 @@ namespace AntDesign.Styles
                         },
                         [$@"{componentCls}-item-content"] = new CSSObject
                         {
-                            MinHeight = calc(token.controlHeightLG).mul(1.2).Equal(),
+                            MinHeight = Calc(token.ControlHeightLG).Mul(1.2).Equal(),
                         },
                     },
                     [$@"{componentCls}-label"] = new CSSObject
@@ -222,9 +220,7 @@ namespace AntDesign.Styles
                         [$@"{componentCls}-item-label"] = new CSSObject
                         {
                             Position = "absolute",
-                            InsetBlockStart = calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
-            .mul(-1)
-            .add(token.tailWidth).Equal(),
+                            InsetBlockStart = Calc(Calc(token.FontSize).Mul(token.LineHeight).Sub(token.FontSize)).Mul(-1).Add(token.TailWidth).Equal(),
                             Width = $@"{Unit(token.MarginSM)})",
                             TextAlign = "end",
                         },
@@ -271,7 +267,7 @@ namespace AntDesign.Styles
                 {
                     GenTimelineStyle(timeLineToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

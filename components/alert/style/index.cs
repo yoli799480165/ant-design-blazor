@@ -240,7 +240,7 @@ namespace AntDesign.Styles
                     GenTypeStyle(token),
                     GenActionStyle(token)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

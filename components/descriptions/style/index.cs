@@ -269,7 +269,7 @@ namespace AntDesign.Styles
             {
                 var descriptionToken = MergeToken(token, new object { });
                 return GenDescriptionStyles(descriptionToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

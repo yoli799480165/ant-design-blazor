@@ -30,7 +30,7 @@ namespace AntDesign.Styles
                         {
                             ["&-container"] = new CSSObject
                             {
-                                MarginInlineStart = token.calc(token.marginSM).mul(-1).Equal(),
+                                MarginInlineStart = token.Calc(token.MarginSM).Mul(-1).Equal(),
                             },
                         },
                     },
@@ -42,7 +42,7 @@ namespace AntDesign.Styles
                         {
                             Display = "inline-block",
                             Height = "100%",
-                            MarginInlineStart = token.calc(token.margin).mul(-1).Equal(),
+                            MarginInlineStart = token.Calc(token.Margin).Mul(-1).Equal(),
                             PaddingBottom = token.PaddingSM,
                             TextAlign = "start",
                             Transition = $@"{motionDurationSlow}",
@@ -83,7 +83,7 @@ namespace AntDesign.Styles
                         ["&::after"] = new CSSObject
                         {
                             Position = "absolute",
-                            Top = $@"{Unit(token.calc(token.paddingSM).div(2).Equal())})",
+                            Top = $@"{Unit(token.Calc(token.PaddingSM).Div(2).Equal())})",
                             InsetInlineStart = "100%",
                             Display = "inline-block",
                             Width = token.FontSizeIcon,
@@ -130,7 +130,7 @@ namespace AntDesign.Styles
                             InsetInlineEnd = 0,
                             InsetInlineStart = "unset",
                             Display = "block",
-                            Width = token.calc(token.lineWidth).mul(3).Equal(),
+                            Width = token.Calc(token.LineWidth).Mul(3).Equal(),
                             Height = $@"{Unit(token.MarginLG)})",
                         },
                         ["&::after"] = new CSSObject
@@ -138,8 +138,8 @@ namespace AntDesign.Styles
                             Position = "relative",
                             InsetInlineStart = "50%",
                             Display = "block",
-                            Width = token.calc(token.controlHeight).mul(0.25).Equal(),
-                            Height = token.calc(token.controlHeight).mul(0.25).Equal(),
+                            Width = token.Calc(token.ControlHeight).Mul(0.25).Equal(),
+                            Height = token.Calc(token.ControlHeight).Mul(0.25).Equal(),
                             MarginBottom = token.MarginXS,
                             TextAlign = "center",
                             Transform = "translateY(-50%) translateX(-50%) rotate(135deg)",
@@ -169,7 +169,7 @@ namespace AntDesign.Styles
 
         public static object NavDefault()
         {
-            return genStepsNavStyle;
+            return GenStepsNavStyle;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace AntDesign.Styles
 
         public static object EmptyDefault()
         {
-            return genEmptyStyle;
+            return GenEmptyStyle;
         }
     }
 }

@@ -88,7 +88,7 @@ namespace AntDesign.Styles
                 {
                     GenBaseStyle(token)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

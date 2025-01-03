@@ -113,7 +113,7 @@ namespace AntDesign.Styles
                         InsetInlineStart = "auto",
                         InsetInlineEnd = inputPaddingHorizontalBase,
                         Height = token.FontSizeIcon,
-                        MarginTop = token.calc(token.fontSizeIcon).mul(-1).div(2).Equal(),
+                        MarginTop = token.Calc(token.FontSizeIcon).Mul(-1).Div(2).Equal(),
                         Color = token.ColorTextQuaternary,
                         FontSize = token.FontSizeIcon,
                         LineHeight = 1,
@@ -172,7 +172,7 @@ namespace AntDesign.Styles
                         Display = "inline-block",
                         Width = token.FontSizeIcon,
                         Height = token.FontSizeIcon,
-                        MarginTop = token.calc(token.fontSizeIcon).mul(-1).div(2).Equal(),
+                        MarginTop = token.Calc(token.FontSizeIcon).Mul(-1).Div(2).Equal(),
                         Color = token.ColorTextQuaternary,
                         FontSize = token.FontSizeIcon,
                         FontStyle = "normal",
@@ -207,10 +207,7 @@ namespace AntDesign.Styles
                         {
                             [$@"{componentCls}-clear"] = new CSSObject
                             {
-                                InsetInlineEnd = token
-              .calc(inputPaddingHorizontalBase)
-              .add(token.fontSize)
-              .add(token.paddingXS).Equal(),
+                                InsetInlineEnd = token.Calc(inputPaddingHorizontalBase).Add(token.FontSize).Add(token.PaddingXS).Equal(),
                             },
                         },
                     },
@@ -252,13 +249,13 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks("Select", (SelectToken token, object { rootPrefixCls }) =>
             {
-                var selectToken = MergeToken(token, new object { InputPaddingHorizontalBase = token.calc(token.paddingSM).sub(1).Equal(), MultipleSelectItemHeight = token.MultipleItemHeight, SelectHeight = token.ControlHeight, });
+                var selectToken = MergeToken(token, new object { InputPaddingHorizontalBase = token.Calc(token.PaddingSM).Sub(1).Equal(), MultipleSelectItemHeight = token.MultipleItemHeight, SelectHeight = token.ControlHeight, });
                 return new object[]
                 {
                     GenSelectStyle(selectToken),
                     GenVariantsStyle(selectToken)
                 };
-            }, prepareComponentToken, new object { Unitless = new object { OptionLineHeight = true, OptionSelectedFontWeight = true, }, });
+            }, PrepareComponentToken, new object { Unitless = new object { OptionLineHeight = true, OptionSelectedFontWeight = true, }, });
         }
     }
 }

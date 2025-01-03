@@ -158,7 +158,7 @@ namespace AntDesign.Styles
                     MinWidth = token.ItemSizeSM,
                     Height = token.ItemSizeSM,
                     Margin = 0,
-                    LineHeight = Unit(token.calc(token.itemSizeSM).sub(2).Equal()),
+                    LineHeight = Unit(token.Calc(token.ItemSizeSM).Sub(2).Equal()),
                 },
                 [$@"{componentCls}-mini:not({componentCls}-disabled) {componentCls}-item:not({componentCls}-item-active)"] = new CSSObject
                 {
@@ -458,7 +458,7 @@ namespace AntDesign.Styles
                             {
                                 ["..."] = GenDisabledStyle(token),
                             },
-                            Width = token.calc(token.controlHeightLG).mul(1.25).Equal(),
+                            Width = token.Calc(token.ControlHeightLG).Mul(1.25).Equal(),
                             Height = token.ControlHeight,
                             BoxSizing = "border-box",
                             Margin = 0,
@@ -482,7 +482,7 @@ namespace AntDesign.Styles
                     Height = token.ItemSize,
                     MarginInlineEnd = token.MarginXS,
                     FontFamily = token.FontFamily,
-                    LineHeight = Unit(token.calc(token.itemSize).sub(2).Equal()),
+                    LineHeight = Unit(token.Calc(token.ItemSize).Sub(2).Equal()),
                     TextAlign = "center",
                     VerticalAlign = "middle",
                     ListStyle = "none",
@@ -577,7 +577,7 @@ namespace AntDesign.Styles
                         Display = "inline-block",
                         Height = token.ItemSize,
                         MarginInlineEnd = token.MarginXS,
-                        LineHeight = Unit(token.calc(token.itemSize).sub(2).Equal()),
+                        LineHeight = Unit(token.Calc(token.ItemSize).Sub(2).Equal()),
                         VerticalAlign = "middle",
                     },
                     ["..."] = GenPaginationItemStyle(token),
@@ -666,7 +666,7 @@ namespace AntDesign.Styles
 
         public static object PrepareToken(Parameters<GenStyleFn< 'Pagination' >>[0] token)
         {
-            return MergeToken(token, new object { InputOutlineOffset = 0, PaginationMiniOptionsMarginInlineStart = token.calc(token.marginXXS).div(2).Equal(), PaginationMiniQuickJumperInputWidth = token.calc(token.controlHeightLG).mul(1.1).Equal(), PaginationItemPaddingInline = token.calc(token.marginXXS).mul(1.5).Equal(), PaginationEllipsisLetterSpacing = token.calc(token.marginXXS).div(2).Equal(), PaginationSlashMarginInlineStart = token.MarginSM, PaginationSlashMarginInlineEnd = token.MarginSM, PaginationEllipsisTextIndent = "0.13em", }, InitInputToken(token));
+            return MergeToken(token, new object { InputOutlineOffset = 0, PaginationMiniOptionsMarginInlineStart = token.Calc(token.MarginXXS).Div(2).Equal(), PaginationMiniQuickJumperInputWidth = token.Calc(token.ControlHeightLG).Mul(1.1).Equal(), PaginationItemPaddingInline = token.Calc(token.MarginXXS).Mul(1.5).Equal(), PaginationEllipsisLetterSpacing = token.Calc(token.MarginXXS).Div(2).Equal(), PaginationSlashMarginInlineStart = token.MarginSM, PaginationSlashMarginInlineEnd = token.MarginSM, PaginationEllipsisTextIndent = "0.13em", }, InitInputToken(token));
         }
 
         public static UseComponentStyleResult IndexDefault()
@@ -679,7 +679,7 @@ namespace AntDesign.Styles
                     GenPaginationStyle(paginationToken),
                     GenPaginationFocusStyle(paginationToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

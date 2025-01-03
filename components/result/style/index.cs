@@ -45,7 +45,7 @@ namespace AntDesign.Styles
             {
                 [componentCls] = new CSSObject
                 {
-                    Padding = $@"{Unit(token.calc(paddingLG).mul(2).Equal())} {Unit(paddingXL)}",
+                    Padding = $@"{Unit(token.Calc(paddingLG).Mul(2).Equal())} {Unit(paddingXL)}",
                     ["&-rtl"] = new CSSObject
                     {
                         Direction = "rtl",
@@ -83,7 +83,7 @@ namespace AntDesign.Styles
                 [$@"{componentCls} {componentCls}-content"] = new CSSObject
                 {
                     MarginTop = paddingLG,
-                    Padding = $@"{Unit(paddingLG)} {Unit(token.calc(padding).mul(2.5).Equal())}",
+                    Padding = $@"{Unit(paddingLG)} {Unit(token.Calc(padding).Mul(2.5).Equal())}",
                     BackgroundColor = token.ColorFillAlter,
                 },
                 [$@"{componentCls} {componentCls}-extra"] = new CSSObject
@@ -165,7 +165,7 @@ namespace AntDesign.Styles
                 {
                     GetStyle(resultToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

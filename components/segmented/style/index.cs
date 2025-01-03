@@ -38,15 +38,9 @@ namespace AntDesign.Styles
         public static CSSObject GenSegmentedStyle(SegmentedToken token)
         {
             var componentCls = token.ComponentCls;
-            var labelHeight = token
-    .calc(token.controlHeight)
-    .sub(token.calc(token.trackPadding).mul(2)).Equal();
-            var labelHeightLG = token
-    .calc(token.controlHeightLG)
-    .sub(token.calc(token.trackPadding).mul(2)).Equal();
-            var labelHeightSM = token
-    .calc(token.controlHeightSM)
-    .sub(token.calc(token.trackPadding).mul(2)).Equal();
+            var labelHeight = token.Calc(token.ControlHeight).Sub(token.Calc(token.TrackPadding).Mul(2)).Equal();
+            var labelHeightLG = token.Calc(token.ControlHeightLG).Sub(token.Calc(token.TrackPadding).Mul(2)).Equal();
+            var labelHeightSM = token.Calc(token.ControlHeightSM).Sub(token.Calc(token.TrackPadding).Mul(2)).Equal();
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -144,7 +138,7 @@ namespace AntDesign.Styles
                         },
                         ["&-icon + *"] = new CSSObject
                         {
-                            MarginInlineStart = token.calc(token.marginSM).div(2).Equal(),
+                            MarginInlineStart = token.Calc(token.MarginSM).Div(2).Equal(),
                         },
                         ["&-input"] = new CSSObject
                         {
@@ -241,12 +235,12 @@ namespace AntDesign.Styles
             {
                 var lineWidth = token.LineWidth;
                 var calc = token.Calc;
-                var segmentedToken = MergeToken(token, new object { SegmentedPaddingHorizontal = calc(token.controlPaddingHorizontal).sub(lineWidth).Equal(), SegmentedPaddingHorizontalSM = calc(token.controlPaddingHorizontalSM).sub(lineWidth).Equal(), });
+                var segmentedToken = MergeToken(token, new object { SegmentedPaddingHorizontal = Calc(token.ControlPaddingHorizontal).Sub(lineWidth).Equal(), SegmentedPaddingHorizontalSM = Calc(token.ControlPaddingHorizontalSM).Sub(lineWidth).Equal(), });
                 return new object[]
                 {
                     GenSegmentedStyle(segmentedToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

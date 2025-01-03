@@ -38,7 +38,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-summary"] = new CSSObject
                     {
-                        BoxShadow = $@"{Unit(calc(lineWidth).mul(-1).Equal())} 0 {tableBorderColor}",
+                        BoxShadow = $@"{Unit(Calc(lineWidth).Mul(-1).Equal())} 0 {tableBorderColor}",
                     },
                 },
             };
@@ -46,7 +46,7 @@ namespace AntDesign.Styles
 
         public static object SummaryDefault()
         {
-            return genSummaryStyle;
+            return GenSummaryStyle;
         }
     }
 }

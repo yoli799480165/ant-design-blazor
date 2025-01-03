@@ -59,7 +59,7 @@ namespace AntDesign.Styles
                         BorderRadius = token.BorderRadiusSM,
                         Height = token.FontHeight,
                         Display = "inline-block",
-                        MarginInline = calc(token.marginXXS).mul(-1).Equal(),
+                        MarginInline = Calc(token.MarginXXS).Mul(-1).Equal(),
                         ["&:hover"] = new CSSObject
                         {
                             Color = token.LinkHoverColor,
@@ -91,7 +91,7 @@ namespace AntDesign.Styles
                         Height = token.FontHeight,
                         Display = "inline-block",
                         Padding = $@"{Unit(token.PaddingXXS)}",
-                        MarginInline = calc(token.marginXXS).mul(-1).Equal(),
+                        MarginInline = Calc(token.MarginXXS).Mul(-1).Equal(),
                         [$@"{iconCls}"] = new CSSObject
                         {
                             MarginInlineStart = token.MarginXXS,
@@ -142,7 +142,7 @@ namespace AntDesign.Styles
             {
                 var breadcrumbToken = MergeToken(token, new object { });
                 return GenBreadcrumbStyle(breadcrumbToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

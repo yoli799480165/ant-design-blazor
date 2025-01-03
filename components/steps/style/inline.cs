@@ -18,7 +18,7 @@ namespace AntDesign.Styles
             var inlineDotSize = token.InlineDotSize;
             var inlineTitleColor = token.InlineTitleColor;
             var inlineTailColor = token.InlineTailColor;
-            var containerPaddingTop = token.calc(token.paddingXS).add(token.lineWidth).Equal();
+            var containerPaddingTop = token.Calc(token.PaddingXS).Add(token.LineWidth).Equal();
             var titleStyle = new object
             {
                 [$@"{componentCls}-item-container {componentCls}-item-content {componentCls}-item-title"] = new object
@@ -38,7 +38,7 @@ namespace AntDesign.Styles
                         ["&-container"] = new CSSObject
                         {
                             Padding = $@"{Unit(containerPaddingTop)} {Unit(token.PaddingXXS)} 0",
-                            Margin = $@"{Unit(token.calc(token.marginXXS).div(2).Equal())}",
+                            Margin = $@"{Unit(token.Calc(token.MarginXXS).Div(2).Equal())}",
                             BorderRadius = token.BorderRadiusSM,
                             Cursor = "pointer",
                             Transition = $@"{token.MotionDurationMid}",
@@ -55,14 +55,14 @@ namespace AntDesign.Styles
                         {
                             Width = inlineDotSize,
                             Height = inlineDotSize,
-                            MarginInlineStart = $@"{Unit(token.calc(inlineDotSize).div(2).Equal())})",
+                            MarginInlineStart = $@"{Unit(token.Calc(inlineDotSize).Div(2).Equal())})",
                             [$@"{componentCls}-icon"] = new CSSObject
                             {
                                 Top = 0,
                             },
                             [$@"{componentCls}-icon-dot"] = new CSSObject
                             {
-                                BorderRadius = token.calc(token.fontSizeSM).div(4).Equal(),
+                                BorderRadius = token.Calc(token.FontSizeSM).Div(4).Equal(),
                                 ["&::after"] = new CSSObject
                                 {
                                     Display = "none",
@@ -72,7 +72,7 @@ namespace AntDesign.Styles
                         ["&-content"] = new CSSObject
                         {
                             Width = "auto",
-                            MarginTop = token.calc(token.marginXS).sub(token.lineWidth).Equal(),
+                            MarginTop = token.Calc(token.MarginXS).Sub(token.LineWidth).Equal(),
                         },
                         ["&-title"] = new CSSObject
                         {
@@ -80,7 +80,7 @@ namespace AntDesign.Styles
                             FontSize = token.FontSizeSM,
                             LineHeight = token.LineHeightSM,
                             FontWeight = "normal",
-                            MarginBottom = token.calc(token.marginXXS).div(2).Equal(),
+                            MarginBottom = token.Calc(token.MarginXXS).Div(2).Equal(),
                         },
                         ["&-description"] = new CSSObject
                         {
@@ -89,7 +89,7 @@ namespace AntDesign.Styles
                         ["&-tail"] = new CSSObject
                         {
                             MarginInlineStart = 0,
-                            Top = token.calc(inlineDotSize).div(2).add(containerPaddingTop).Equal(),
+                            Top = token.Calc(inlineDotSize).Div(2).Add(containerPaddingTop).Equal(),
                             Transform = "translateY(-50%)",
                             ["&:after"] = new CSSObject
                             {
@@ -139,7 +139,7 @@ namespace AntDesign.Styles
                             {
                                 Width = inlineDotSize,
                                 Height = inlineDotSize,
-                                MarginInlineStart = $@"{Unit(token.calc(inlineDotSize).div(2).Equal())})",
+                                MarginInlineStart = $@"{Unit(token.Calc(inlineDotSize).Div(2).Equal())})",
                                 Top = 0,
                             },
                             ["..."] = titleStyle,
@@ -158,7 +158,7 @@ namespace AntDesign.Styles
 
         public static object InlineDefault()
         {
-            return genStepsInlineStyle;
+            return GenStepsInlineStyle;
         }
     }
 }

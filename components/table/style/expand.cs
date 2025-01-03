@@ -34,7 +34,7 @@ namespace AntDesign.Styles
             var expandIconScale = token.ExpandIconScale;
             var calc = token.Calc;
             var tableBorder = $@"{Unit(lineWidth)} {lineType} {tableBorderColor}";
-            var expandIconLineOffset = calc(paddingXXS).sub(lineWidth).Equal();
+            var expandIconLineOffset = Calc(paddingXXS).Sub(lineWidth).Equal();
             return new CSSObject
             {
                 [$@"{componentCls}-wrapper"] = new CSSObject
@@ -143,7 +143,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-expanded-row-fixed"] = new CSSObject
                     {
                         Position = "relative",
-                        Margin = $@"{Unit(calc(tablePaddingVertical).mul(-1).Equal())} {Unit(calc(tablePaddingHorizontal).mul(-1).Equal())}",
+                        Margin = $@"{Unit(Calc(tablePaddingVertical).Mul(-1).Equal())} {Unit(Calc(tablePaddingHorizontal).Mul(-1).Equal())}",
                         Padding = $@"{Unit(tablePaddingVertical)} {Unit(tablePaddingHorizontal)}",
                     },
                 },
@@ -152,7 +152,7 @@ namespace AntDesign.Styles
 
         public static object ExpandDefault()
         {
-            return genExpandStyle;
+            return GenExpandStyle;
         }
     }
 }

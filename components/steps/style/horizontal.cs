@@ -30,7 +30,7 @@ namespace AntDesign.Styles
 
         public static object HorizontalDefault()
         {
-            return genHorizontalStyle;
+            return GenHorizontalStyle;
         }
     }
 }

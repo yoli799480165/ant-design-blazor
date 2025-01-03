@@ -34,8 +34,8 @@ namespace AntDesign.Styles
             var tagPaddingHorizontal = token.TagPaddingHorizontal;
             var componentCls = token.ComponentCls;
             var calc = token.Calc;
-            var paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).Equal();
-            var iconMarginInline = calc(paddingXXS).sub(lineWidth).Equal();
+            var paddingInline = Calc(tagPaddingHorizontal).Sub(lineWidth).Equal();
+            var iconMarginInline = Calc(paddingXXS).Sub(lineWidth).Equal();
             return new CSSInterpolation
             {
                 [componentCls] = new CSSInterpolation
@@ -132,7 +132,7 @@ namespace AntDesign.Styles
             var fontSizeIcon = token.FontSizeIcon;
             var calc = token.Calc;
             var tagFontSize = token.FontSizeSM;
-            var tagToken = MergeToken(token, new object { TagLineHeight = Unit(calc(token.lineHeightSM).mul(tagFontSize).Equal()), TagIconSize = calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).Equal(), TagPaddingHorizontal = 8, TagBorderlessBg = token.DefaultBg, });
+            var tagToken = MergeToken(token, new object { TagLineHeight = Unit(Calc(token.LineHeightSM).Mul(tagFontSize).Equal()), TagIconSize = Calc(fontSizeIcon).Sub(Calc(lineWidth).Mul(2)).Equal(), TagPaddingHorizontal = 8, TagBorderlessBg = token.DefaultBg, });
             return tagToken;
         }
 
@@ -140,8 +140,7 @@ namespace AntDesign.Styles
         {
             return new TagToken
             {
-                DefaultBg = new TinyColor(token.colorFillQuaternary)
-    .onBackground(token.colorBgContainer).ToHexString(),
+                DefaultBg = new TinyColor(token.ColorFillQuaternary).OnBackground(token.ColorBgContainer).ToHexString(),
                 DefaultColor = token.ColorText,
             };
         }
@@ -152,7 +151,7 @@ namespace AntDesign.Styles
             {
                 var tagToken = PrepareToken(token);
                 return GenBaseStyle(tagToken);
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

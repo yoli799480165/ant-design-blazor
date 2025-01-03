@@ -183,14 +183,14 @@ namespace AntDesign.Styles
                     Position = "relative",
                     ["div&"] = new object
                     {
-                        InsetInlineStart = token.calc(token.paddingSM).mul(-1).Equal(),
-                        MarginTop = token.calc(inputShift).mul(-1).Equal(),
+                        InsetInlineStart = token.Calc(token.PaddingSM).Mul(-1).Equal(),
+                        MarginTop = token.Calc(inputShift).Mul(-1).Equal(),
                         MarginBottom = $@"{Unit(inputShift)})",
                     },
                     [$@"{componentCls}-edit-content-confirm"] = new object
                     {
                         Position = "absolute",
-                        InsetInlineEnd = token.calc(token.marginXS).add(2).Equal(),
+                        InsetInlineEnd = token.Calc(token.MarginXS).Add(2).Equal(),
                         InsetBlockEnd = token.MarginXS,
                         Color = token.ColorTextDescription,
                         FontWeight = "normal",

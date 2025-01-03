@@ -146,7 +146,7 @@ namespace AntDesign.Styles
                     {
                         Position = "relative",
                         Display = "block",
-                        MinWidth = token.calc(token.cardActionsIconSize).mul(2).Equal(),
+                        MinWidth = token.Calc(token.CardActionsIconSize).Mul(2).Equal(),
                         FontSize = token.FontSize,
                         LineHeight = token.LineHeight,
                         Cursor = "pointer",
@@ -170,7 +170,7 @@ namespace AntDesign.Styles
                         [$@"{iconCls}"] = new CSSObject
                         {
                             FontSize = cardActionsIconSize,
-                            LineHeight = Unit(token.calc(cardActionsIconSize).mul(token.lineHeight).Equal()),
+                            LineHeight = Unit(token.Calc(cardActionsIconSize).Mul(token.LineHeight).Equal()),
                         },
                     },
                     ["&:not(:last-child)"] = new CSSObject
@@ -185,7 +185,7 @@ namespace AntDesign.Styles
         {
             return new CSSObject
             {
-                Margin = $@"{Unit(token.calc(token.marginXXS).mul(-1).Equal())} 0",
+                Margin = $@"{Unit(token.Calc(token.MarginXXS).Mul(-1).Equal())} 0",
                 Display = "flex",
                 ["..."] = ClearFix(),
                 ["&-avatar"] = new CSSObject
@@ -329,8 +329,8 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-loading) {componentCls}-body"] = new CSSObject
                     {
-                        MarginBlockStart = token.calc(token.lineWidth).mul(-1).Equal(),
-                        MarginInlineStart = token.calc(token.lineWidth).mul(-1).Equal(),
+                        MarginBlockStart = token.Calc(token.LineWidth).Mul(-1).Equal(),
+                        MarginInlineStart = token.Calc(token.LineWidth).Mul(-1).Equal(),
                         Padding = 0,
                     },
                 },
@@ -423,7 +423,7 @@ namespace AntDesign.Styles
                     GenCardStyle(cardToken),
                     GenCardSizeStyle(cardToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -184,10 +184,7 @@ namespace AntDesign.Styles
             var marginXXS = token.MarginXXS;
             var pickerDatePanelPaddingHorizontal = token.PickerDatePanelPaddingHorizontal;
             var pickerControlIconMargin = token.PickerControlIconMargin;
-            var pickerPanelWidth = token
-    .calc(cellWidth)
-    .mul(7)
-    .add(token.calc(pickerDatePanelPaddingHorizontal).mul(2)).Equal();
+            var pickerPanelWidth = token.Calc(cellWidth).Mul(7).Add(token.Calc(pickerDatePanelPaddingHorizontal).Mul(2)).Equal();
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -347,7 +344,7 @@ namespace AntDesign.Styles
                         },
                         ["th"] = new CSSObject
                         {
-                            Height = token.calc(cellHeight).add(token.calc(pickerCellPaddingVertical).mul(2)).Equal(),
+                            Height = token.Calc(cellHeight).Add(token.Calc(pickerCellPaddingVertical).Mul(2)).Equal(),
                             Color = colorText,
                             VerticalAlign = "middle",
                         },
@@ -367,7 +364,7 @@ namespace AntDesign.Styles
                     {
                         [$@"{componentCls}-content"] = new CSSObject
                         {
-                            Height = token.calc(withoutTimeCellHeight).mul(4).Equal(),
+                            Height = token.Calc(withoutTimeCellHeight).Mul(4).Equal(),
                         },
                         [pickerCellInnerCls] = new CSSObject
                         {
@@ -385,7 +382,7 @@ namespace AntDesign.Styles
                     {
                         [pickerCellInnerCls] = new CSSObject
                         {
-                            Padding = $@"{Unit(token.calc(paddingXS).div(2).Equal())}",
+                            Padding = $@"{Unit(token.Calc(paddingXS).Div(2).Equal())}",
                         },
                         [$@"{componentCls}-cell::before"] = new CSSObject
                         {
@@ -459,7 +456,7 @@ namespace AntDesign.Styles
                                     },
                                     [$@"{componentCls}-cell-week"] = new CSSObject
                                     {
-                                        Color = new TinyColor(colorTextLightSolid).setAlpha(0.5).ToHexString(),
+                                        Color = new TinyColor(colorTextLightSolid).SetAlpha(0.5).ToHexString(),
                                     },
                                     [pickerCellInnerCls] = new CSSObject
                                     {
@@ -557,7 +554,7 @@ namespace AntDesign.Styles
                             },
                             ["&-active"] = new CSSObject
                             {
-                                Background = new TinyColor(controlItemBgActive).setAlpha(0.2).ToHexString(),
+                                Background = new TinyColor(controlItemBgActive).SetAlpha(0.2).ToHexString(),
                             },
                             ["&:hover"] = new CSSObject
                             {
@@ -573,12 +570,12 @@ namespace AntDesign.Styles
                                     [$@"{componentCls}-time-panel-cell-inner"] = new CSSObject
                                     {
                                         Display = "block",
-                                        Width = token.calc(timeColumnWidth).sub(token.calc(marginXXS).mul(2)).Equal(),
+                                        Width = token.Calc(timeColumnWidth).Sub(token.Calc(marginXXS).Mul(2)).Equal(),
                                         Height = timeCellHeight,
                                         Margin = 0,
                                         PaddingBlock = 0,
                                         PaddingInlineEnd = 0,
-                                        PaddingInlineStart = token.calc(timeColumnWidth).sub(timeCellHeight).div(2).Equal(),
+                                        PaddingInlineStart = token.Calc(timeColumnWidth).Sub(timeCellHeight).Div(2).Equal(),
                                         Color = colorText,
                                         LineHeight = Unit(timeCellHeight),
                                         BorderRadius = borderRadiusSM,
@@ -635,7 +632,7 @@ namespace AntDesign.Styles
                         ["&-extra"] = new CSSObject
                         {
                             Padding = $@"{Unit(paddingSM)}",
-                            LineHeight = Unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).Equal()),
+                            LineHeight = Unit(token.Calc(textHeight).Sub(token.Calc(lineWidth).Mul(2)).Equal()),
                             TextAlign = "start",
                             ["&:not(:last-child)"] = new CSSObject
                             {
@@ -659,7 +656,7 @@ namespace AntDesign.Styles
                         AlignItems = "center",
                         ["> li"] = new CSSObject
                         {
-                            LineHeight = Unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).Equal()),
+                            LineHeight = Unit(token.Calc(textHeight).Sub(token.Calc(lineWidth).Mul(2)).Equal()),
                             Display = "inline-block",
                         },
                         [$@"{componentCls}-now-btn-disabled"] = new CSSObject
@@ -676,7 +673,7 @@ namespace AntDesign.Styles
                         },
                         [$@"{componentCls}-ok"] = new CSSObject
                         {
-                            PaddingBlock = token.calc(lineWidth).mul(2).Equal(),
+                            PaddingBlock = token.Calc(lineWidth).Mul(2).Equal(),
                             MarginInlineStart = "auto",
                         },
                     },
@@ -686,7 +683,7 @@ namespace AntDesign.Styles
 
         public static object PanelDefault()
         {
-            return genPickerPanelStyle;
+            return GenPickerPanelStyle;
         }
     }
 }

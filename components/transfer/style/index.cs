@@ -134,7 +134,7 @@ namespace AntDesign.Styles
             var colorBgContainer = token.ColorBgContainer;
             var colorText = token.ColorText;
             var controlItemBgActiveHover = token.ControlItemBgActiveHover;
-            var contentBorderRadius = Unit(token.calc(borderRadiusLG).sub(lineWidth).Equal());
+            var contentBorderRadius = Unit(token.Calc(borderRadiusLG).Sub(lineWidth).Equal());
             return new CSSObject
             {
                 Display = "flex",
@@ -161,7 +161,7 @@ namespace AntDesign.Styles
                     Flex = "none",
                     AlignItems = "center",
                     Height = headerHeight,
-                    Padding = $@"{Unit(token.calc(transferHeaderVerticalPadding).sub(lineWidth).Equal())} {Unit(paddingSM)} {Unit(transferHeaderVerticalPadding)}",
+                    Padding = $@"{Unit(token.Calc(transferHeaderVerticalPadding).Sub(lineWidth).Equal())} {Unit(paddingSM)} {Unit(transferHeaderVerticalPadding)}",
                     Color = colorText,
                     Background = colorBgContainer,
                     BorderBottom = $@"{Unit(lineWidth)} {lineType} {colorSplit}",
@@ -387,7 +387,7 @@ namespace AntDesign.Styles
                     GenTransferStatusStyle(transferToken),
                     GenTransferRTLStyle(transferToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

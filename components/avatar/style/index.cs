@@ -182,7 +182,7 @@ namespace AntDesign.Styles
                     GenBaseStyle(avatarToken),
                     GenGroupStyle(avatarToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

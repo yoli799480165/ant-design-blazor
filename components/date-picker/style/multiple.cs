@@ -43,8 +43,7 @@ namespace AntDesign.Styles
             var calc = token.Calc;
             var lineWidth = token.LineWidth;
             var smallToken = MergeToken(token, new object { FontHeight = token.FontSize, SelectHeight = token.ControlHeightSM, MultipleSelectItemHeight = token.MultipleItemHeightSM, BorderRadius = token.BorderRadiusSM, BorderRadiusSM = token.BorderRadiusXS, ControlHeight = token.ControlHeightSM, });
-            var largeToken = MergeToken(token, new object { FontHeight = calc(token.multipleItemHeightLG)
-      .sub(calc(lineWidth).mul(2).equal()).Equal() as number, FontSize = token.FontSizeLG, SelectHeight = token.ControlHeightLG, MultipleSelectItemHeight = token.MultipleItemHeightLG, BorderRadius = token.BorderRadiusLG, BorderRadiusSM = token.BorderRadius, ControlHeight = token.ControlHeightLG, });
+            var largeToken = MergeToken(token, new object { FontHeight = Calc(token.MultipleItemHeightLG).Sub(Calc(lineWidth).Mul(2).Equal()).Equal() as number, FontSize = token.FontSizeLG, SelectHeight = token.ControlHeightLG, MultipleSelectItemHeight = token.MultipleItemHeightLG, BorderRadius = token.BorderRadiusLG, BorderRadiusSM = token.BorderRadius, ControlHeight = token.ControlHeightLG, });
             return new object[]
             {
                 GenSize(smallToken, "small"),
@@ -98,7 +97,7 @@ namespace AntDesign.Styles
 
         public static object MultipleDefault()
         {
-            return genPickerMultipleStyle;
+            return GenPickerMultipleStyle;
         }
     }
 }

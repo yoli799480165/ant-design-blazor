@@ -37,23 +37,23 @@ namespace AntDesign.Styles
                         },
                         [$@"{componentCls}-filter-trigger"] = new object
                         {
-                            MarginInlineEnd = Unit(calc(paddingHorizontal).div(2).mul(-1).Equal()),
+                            MarginInlineEnd = Unit(Calc(paddingHorizontal).Div(2).Mul(-1).Equal()),
                         },
                         [$@"{componentCls}-expanded-row-fixed"] = new object
                         {
-                            Margin = $@"{Unit(calc(paddingVertical).mul(-1).Equal())} {Unit(calc(paddingHorizontal).mul(-1).Equal())}",
+                            Margin = $@"{Unit(Calc(paddingVertical).Mul(-1).Equal())} {Unit(Calc(paddingHorizontal).Mul(-1).Equal())}",
                         },
                         [$@"{componentCls}-tbody"] = new object
                         {
                             [$@"{componentCls}-wrapper:only-child {componentCls}"] = new object
                             {
-                                MarginBlock = Unit(calc(paddingVertical).mul(-1).Equal()),
-                                MarginInline = $@"{Unit(calc(tableExpandColumnWidth).sub(paddingHorizontal).Equal())} {Unit(calc(paddingHorizontal).mul(-1).Equal())}",
+                                MarginBlock = Unit(Calc(paddingVertical).Mul(-1).Equal()),
+                                MarginInline = $@"{Unit(Calc(tableExpandColumnWidth).Sub(paddingHorizontal).Equal())} {Unit(Calc(paddingHorizontal).Mul(-1).Equal())}",
                             },
                         },
                         [$@"{componentCls}-selection-extra"] = new object
                         {
-                            PaddingInlineStart = Unit(calc(paddingHorizontal).div(4).Equal()),
+                            PaddingInlineStart = Unit(Calc(paddingHorizontal).Div(4).Equal()),
                         },
                     },
                 };
@@ -70,7 +70,7 @@ namespace AntDesign.Styles
 
         public static object SizeDefault()
         {
-            return genSizeStyle;
+            return GenSizeStyle;
         }
     }
 }

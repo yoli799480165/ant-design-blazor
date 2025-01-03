@@ -35,7 +35,7 @@ namespace AntDesign.Styles
                     {
                         ["&::before"] = new CSSObject
                         {
-                            Transform = $@"{Unit(calc(menuArrowOffset).mul(-1).Equal())})",
+                            Transform = $@"{Unit(Calc(menuArrowOffset).Mul(-1).Equal())})",
                         },
                         ["&::after"] = new CSSObject
                         {

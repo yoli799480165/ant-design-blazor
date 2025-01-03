@@ -40,7 +40,7 @@ namespace AntDesign.Styles
             {
                 [$@"{componentCls}-wrapper"] = new CSSObject
                 {
-                    MarginBlockStart = calc(holderOffsetBlock).mul(-1).Equal(),
+                    MarginBlockStart = Calc(holderOffsetBlock).Mul(-1).Equal(),
                     PaddingBlockStart = holderOffsetBlock,
                     [componentCls] = new CSSObject
                     {
@@ -183,13 +183,13 @@ namespace AntDesign.Styles
                 var fontSizeLG = token.FontSizeLG;
                 var paddingXXS = token.PaddingXXS;
                 var calc = token.Calc;
-                var anchorToken = MergeToken(token, new object { HolderOffsetBlock = paddingXXS, AnchorPaddingBlockSecondary = calc(paddingXXS).div(2).Equal(), AnchorTitleBlock = calc(fontSize).div(14).mul(3).Equal(), AnchorBallSize = calc(fontSizeLG).div(2).Equal(), });
+                var anchorToken = MergeToken(token, new object { HolderOffsetBlock = paddingXXS, AnchorPaddingBlockSecondary = Calc(paddingXXS).Div(2).Equal(), AnchorTitleBlock = Calc(fontSize).Div(14).Mul(3).Equal(), AnchorBallSize = Calc(fontSizeLG).Div(2).Equal(), });
                 return new object[]
                 {
                     GenSharedAnchorStyle(anchorToken),
                     GenSharedAnchorHorizontalStyle(anchorToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

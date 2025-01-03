@@ -14,9 +14,9 @@ namespace AntDesign.Styles
     {
         public static CSSObject GenPickerPadding(PickerToken token, number inputHeight, number fontHeight, number paddingHorizontal)
         {
-            var height = token.calc(fontHeight).add(2).Equal();
-            var paddingTop = token.Max(token.calc(inputHeight).sub(height).div(2).Equal(), 0);
-            var paddingBottom = token.Max(token.calc(inputHeight).sub(height).sub(paddingTop).Equal(), 0);
+            var height = token.Calc(fontHeight).Add(2).Equal();
+            var paddingTop = token.Max(token.Calc(inputHeight).Sub(height).Div(2).Equal(), 0);
+            var paddingBottom = token.Max(token.Calc(inputHeight).Sub(height).Sub(paddingTop).Equal(), 0);
             return new CSSObject
             {
                 Padding = $@"{Unit(paddingTop)} {Unit(paddingHorizontal)} {Unit(paddingBottom)}",
@@ -166,7 +166,7 @@ namespace AntDesign.Styles
                             Display = "flex",
                             Flex = "none",
                             AlignSelf = "center",
-                            MarginInlineStart = token.calc(paddingXS).div(2).Equal(),
+                            MarginInlineStart = token.Calc(paddingXS).Div(2).Equal(),
                             Color = colorTextDisabled,
                             LineHeight = 1,
                             PointerEvents = "none",
@@ -239,7 +239,7 @@ namespace AntDesign.Styles
                             Display = "inline-flex",
                             [$@"{componentCls}-active-bar"] = new object
                             {
-                                Bottom = token.calc(lineWidth).mul(-1).Equal(),
+                                Bottom = token.Calc(lineWidth).Mul(-1).Equal(),
                                 Height = lineWidthBold,
                                 Background = colorPrimary,
                                 Opacity = 0,
@@ -357,13 +357,13 @@ namespace AntDesign.Styles
                                 Position = "absolute",
                                 ZIndex = 1,
                                 Display = "none",
-                                PaddingInline = token.calc(paddingInline).mul(1.5).Equal(),
+                                PaddingInline = token.Calc(paddingInline).Mul(1.5).Equal(),
                                 BoxSizing = "content-box",
                                 Transition = $@"{motionDurationSlow} ease-out",
                                 ["..."] = GenRoundedArrow(token, colorBgElevated, boxShadowPopoverArrow),
                                 ["&:before"] = new object
                                 {
-                                    InsetInlineStart = token.calc(paddingInline).mul(1.5).Equal(),
+                                    InsetInlineStart = token.Calc(paddingInline).Mul(1.5).Equal(),
                                 },
                             },
                             [$@"{componentCls}-panel-container"] = new object
@@ -402,7 +402,7 @@ namespace AntDesign.Styles
                                             ["..."] = textEllipsis,
                                             BorderRadius = borderRadiusSM,
                                             PaddingInline = paddingXS,
-                                            PaddingBlock = token.calc(controlHeightSM).sub(fontHeight).div(2).Equal(),
+                                            PaddingBlock = token.Calc(controlHeightSM).Sub(fontHeight).Div(2).Equal(),
                                             Cursor = "pointer",
                                             Transition = $@"{motionDurationSlow}",
                                             ["+ li"] = new object
@@ -447,7 +447,7 @@ namespace AntDesign.Styles
                         },
                         ["&-dropdown-range"] = new object
                         {
-                            Padding = $@"{Unit(token.calc(sizePopupArrow).mul(2).div(3).Equal())} 0",
+                            Padding = $@"{Unit(token.Calc(sizePopupArrow).Mul(2).Div(3).Equal())} 0",
                             ["&-hidden"] = new object
                             {
                                 Display = "none",
@@ -481,7 +481,7 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks("DatePicker", (DatePickerToken token) =>
             {
-                var pickerToken = MergeToken(InitInputToken(token), InitPickerPanelToken(token), new object { InputPaddingHorizontalBase = token.calc(token.paddingSM).sub(1).Equal(), MultipleSelectItemHeight = token.MultipleItemHeight, SelectHeight = token.ControlHeight, });
+                var pickerToken = MergeToken(InitInputToken(token), InitPickerPanelToken(token), new object { InputPaddingHorizontalBase = token.Calc(token.PaddingSM).Sub(1).Equal(), MultipleSelectItemHeight = token.MultipleItemHeight, SelectHeight = token.ControlHeight, });
                 return new object[]
                 {
                     GenPickerPanelStyle(pickerToken),
@@ -491,7 +491,7 @@ namespace AntDesign.Styles
                     GenPickerMultipleStyle(pickerToken),
                     GenCompactItemStyle(token, new object { FocusElCls = $@"{token.ComponentCls}-focused", })
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -401,7 +401,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-nav, > div > {componentCls}-nav"] = new CSSObject
                     {
                         FlexDirection = "column",
-                        MinWidth = calc(token.controlHeight).mul(1.25).Equal(),
+                        MinWidth = Calc(token.ControlHeight).Mul(1.25).Equal(),
                         [$@"{componentCls}-tab"] = new CSSObject
                         {
                             Padding = verticalItemPadding,
@@ -480,7 +480,7 @@ namespace AntDesign.Styles
                         MarginLeft = new CSSObject
                         {
                             _skip_check_ = true,
-                            Value = Unit(calc(token.lineWidth).mul(-1).Equal()),
+                            Value = Unit(Calc(token.LineWidth).Mul(-1).Equal()),
                         },
                         BorderLeft = new CSSObject
                         {
@@ -517,7 +517,7 @@ namespace AntDesign.Styles
                         MarginRight = new CSSObject
                         {
                             _skip_check_ = true,
-                            Value = calc(token.lineWidth).mul(-1).Equal(),
+                            Value = Calc(token.LineWidth).Mul(-1).Equal(),
                         },
                         BorderRight = new CSSObject
                         {
@@ -683,7 +683,7 @@ namespace AntDesign.Styles
                         MarginRight = new CSSObject
                         {
                             _skip_check_ = true,
-                            Value = token.calc(token.marginXXS).mul(-1).Equal(),
+                            Value = token.Calc(token.MarginXXS).Mul(-1).Equal(),
                         },
                         MarginLeft = new CSSObject
                         {
@@ -800,7 +800,7 @@ namespace AntDesign.Styles
                                 MarginLeft = new CSSObject
                                 {
                                     _skip_check_ = true,
-                                    Value = Unit(calc(token.marginXXS).mul(-1).Equal()),
+                                    Value = Unit(Calc(token.MarginXXS).Mul(-1).Equal()),
                                 },
                                 [iconCls] = new CSSObject
                                 {
@@ -947,7 +947,7 @@ namespace AntDesign.Styles
                                     _skip_check_ = true,
                                     Value = 0,
                                 },
-                                Height = token.calc(token.controlHeightLG).div(8).Equal(),
+                                Height = token.Calc(token.ControlHeightLG).Div(8).Equal(),
                                 Transform = "translateY(100%)",
                                 Content = "''",
                             },
@@ -1072,7 +1072,7 @@ namespace AntDesign.Styles
                     GenTabsStyle(tabsToken),
                     GenMotionStyle(tabsToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

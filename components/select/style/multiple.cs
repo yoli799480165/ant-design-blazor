@@ -31,12 +31,12 @@ namespace AntDesign.Styles
             var paddingXXS = token.PaddingXXS;
             var lineWidth = token.LineWidth;
             var INTERNAL_FIXED_ITEM_MARGIN = token.INTERNAL_FIXED_ITEM_MARGIN;
-            var basePadding = token.Max(token.calc(paddingXXS).sub(lineWidth).Equal(), 0);
-            var containerPadding = token.Max(token.calc(basePadding).sub(INTERNAL_FIXED_ITEM_MARGIN).Equal(), 0);
+            var basePadding = token.Max(token.Calc(paddingXXS).Sub(lineWidth).Equal(), 0);
+            var containerPadding = token.Max(token.Calc(basePadding).Sub(INTERNAL_FIXED_ITEM_MARGIN).Equal(), 0);
             return new object
             {
                 ItemHeight = Unit(multipleSelectItemHeight),
-                ItemLineHeight = Unit(token.calc(multipleSelectItemHeight).sub(token.calc(token.lineWidth).mul(2)).Equal()),
+                ItemLineHeight = Unit(token.Calc(multipleSelectItemHeight).Sub(token.Calc(token.LineWidth).Mul(2)).Equal()),
             };
         }
 
@@ -45,11 +45,7 @@ namespace AntDesign.Styles
             var multipleSelectItemHeight = token.MultipleSelectItemHeight;
             var selectHeight = token.SelectHeight;
             var lineWidth = token.LineWidth;
-            var selectItemDist = token
-    .calc(selectHeight)
-    .sub(multipleSelectItemHeight)
-    .div(2)
-    .sub(lineWidth).Equal();
+            var selectItemDist = token.Calc(selectHeight).Sub(multipleSelectItemHeight).Div(2).Sub(lineWidth).Equal();
             return selectItemDist;
         }
 
@@ -93,9 +89,9 @@ namespace AntDesign.Styles
                         BorderRadius = borderRadiusSM,
                         Cursor = "default",
                         Transition = $@"{motionDurationSlow}, line-height {motionDurationSlow}, height {motionDurationSlow}",
-                        MarginInlineEnd = token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).Equal(),
+                        MarginInlineEnd = token.Calc(INTERNAL_FIXED_ITEM_MARGIN).Mul(2).Equal(),
                         PaddingInlineStart = paddingXS,
-                        PaddingInlineEnd = token.calc(paddingXS).div(2).Equal(),
+                        PaddingInlineEnd = token.Calc(paddingXS).Div(2).Equal(),
                         [$@"{componentCls}-disabled&"] = new CSSObject
                         {
                             Color = multipleItemColorDisabled,
@@ -105,7 +101,7 @@ namespace AntDesign.Styles
                         ["&-content"] = new CSSObject
                         {
                             Display = "inline-block",
-                            MarginInlineEnd = token.calc(paddingXS).div(2).Equal(),
+                            MarginInlineEnd = token.Calc(paddingXS).Div(2).Equal(),
                             Overflow = "hidden",
                             WhiteSpace = "pre",
                             TextOverflow = "ellipsis",
@@ -188,9 +184,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-prefix"] = new CSSObject
                     {
-                        MarginInlineStart = token
-          .calc(token.inputPaddingHorizontalBase)
-          .sub(multipleSelectorUnit.basePadding).Equal(),
+                        MarginInlineStart = token.Calc(token.InputPaddingHorizontalBase).Sub(multipleSelectorUnit.BasePadding).Equal(),
                     },
                     [$@"{selectOverflowPrefixCls}-item + {selectOverflowPrefixCls}-item,
         {componentCls}-prefix + {componentCls}-selection-wrap
@@ -215,7 +209,7 @@ namespace AntDesign.Styles
                         Display = "inline-flex",
                         Position = "relative",
                         MaxWidth = "100%",
-                        MarginInlineStart = token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).Equal(),
+                        MarginInlineStart = token.Calc(token.InputPaddingHorizontalBase).Sub(selectItemDist).Equal(),
                         ["\n          &-input,\n          &-mirror\n        "] = new CSSObject
                         {
                             Height = selectItemHeight,
@@ -243,9 +237,7 @@ namespace AntDesign.Styles
                     {
                         Position = "absolute",
                         Top = "50%",
-                        InsetInlineStart = token
-          .calc(token.inputPaddingHorizontalBase)
-          .sub(multipleSelectorUnit.basePadding).Equal(),
+                        InsetInlineStart = token.Calc(token.InputPaddingHorizontalBase).Sub(multipleSelectorUnit.BasePadding).Equal(),
                         InsetInlineEnd = token.InputPaddingHorizontalBase,
                         Transform = "translateY(-50%)",
                         Transition = $@"{token.MotionDurationSlow}",
@@ -269,7 +261,7 @@ namespace AntDesign.Styles
                     {
                         [$@"{componentCls}-selection-placeholder"] = new object
                         {
-                            InsetInline = token.calc(token.controlPaddingHorizontalSM).sub(token.lineWidth).Equal(),
+                            InsetInline = token.Calc(token.ControlPaddingHorizontalSM).Sub(token.LineWidth).Equal(),
                         },
                         [$@"{componentCls}-selection-search"] = new object
                         {
@@ -283,7 +275,7 @@ namespace AntDesign.Styles
 
         public static object MultipleDefault()
         {
-            return genMultipleStyle;
+            return GenMultipleStyle;
         }
     }
 }

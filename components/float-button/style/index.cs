@@ -86,20 +86,20 @@ namespace AntDesign.Styles
                 {
                     FlexDirection = "column",
                     Top = "auto",
-                    Bottom = calc(floatButtonSize).add(margin).Equal(),
+                    Bottom = Calc(floatButtonSize).Add(margin).Equal(),
                     ["&::after"] = new CSSObject
                     {
                         Content = "\"\"",
                         Position = "absolute",
                         Width = "100%",
                         Height = margin,
-                        Bottom = calc(margin).mul(-1).Equal(),
+                        Bottom = Calc(margin).Mul(-1).Equal(),
                     },
                 },
                 [$@"{groupPrefixCls}-bottom > {groupPrefixCls}-wrap"] = new CSSObject
                 {
                     FlexDirection = "column",
-                    Top = calc(floatButtonSize).add(margin).Equal(),
+                    Top = Calc(floatButtonSize).Add(margin).Equal(),
                     Bottom = "auto",
                     ["&::after"] = new CSSObject
                     {
@@ -107,7 +107,7 @@ namespace AntDesign.Styles
                         Position = "absolute",
                         Width = "100%",
                         Height = margin,
-                        Top = calc(margin).mul(-1).Equal(),
+                        Top = Calc(margin).Mul(-1).Equal(),
                     },
                 },
                 [$@"{groupPrefixCls}-right > {groupPrefixCls}-wrap"] = new CSSObject
@@ -116,7 +116,7 @@ namespace AntDesign.Styles
                     Left = new CSSObject
                     {
                         _skip_check_ = true,
-                        Value = calc(floatButtonSize).add(margin).Equal(),
+                        Value = Calc(floatButtonSize).Add(margin).Equal(),
                     },
                     Right = new CSSObject
                     {
@@ -132,7 +132,7 @@ namespace AntDesign.Styles
                         Left = new CSSObject
                         {
                             _skip_check_ = true,
-                            Value = calc(margin).mul(-1).Equal(),
+                            Value = Calc(margin).Mul(-1).Equal(),
                         },
                     },
                 },
@@ -147,7 +147,7 @@ namespace AntDesign.Styles
                     Right = new CSSObject
                     {
                         _skip_check_ = true,
-                        Value = calc(floatButtonSize).add(margin).Equal(),
+                        Value = Calc(floatButtonSize).Add(margin).Equal(),
                     },
                     ["&::after"] = new CSSObject
                     {
@@ -158,7 +158,7 @@ namespace AntDesign.Styles
                         Right = new CSSObject
                         {
                             _skip_check_ = true,
-                            Value = calc(margin).mul(-1).Equal(),
+                            Value = Calc(margin).Mul(-1).Equal(),
                         },
                     },
                 },
@@ -198,8 +198,8 @@ namespace AntDesign.Styles
                         {
                             [$@"{antCls}-badge-count"] = new CSSObject
                             {
-                                Top = calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).Equal(),
-                                InsetInlineEnd = calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).Equal(),
+                                Top = Calc(Calc(floatButtonBodyPadding).Add(badgeOffset)).Mul(-1).Equal(),
+                                InsetInlineEnd = Calc(Calc(floatButtonBodyPadding).Add(badgeOffset)).Mul(-1).Equal(),
                             },
                         },
                     },
@@ -328,8 +328,8 @@ namespace AntDesign.Styles
                         {
                             Transform = "translate(0, 0)",
                             TransformOrigin = "center",
-                            Top = calc(badgeOffset).mul(-1).Equal(),
-                            InsetInlineEnd = calc(badgeOffset).mul(-1).Equal(),
+                            Top = Calc(badgeOffset).Mul(-1).Equal(),
+                            InsetInlineEnd = Calc(badgeOffset).Mul(-1).Equal(),
                         },
                     },
                     [$@"{componentCls}-body"] = new CSSObject
@@ -349,7 +349,7 @@ namespace AntDesign.Styles
                             FlexDirection = "column",
                             JustifyContent = "center",
                             AlignItems = "center",
-                            Padding = $@"{Unit(calc(floatButtonBodyPadding).div(2).Equal())} {Unit(floatButtonBodyPadding)}",
+                            Padding = $@"{Unit(Calc(floatButtonBodyPadding).Div(2).Equal())} {Unit(floatButtonBodyPadding)}",
                             [$@"{componentCls}-icon"] = new CSSObject
                             {
                                 TextAlign = "center",
@@ -484,7 +484,7 @@ namespace AntDesign.Styles
                 var controlItemBgHover = token.ControlItemBgHover;
                 var paddingXXS = token.PaddingXXS;
                 var calc = token.Calc;
-                var floatButtonToken = MergeToken(token, new object { FloatButtonBackgroundColor = colorBgElevated, FloatButtonColor = colorTextLightSolid, FloatButtonHoverBackgroundColor = controlItemBgHover, FloatButtonFontSize = fontSize, FloatButtonIconSize = calc(fontSizeIcon).mul(1.5).Equal(), FloatButtonSize = controlHeightLG, FloatButtonInsetBlockEnd = marginXXL, FloatButtonInsetInlineEnd = marginLG, FloatButtonBodySize = calc(controlHeightLG).sub(calc(paddingXXS).mul(2)).Equal(), FloatButtonBodyPadding = paddingXXS, BadgeOffset = calc(paddingXXS).mul(1.5).Equal(), });
+                var floatButtonToken = MergeToken(token, new object { FloatButtonBackgroundColor = colorBgElevated, FloatButtonColor = colorTextLightSolid, FloatButtonHoverBackgroundColor = controlItemBgHover, FloatButtonFontSize = fontSize, FloatButtonIconSize = Calc(fontSizeIcon).Mul(1.5).Equal(), FloatButtonSize = controlHeightLG, FloatButtonInsetBlockEnd = marginXXL, FloatButtonInsetInlineEnd = marginLG, FloatButtonBodySize = Calc(controlHeightLG).Sub(Calc(paddingXXS).Mul(2)).Equal(), FloatButtonBodyPadding = paddingXXS, BadgeOffset = Calc(paddingXXS).Mul(1.5).Equal(), });
                 return new object[]
                 {
                     FloatButtonGroupStyle(floatButtonToken),
@@ -492,7 +492,7 @@ namespace AntDesign.Styles
                     InitFadeMotion(token),
                     FloatButtonGroupMotion(floatButtonToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

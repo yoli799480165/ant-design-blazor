@@ -68,7 +68,7 @@ namespace AntDesign.Styles
                 [noticeCls] = new CSSObject
                 {
                     Padding = notificationPadding,
-                    MaxWidth = $@"{Unit(token.calc(notificationMarginEdge).mul(2).Equal())})",
+                    MaxWidth = $@"{Unit(token.Calc(notificationMarginEdge).Mul(2).Equal())})",
                     Overflow = "hidden",
                     WordWrap = "break-word",
                 },
@@ -90,12 +90,12 @@ namespace AntDesign.Styles
                 [$@"{noticeCls}-with-icon {noticeCls}-message"] = new CSSObject
                 {
                     MarginBottom = token.MarginXS,
-                    MarginInlineStart = token.calc(token.marginSM).add(notificationIconSize).Equal(),
+                    MarginInlineStart = token.Calc(token.MarginSM).Add(notificationIconSize).Equal(),
                     FontSize = fontSizeLG,
                 },
                 [$@"{noticeCls}-with-icon {noticeCls}-description"] = new CSSObject
                 {
-                    MarginInlineStart = token.calc(token.marginSM).add(notificationIconSize).Equal(),
+                    MarginInlineStart = token.Calc(token.MarginSM).Add(notificationIconSize).Equal(),
                 },
                 [$@"{noticeCls}-icon"] = new CSSObject
                 {
@@ -278,7 +278,7 @@ namespace AntDesign.Styles
         {
             var notificationPaddingVertical = token.PaddingMD;
             var notificationPaddingHorizontal = token.PaddingLG;
-            var notificationToken = MergeToken(token, new object { NotificationBg = token.ColorBgElevated, NotificationIconSize = token.calc(token.fontSizeLG).mul(token.lineHeightLG).Equal(), NotificationCloseButtonSize = token.calc(token.controlHeightLG).mul(0.55).Equal(), NotificationMarginBottom = token.Margin, NotificationPadding = $@"{Unit(token.PaddingMD)} {Unit(token.PaddingContentHorizontalLG)}", NotificationMarginEdge = token.MarginLG, AnimationMaxHeight = 150, NotificationStackLayer = 3, NotificationProgressHeight = 2, NotificationProgressBg = $@"{token.ColorPrimaryBorderHover}, {token.ColorPrimary})", });
+            var notificationToken = MergeToken(token, new object { NotificationBg = token.ColorBgElevated, NotificationIconSize = token.Calc(token.FontSizeLG).Mul(token.LineHeightLG).Equal(), NotificationCloseButtonSize = token.Calc(token.ControlHeightLG).Mul(0.55).Equal(), NotificationMarginBottom = token.Margin, NotificationPadding = $@"{Unit(token.PaddingMD)} {Unit(token.PaddingContentHorizontalLG)}", NotificationMarginEdge = token.MarginLG, AnimationMaxHeight = 150, NotificationStackLayer = 3, NotificationProgressHeight = 2, NotificationProgressBg = $@"{token.ColorPrimaryBorderHover}, {token.ColorPrimary})", });
             return notificationToken;
         }
 
@@ -293,7 +293,7 @@ namespace AntDesign.Styles
                     GenNotificationPlacementStyle(notificationToken),
                     GenStackStyle(notificationToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

@@ -50,8 +50,8 @@ namespace AntDesign.Styles
             var handleSizeSM = token.HandleSizeSM;
             var calc = token.Calc;
             var switchInnerCls = $@"{componentCls}-inner";
-            var trackPaddingCalc = Unit(calc(handleSizeSM).add(calc(trackPadding).mul(2)).Equal());
-            var innerMaxMarginCalc = Unit(calc(innerMaxMarginSM).mul(2).Equal());
+            var trackPaddingCalc = Unit(Calc(handleSizeSM).Add(Calc(trackPadding).Mul(2)).Equal());
+            var innerMaxMarginCalc = Unit(Calc(innerMaxMarginSM).Mul(2).Equal());
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -76,7 +76,7 @@ namespace AntDesign.Styles
                             },
                             [$@"{switchInnerCls}-unchecked"] = new CSSObject
                             {
-                                MarginTop = calc(trackHeightSM).mul(-1).Equal(),
+                                MarginTop = Calc(trackHeightSM).Mul(-1).Equal(),
                                 MarginInlineStart = 0,
                                 MarginInlineEnd = 0,
                             },
@@ -88,7 +88,7 @@ namespace AntDesign.Styles
                         },
                         [$@"{componentCls}-loading-icon"] = new CSSObject
                         {
-                            Top = calc(calc(handleSizeSM).sub(token.switchLoadingIconSize)).div(2).Equal(),
+                            Top = Calc(Calc(handleSizeSM).Sub(token.SwitchLoadingIconSize)).Div(2).Equal(),
                             FontSize = token.SwitchLoadingIconSize,
                         },
                         [$@"{componentCls}-checked"] = new CSSObject
@@ -110,7 +110,7 @@ namespace AntDesign.Styles
                             },
                             [$@"{componentCls}-handle"] = new CSSObject
                             {
-                                InsetInlineStart = $@"{Unit(calc(handleSizeSM).add(trackPadding).Equal())})",
+                                InsetInlineStart = $@"{Unit(Calc(handleSizeSM).Add(trackPadding).Equal())})",
                             },
                         },
                         [$@"{componentCls}-disabled):active"] = new CSSObject
@@ -119,16 +119,16 @@ namespace AntDesign.Styles
                             {
                                 [$@"{switchInnerCls}-unchecked"] = new CSSObject
                                 {
-                                    MarginInlineStart = calc(token.marginXXS).div(2).Equal(),
-                                    MarginInlineEnd = calc(token.marginXXS).mul(-1).div(2).Equal(),
+                                    MarginInlineStart = Calc(token.MarginXXS).Div(2).Equal(),
+                                    MarginInlineEnd = Calc(token.MarginXXS).Mul(-1).Div(2).Equal(),
                                 },
                             },
                             [$@"{componentCls}-checked {switchInnerCls}"] = new CSSObject
                             {
                                 [$@"{switchInnerCls}-checked"] = new CSSObject
                                 {
-                                    MarginInlineStart = calc(token.marginXXS).mul(-1).div(2).Equal(),
-                                    MarginInlineEnd = calc(token.marginXXS).div(2).Equal(),
+                                    MarginInlineStart = Calc(token.MarginXXS).Mul(-1).Div(2).Equal(),
+                                    MarginInlineEnd = Calc(token.MarginXXS).Div(2).Equal(),
                                 },
                             },
                         },
@@ -149,7 +149,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-loading-icon{token.IconCls}"] = new CSSObject
                     {
                         Position = "relative",
-                        Top = calc(calc(handleSize).sub(token.fontSize)).div(2).Equal(),
+                        Top = Calc(Calc(handleSize).Sub(token.FontSize)).Div(2).Equal(),
                         Color = token.SwitchLoadingIconColor,
                         VerticalAlign = "top",
                     },
@@ -190,7 +190,7 @@ namespace AntDesign.Styles
                             Bottom = 0,
                             InsetInlineStart = 0,
                             BackgroundColor = handleBg,
-                            BorderRadius = calc(handleSize).div(2).Equal(),
+                            BorderRadius = Calc(handleSize).Div(2).Equal(),
                             BoxShadow = handleShadow,
                             Transition = $@"{token.SwitchDuration} ease-in-out",
                             Content = "\"\"",
@@ -198,7 +198,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-checked {switchHandleCls}"] = new CSSObject
                     {
-                        InsetInlineStart = $@"{Unit(calc(handleSize).add(trackPadding).Equal())})",
+                        InsetInlineStart = $@"{Unit(Calc(handleSize).Add(trackPadding).Equal())})",
                     },
                     [$@"{componentCls}-disabled):active"] = new CSSObject
                     {
@@ -227,8 +227,8 @@ namespace AntDesign.Styles
             var handleSize = token.HandleSize;
             var calc = token.Calc;
             var switchInnerCls = $@"{componentCls}-inner";
-            var trackPaddingCalc = Unit(calc(handleSize).add(calc(trackPadding).mul(2)).Equal());
-            var innerMaxMarginCalc = Unit(calc(innerMaxMargin).mul(2).Equal());
+            var trackPaddingCalc = Unit(Calc(handleSize).Add(Calc(trackPadding).Mul(2)).Equal());
+            var innerMaxMarginCalc = Unit(Calc(innerMaxMargin).Mul(2).Equal());
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -258,7 +258,7 @@ namespace AntDesign.Styles
                         },
                         [$@"{switchInnerCls}-unchecked"] = new CSSObject
                         {
-                            MarginTop = calc(trackHeight).mul(-1).Equal(),
+                            MarginTop = Calc(trackHeight).Mul(-1).Equal(),
                             MarginInlineStart = 0,
                             MarginInlineEnd = 0,
                         },
@@ -284,16 +284,16 @@ namespace AntDesign.Styles
                         {
                             [$@"{switchInnerCls}-unchecked"] = new CSSObject
                             {
-                                MarginInlineStart = calc(trackPadding).mul(2).Equal(),
-                                MarginInlineEnd = calc(trackPadding).mul(-1).mul(2).Equal(),
+                                MarginInlineStart = Calc(trackPadding).Mul(2).Equal(),
+                                MarginInlineEnd = Calc(trackPadding).Mul(-1).Mul(2).Equal(),
                             },
                         },
                         [$@"{componentCls}-checked {switchInnerCls}"] = new CSSObject
                         {
                             [$@"{switchInnerCls}-checked"] = new CSSObject
                             {
-                                MarginInlineStart = calc(trackPadding).mul(-1).mul(2).Equal(),
-                                MarginInlineEnd = calc(trackPadding).mul(2).Equal(),
+                                MarginInlineStart = Calc(trackPadding).Mul(-1).Mul(2).Equal(),
+                                MarginInlineEnd = Calc(trackPadding).Mul(2).Equal(),
                             },
                         },
                     },
@@ -374,7 +374,7 @@ namespace AntDesign.Styles
                 TrackMinWidthSM = handleSizeSM * 2 + padding * 2,
                 TrackPadding = padding,
                 HandleBg = colorWhite,
-                HandleShadow = $@"{new TinyColor('#00230b').setAlpha(0.2).ToRgbString()}",
+                HandleShadow = $@"{new TinyColor("#00230b").SetAlpha(0.2).ToRgbString()}",
                 InnerMinMargin = handleSize / 2,
                 InnerMaxMargin = handleSize + padding + padding * 2,
                 InnerMinMarginSM = handleSizeSM / 2,
@@ -386,7 +386,7 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks("Switch", (SwitchToken token) =>
             {
-                var switchToken = MergeToken(token, new object { SwitchDuration = token.MotionDurationMid, SwitchColor = token.ColorPrimary, SwitchDisabledOpacity = token.OpacityLoading, SwitchLoadingIconSize = token.calc(token.fontSizeIcon).mul(0.75).Equal(), SwitchLoadingIconColor = $@"{token.OpacityLoading})", SwitchHandleActiveInset = "-30%", });
+                var switchToken = MergeToken(token, new object { SwitchDuration = token.MotionDurationMid, SwitchColor = token.ColorPrimary, SwitchDisabledOpacity = token.OpacityLoading, SwitchLoadingIconSize = token.Calc(token.FontSizeIcon).Mul(0.75).Equal(), SwitchLoadingIconColor = $@"{token.OpacityLoading})", SwitchHandleActiveInset = "-30%", });
                 return new object[]
                 {
                     GenSwitchStyle(switchToken),
@@ -395,7 +395,7 @@ namespace AntDesign.Styles
                     GenSwitchLoadingStyle(switchToken),
                     GenSwitchSmallStyle(switchToken)
                 };
-            }, prepareComponentToken);
+            }, PrepareComponentToken);
         }
     }
 }

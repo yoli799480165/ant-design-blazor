@@ -41,7 +41,7 @@ namespace AntDesign.Styles
 
         public static object StatusDefault()
         {
-            return genStatusStyle;
+            return GenStatusStyle;
         }
     }
 }

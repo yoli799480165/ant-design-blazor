@@ -46,7 +46,7 @@ namespace AntDesign.Styles
                             _skip_check_ = true,
                             Value = 0,
                         },
-                        Bottom = calc(lineWidth).mul(-1).Equal(),
+                        Bottom = Calc(lineWidth).Mul(-1).Equal(),
                         Width = 30,
                         Transform = "translateX(100%)",
                         Transition = $@"{motionDurationSlow}",
@@ -63,7 +63,7 @@ namespace AntDesign.Styles
                     {
                         Position = "absolute",
                         Top = 0,
-                        Bottom = calc(lineWidth).mul(-1).Equal(),
+                        Bottom = Calc(lineWidth).Mul(-1).Equal(),
                         Left = new CSSObject
                         {
                             _skip_check_ = true,
@@ -83,7 +83,7 @@ namespace AntDesign.Styles
                             Position = "absolute",
                             Top = 0,
                             Bottom = 0,
-                            ZIndex = calc(zIndexTableSticky).add(1).Equal(new object { Unit = false, }),
+                            ZIndex = Calc(zIndexTableSticky).Add(1).Equal(new object { Unit = false, }),
                             Width = 30,
                             Transition = $@"{motionDurationSlow}",
                             Content = "\"\"",
@@ -145,7 +145,7 @@ namespace AntDesign.Styles
 
         public static object FixedDefault()
         {
-            return genFixedStyle;
+            return GenFixedStyle;
         }
     }
 }
