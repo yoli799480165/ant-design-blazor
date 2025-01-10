@@ -79,9 +79,17 @@ namespace AntDesign.Styles
                             Color = itemSelectedColor,
                             Background = token.ColorBgContainer,
                         },
+                        [$@"{componentCls}-tab-focus"] = new CSSObject
+                        {
+                            ["..."] = GenFocusOutline(token, -3),
+                        },
                         [$@"{componentCls}-ink-bar"] = new CSSObject
                         {
                             Visibility = "hidden",
+                        },
+                        [$@"{componentCls}-tab{componentCls}-tab-focus {componentCls}-tab-btn"] = new CSSObject
+                        {
+                            Outline = "none",
                         },
                     },
                     [$@"{componentCls}-top, &{componentCls}-bottom"] = new CSSObject
@@ -666,7 +674,6 @@ namespace AntDesign.Styles
                         {
                             Color = itemActiveColor,
                         },
-                        ["..."] = GenFocusStyle(token),
                     },
                     ["&-btn"] = new CSSObject
                     {
@@ -701,6 +708,7 @@ namespace AntDesign.Styles
                         {
                             Color = token.ColorTextHeading,
                         },
+                        ["..."] = GenFocusStyle(token),
                     },
                     ["&:hover"] = new CSSObject
                     {
@@ -710,6 +718,10 @@ namespace AntDesign.Styles
                     {
                         Color = itemSelectedColor,
                         TextShadow = token.TabsActiveTextShadow,
+                    },
+                    [$@"{tabCls}-focus {tabCls}-btn"] = new CSSObject
+                    {
+                        ["..."] = GenFocusOutline(token),
                     },
                     [$@"{tabCls}-disabled"] = new CSSObject
                     {
@@ -976,7 +988,7 @@ namespace AntDesign.Styles
                             {
                                 Color = itemActiveColor,
                             },
-                            ["..."] = GenFocusStyle(token),
+                            ["..."] = GenFocusStyle(token, -3),
                         },
                     },
                     [$@"{componentCls}-extra-content"] = new CSSObject
@@ -1003,7 +1015,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-tabpane"] = new CSSObject
                     {
-                        Outline = "none",
+                        ["..."] = GenFocusStyle(token),
                         ["&-hidden"] = new CSSObject
                         {
                             Display = "none",

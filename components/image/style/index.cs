@@ -53,7 +53,7 @@ namespace AntDesign.Styles
                 AlignItems = "center",
                 JustifyContent = "center",
                 Color = colorTextLightSolid,
-                Background = new TinyColor("#000").SetAlpha(0.5).ToRgbString(),
+                Background = new FastColor("#000").SetA(0.5).ToRgbString(),
                 Cursor = "pointer",
                 Opacity = 0,
                 Transition = $@"{motionDurationSlow}",
@@ -86,8 +86,8 @@ namespace AntDesign.Styles
             var motionDurationSlow = token.MotionDurationSlow;
             var iconCls = token.IconCls;
             var colorTextLightSolid = token.ColorTextLightSolid;
-            var operationBg = new TinyColor(modalMaskBg).SetAlpha(0.1);
-            var operationBgHover = operationBg.Clone().SetAlpha(0.2);
+            var operationBg = new FastColor(modalMaskBg).SetA(0.1);
+            var operationBgHover = operationBg.Clone().SetA(0.2);
             return new CSSObject
             {
                 [$@"{previewCls}-footer"] = new CSSObject
@@ -180,8 +180,8 @@ namespace AntDesign.Styles
             var previewCls = token.PreviewCls;
             var zIndexPopup = token.ZIndexPopup;
             var motionDurationSlow = token.MotionDurationSlow;
-            var operationBg = new TinyColor(modalMaskBg).SetAlpha(0.1);
-            var operationBgHover = operationBg.Clone().SetAlpha(0.2);
+            var operationBg = new FastColor(modalMaskBg).SetA(0.1);
+            var operationBgHover = operationBg.Clone().SetA(0.2);
             return new CSSObject
             {
                 [$@"{previewCls}-switch-left, {previewCls}-switch-right"] = new CSSObject
@@ -381,9 +381,9 @@ namespace AntDesign.Styles
             return new ImageToken
             {
                 ZIndexPopup = token.ZIndexPopupBase + 80,
-                PreviewOperationColor = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.65).ToRgbString(),
-                PreviewOperationHoverColor = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.85).ToRgbString(),
-                PreviewOperationColorDisabled = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.25).ToRgbString(),
+                PreviewOperationColor = new FastColor(token.ColorTextLightSolid).SetA(0.65).ToRgbString(),
+                PreviewOperationHoverColor = new FastColor(token.ColorTextLightSolid).SetA(0.85).ToRgbString(),
+                PreviewOperationColorDisabled = new FastColor(token.ColorTextLightSolid).SetA(0.25).ToRgbString(),
                 PreviewOperationSize = token.FontSizeIcon * 1.5,
             };
         }
@@ -393,7 +393,7 @@ namespace AntDesign.Styles
             return GenStyleHooks("Image", (ImageToken token) =>
             {
                 var previewCls = $@"{token.ComponentCls}-preview";
-                var imageToken = MergeToken(token, new object { ModalMaskBg = new TinyColor("#000").SetAlpha(0.45).ToRgbString(), ImagePreviewSwitchSize = token.ControlHeightLG, });
+                var imageToken = MergeToken(token, new object { ModalMaskBg = new FastColor("#000").SetA(0.45).ToRgbString(), ImagePreviewSwitchSize = token.ControlHeightLG, });
                 return new object[]
                 {
                     GenImageStyle(imageToken),

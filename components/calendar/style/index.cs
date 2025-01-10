@@ -138,6 +138,14 @@ namespace AntDesign.Styles
                             },
                         },
                     },
+                    [$@"{componentCls}-cell-week {componentCls}-cell-inner"] = new CSSObject
+                    {
+                        Display = "block",
+                        BorderRadius = 0,
+                        BorderTop = $@"{Unit(token.LineWidthBold)} {token.LineType} {token.ColorSplit}",
+                        Width = "100%",
+                        Height = token.Calc(token.DateValueHeight).Add(token.DateContentHeight).Add(token.Calc(token.PaddingXS).Div(2)).Add(token.LineWidthBold).Equal(),
+                    },
                     [$@"{componentCls}-cell"] = new CSSObject
                     {
                         ["&::before"] = new CSSObject

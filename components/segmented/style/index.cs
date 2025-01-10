@@ -52,6 +52,7 @@ namespace AntDesign.Styles
                     Background = token.TrackBg,
                     BorderRadius = token.BorderRadius,
                     Transition = $@"{token.MotionDurationMid} {token.MotionEaseInOut}",
+                    ["..."] = GenFocusStyle(token),
                     [$@"{componentCls}-group"] = new CSSObject
                     {
                         Position = "relative",
@@ -99,6 +100,10 @@ namespace AntDesign.Styles
                         {
                             ["..."] = GetItemSelectedStyle(token),
                             Color = token.ItemSelectedColor,
+                        },
+                        ["&-focused"] = new CSSObject
+                        {
+                            ["..."] = GenFocusOutline(token),
                         },
                         ["&::after"] = new CSSObject
                         {

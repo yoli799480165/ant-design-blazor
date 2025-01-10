@@ -456,7 +456,7 @@ namespace AntDesign.Styles
                                     },
                                     [$@"{componentCls}-cell-week"] = new CSSObject
                                     {
-                                        Color = new TinyColor(colorTextLightSolid).SetAlpha(0.5).ToHexString(),
+                                        Color = new FastColor(colorTextLightSolid).SetA(0.5).ToHexString(),
                                     },
                                     [pickerCellInnerCls] = new CSSObject
                                     {
@@ -554,7 +554,7 @@ namespace AntDesign.Styles
                             },
                             ["&-active"] = new CSSObject
                             {
-                                Background = new TinyColor(controlItemBgActive).SetAlpha(0.2).ToHexString(),
+                                Background = new FastColor(controlItemBgActive).SetA(0.2).ToHexString(),
                             },
                             ["&:hover"] = new CSSObject
                             {

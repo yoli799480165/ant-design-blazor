@@ -88,7 +88,7 @@ namespace AntDesign.Styles
         {
             return new QrCodeToken
             {
-                QRCodeMaskBackgroundColor = new TinyColor(token.ColorBgContainer).SetAlpha(0.96).ToRgbString(),
+                QRCodeMaskBackgroundColor = new FastColor(token.ColorBgContainer).SetA(0.96).ToRgbString(),
             };
         }
 

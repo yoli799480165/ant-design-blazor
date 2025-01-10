@@ -374,7 +374,7 @@ namespace AntDesign.Styles
                 TrackMinWidthSM = handleSizeSM * 2 + padding * 2,
                 TrackPadding = padding,
                 HandleBg = colorWhite,
-                HandleShadow = $@"{new TinyColor("#00230b").SetAlpha(0.2).ToRgbString()}",
+                HandleShadow = $@"{new FastColor("#00230b").SetA(0.2).ToRgbString()}",
                 InnerMinMargin = handleSize / 2,
                 InnerMaxMargin = handleSize + padding + padding * 2,
                 InnerMinMarginSM = handleSizeSM / 2,

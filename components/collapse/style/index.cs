@@ -71,6 +71,13 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-item"] = new CSSObject
                     {
                         BorderBottom = borderBase,
+                        ["&:first-child"] = new CSSObject
+                        {
+                            [$@"{componentCls}-header"] = new CSSObject
+                            {
+                                BorderRadius = $@"{Unit(collapsePanelBorderRadius)} {Unit(collapsePanelBorderRadius)} 0 0",
+                            },
+                        },
                         ["&:last-child"] = new CSSObject
                         {
                             [$@"{componentCls}-header"] = new CSSObject
@@ -88,6 +95,7 @@ namespace AntDesign.Styles
                             Color = colorTextHeading,
                             Cursor = "pointer",
                             Transition = $@"{motionDurationSlow}, visibility 0s",
+                            ["..."] = GenFocusStyle(token),
                             [$@"{componentCls}-header-text"] = new CSSObject
                             {
                                 Flex = "auto",

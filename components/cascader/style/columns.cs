@@ -98,6 +98,7 @@ namespace AntDesign.Styles
                                 {
                                     ["&, &:hover"] = new object
                                     {
+                                        Color = token.OptionSelectedColor,
                                         FontWeight = token.OptionSelectedFontWeight,
                                         BackgroundColor = token.OptionSelectedBg,
                                     },

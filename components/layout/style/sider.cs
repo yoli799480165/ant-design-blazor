@@ -69,7 +69,7 @@ namespace AntDesign.Styles
                         Cursor = "pointer",
                         Transition = $@"{motionDurationMid}",
                     },
-                    [$@"{antCls}-layout &-zero-width"] = new CSSObject
+                    ["&-zero-width"] = new CSSObject
                     {
                         ["> *"] = new CSSObject
                         {
@@ -141,9 +141,9 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks(new object[] { "Layout", "Sider" }, (LayoutToken token) =>
             {
-                return new object[]
+                return new object
                 {
-                    GenSiderStyle(token)
+                    [$@"{token.AntCls}-layout"] = GenSiderStyle(token),
                 };
             }, PrepareComponentToken, new object { DeprecatedTokens = DEPRECATED_TOKENS, });
         }

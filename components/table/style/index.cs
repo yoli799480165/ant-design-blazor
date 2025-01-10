@@ -263,11 +263,11 @@ namespace AntDesign.Styles
             var colorIconHover = token.ColorIconHover;
             var opacityLoading = token.OpacityLoading;
             var controlInteractiveSize = token.ControlInteractiveSize;
-            var colorFillSecondarySolid = new TinyColor(colorFillSecondary).OnBackground(colorBgContainer).ToHexShortString();
-            var colorFillContentSolid = new TinyColor(colorFillContent).OnBackground(colorBgContainer).ToHexShortString();
-            var colorFillAlterSolid = new TinyColor(colorFillAlter).OnBackground(colorBgContainer).ToHexShortString();
-            var baseColorAction = new TinyColor(colorIcon);
-            var baseColorActionHover = new TinyColor(colorIconHover);
+            var colorFillSecondarySolid = new FastColor(colorFillSecondary).OnBackground(colorBgContainer).ToHexString();
+            var colorFillContentSolid = new FastColor(colorFillContent).OnBackground(colorBgContainer).ToHexString();
+            var colorFillAlterSolid = new FastColor(colorFillAlter).OnBackground(colorBgContainer).ToHexString();
+            var baseColorAction = new FastColor(colorIcon);
+            var baseColorActionHover = new FastColor(colorIconHover);
             var expandIconHalfInner = controlInteractiveSize / 2 - lineWidth;
             var expandIconSize = expandIconHalfInner * 2 + lineWidth * 3;
             return new TableToken
@@ -304,8 +304,8 @@ namespace AntDesign.Styles
                 StickyScrollBarBg = colorTextPlaceholder,
                 StickyScrollBarBorderRadius = 100,
                 ExpandIconMarginTop = (fontSize * lineHeight - lineWidth * 3) / 2 - Math.Ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
-                HeaderIconColor = baseColorAction.Clone().SetAlpha(baseColorAction.GetAlpha() * opacityLoading).ToRgbString(),
-                HeaderIconHoverColor = baseColorActionHover.Clone().SetAlpha(baseColorActionHover.GetAlpha() * opacityLoading).ToRgbString(),
+                HeaderIconColor = baseColorAction.Clone().SetA(baseColorAction.A * opacityLoading).ToRgbString(),
+                HeaderIconHoverColor = baseColorActionHover.Clone().SetA(baseColorActionHover.A * opacityLoading).ToRgbString(),
                 ExpandIconScale = controlInteractiveSize / expandIconSize,
             };
         }

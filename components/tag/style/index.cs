@@ -140,7 +140,7 @@ namespace AntDesign.Styles
         {
             return new TagToken
             {
-                DefaultBg = new TinyColor(token.ColorFillQuaternary).OnBackground(token.ColorBgContainer).ToHexString(),
+                DefaultBg = new FastColor(token.ColorFillQuaternary).OnBackground(token.ColorBgContainer).ToHexString(),
                 DefaultColor = token.ColorText,
             };
         }

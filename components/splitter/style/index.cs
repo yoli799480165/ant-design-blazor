@@ -85,10 +85,22 @@ namespace AntDesign.Styles
             var controlItemBgHover = token.ControlItemBgHover;
             var controlItemBgActive = token.ControlItemBgActive;
             var controlItemBgActiveHover = token.ControlItemBgActiveHover;
+            var prefixCls = token.PrefixCls;
             var splitBarCls = $@"{componentCls}-bar";
             var splitMaskCls = $@"{componentCls}-mask";
             var splitPanelCls = $@"{componentCls}-panel";
             var halfTriggerSize = token.Calc(splitTriggerSize).Div(2).Equal();
+            var splitterBarPreviewOffsetVar = $@"{prefixCls}-bar-preview-offset";
+            var splitterBarPreviewStyle = new CSSObject
+            {
+                Position = "absolute",
+                Background = token.ColorPrimary,
+                Opacity = 0.2,
+                PointerEvents = "none",
+                Transition = "none",
+                ZIndex = 1,
+                Display = "none",
+            };
             return new CSSObject
             {
                 [componentCls] = new CSSObject
@@ -201,6 +213,17 @@ namespace AntDesign.Styles
                         [$@"{splitBarCls}"] = new CSSObject
                         {
                             Width = 0,
+                            [$@"{splitBarCls}-preview"] = new CSSObject
+                            {
+                                Height = "100%",
+                                Width = splitBarSize,
+                                ["..."] = splitterBarPreviewStyle,
+                                [$@"{splitBarCls}-preview-active"] = new CSSObject
+                                {
+                                    Display = "block",
+                                    Transform = $@"{splitterBarPreviewOffsetVar}))",
+                                },
+                            },
                             [$@"{splitBarCls}-dragger"] = new CSSObject
                             {
                                 Cursor = "col-resize",
@@ -258,6 +281,17 @@ namespace AntDesign.Styles
                         [$@"{splitBarCls}"] = new CSSObject
                         {
                             Height = 0,
+                            [$@"{splitBarCls}-preview"] = new CSSObject
+                            {
+                                Height = splitBarSize,
+                                Width = "100%",
+                                ["..."] = splitterBarPreviewStyle,
+                                [$@"{splitBarCls}-preview-active"] = new CSSObject
+                                {
+                                    Display = "block",
+                                    Transform = $@"{splitterBarPreviewOffsetVar}))",
+                                },
+                            },
                             [$@"{splitBarCls}-dragger"] = new CSSObject
                             {
                                 Cursor = "row-resize",

@@ -434,6 +434,9 @@ namespace AntDesign.Styles
                     VerticalAlign = -1,
                     Cursor = "pointer",
                     Transition = $@"{token.MotionDurationSlow}",
+                    Border = "none",
+                    Outline = "none",
+                    BackgroundColor = "transparent",
                     ["&:hover"] = new CSSObject
                     {
                         Color = token.ColorTextTertiary,

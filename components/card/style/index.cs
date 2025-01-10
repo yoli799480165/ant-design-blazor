@@ -19,6 +19,10 @@ namespace AntDesign.Styles
             public string HeaderFontSizeSM { get; set; }
             public string HeaderHeight { get; set; }
             public string HeaderHeightSM { get; set; }
+            public double BodyPaddingSM { get; set; }
+            public double HeaderPaddingSM { get; set; }
+            public double BodyPadding { get; set; }
+            public double HeaderPadding { get; set; }
             public string ActionsBg { get; set; }
             public string ActionsLiMargin { get; set; }
             public double TabsMarginBottom { get; set; }
@@ -29,7 +33,6 @@ namespace AntDesign.Styles
         {
             public string CardShadow { get; set; }
             public double CardHeadPadding { get; set; }
-            public double CardPaddingSM { get; set; }
             public double CardPaddingBase { get; set; }
             public double CardActionsIconSize { get; set; }
         }
@@ -39,7 +42,7 @@ namespace AntDesign.Styles
             var antCls = token.AntCls;
             var componentCls = token.ComponentCls;
             var headerHeight = token.HeaderHeight;
-            var cardPaddingBase = token.CardPaddingBase;
+            var headerPadding = token.HeaderPadding;
             var tabsMarginBottom = token.TabsMarginBottom;
             return new CSSObject
             {
@@ -48,7 +51,7 @@ namespace AntDesign.Styles
                 FlexDirection = "column",
                 MinHeight = headerHeight,
                 MarginBottom = -1,
-                Padding = $@"{Unit(cardPaddingBase)}",
+                Padding = $@"{Unit(headerPadding)}",
                 Color = token.ColorTextHeading,
                 FontWeight = token.FontWeightStrong,
                 FontSize = token.HeaderFontSize,
@@ -218,13 +221,14 @@ namespace AntDesign.Styles
         public static CSSObject GenCardTypeInnerStyle(CardToken token)
         {
             var componentCls = token.ComponentCls;
-            var cardPaddingBase = token.CardPaddingBase;
             var colorFillAlter = token.ColorFillAlter;
+            var headerPadding = token.HeaderPadding;
+            var bodyPadding = token.BodyPadding;
             return new CSSObject
             {
                 [$@"{componentCls}-head"] = new CSSObject
                 {
-                    Padding = $@"{Unit(cardPaddingBase)}",
+                    Padding = $@"{Unit(headerPadding)}",
                     Background = colorFillAlter,
                     ["&-title"] = new CSSObject
                     {
@@ -233,7 +237,7 @@ namespace AntDesign.Styles
                 },
                 [$@"{componentCls}-body"] = new CSSObject
                 {
-                    Padding = $@"{Unit(token.Padding)} {Unit(cardPaddingBase)}",
+                    Padding = $@"{Unit(token.Padding)} {Unit(bodyPadding)}",
                 },
             };
         }
@@ -258,7 +262,7 @@ namespace AntDesign.Styles
             var cardHeadPadding = token.CardHeadPadding;
             var colorBorderSecondary = token.ColorBorderSecondary;
             var boxShadowTertiary = token.BoxShadowTertiary;
-            var cardPaddingBase = token.CardPaddingBase;
+            var bodyPadding = token.BodyPadding;
             var extraColor = token.ExtraColor;
             return new CSSObject
             {
@@ -282,7 +286,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-body"] = new CSSObject
                     {
-                        Padding = cardPaddingBase,
+                        Padding = bodyPadding,
                         BorderRadius = $@"{Unit(token.BorderRadiusLG)} {Unit(token.BorderRadiusLG)}",
                         ["..."] = ClearFix(),
                     },
@@ -357,7 +361,8 @@ namespace AntDesign.Styles
         public static CSSObject GenCardSizeStyle(CardToken token)
         {
             var componentCls = token.ComponentCls;
-            var cardPaddingSM = token.CardPaddingSM;
+            var bodyPaddingSM = token.BodyPaddingSM;
+            var headerPaddingSM = token.HeaderPaddingSM;
             var headerHeightSM = token.HeaderHeightSM;
             var headerFontSizeSM = token.HeaderFontSizeSM;
             return new CSSObject
@@ -367,7 +372,7 @@ namespace AntDesign.Styles
                     [$@"{componentCls}-head"] = new CSSObject
                     {
                         MinHeight = headerHeightSM,
-                        Padding = $@"{Unit(cardPaddingSM)}",
+                        Padding = $@"{Unit(headerPaddingSM)}",
                         FontSize = headerFontSizeSM,
                         [$@"{componentCls}-head-wrapper"] = new CSSObject
                         {
@@ -379,7 +384,7 @@ namespace AntDesign.Styles
                     },
                     [$@"{componentCls}-body"] = new CSSObject
                     {
-                        Padding = cardPaddingSM,
+                        Padding = bodyPaddingSM,
                     },
                 },
                 [$@"{componentCls}-small{componentCls}-contain-tabs"] = new CSSObject
@@ -410,6 +415,10 @@ namespace AntDesign.Styles
                 ActionsLiMargin = $@"{token.PaddingSM}px 0",
                 TabsMarginBottom = -token.Padding - token.LineWidth,
                 ExtraColor = token.ColorText,
+                BodyPaddingSM = 12,
+                HeaderPaddingSM = 12,
+                BodyPadding = token.PaddingLG,
+                HeaderPadding = token.PaddingLG,
             };
         }
 
@@ -417,7 +426,7 @@ namespace AntDesign.Styles
         {
             return GenStyleHooks("Card", (CardToken token) =>
             {
-                var cardToken = MergeToken(token, new object { CardShadow = token.BoxShadowCard, CardHeadPadding = token.Padding, CardPaddingBase = token.PaddingLG, CardActionsIconSize = token.FontSize, CardPaddingSM = 12, });
+                var cardToken = MergeToken(token, new object { CardShadow = token.BoxShadowCard, CardHeadPadding = token.Padding, CardPaddingBase = token.PaddingLG, CardActionsIconSize = token.FontSize, });
                 return new object[]
                 {
                     GenCardStyle(cardToken),

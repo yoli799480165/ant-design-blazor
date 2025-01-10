@@ -91,6 +91,7 @@ namespace AntDesign.Styles
             var nodeSelectedBg = token.NodeSelectedBg;
             var nodeHoverBg = token.NodeHoverBg;
             var colorTextQuaternary = token.ColorTextQuaternary;
+            var controlItemBgActiveDisabled = token.ControlItemBgActiveDisabled;
             return new CSSObject
             {
                 [treeCls] = new CSSObject
@@ -165,6 +166,10 @@ namespace AntDesign.Styles
                             {
                                 Background = "transparent",
                             },
+                        },
+                        [$@"{treeCls}-checkbox-disabled + {treeCls}-node-selected,&{treeNodeCls}-disabled{treeNodeCls}-selected {treeCls}-node-content-wrapper"] = new CSSObject
+                        {
+                            BackgroundColor = controlItemBgActiveDisabled,
                         },
                         [$@"{treeNodeCls}-disabled)"] = new CSSObject
                         {

@@ -301,6 +301,35 @@ namespace AntDesign.Styles
             };
         }
 
+        public static CSSObject GenPresetColorStyle(ButtonToken token)
+        {
+            var componentCls = token.ComponentCls;
+            return PresetColors.Reduce((CSSObject prev, PresetColorKey colorKey) =>
+            {
+                var darkColor = token[$@"{colorKey}6"];
+                var lightColor = token[$@"{colorKey}1"];
+                var hoverColor = token[$@"{colorKey}5"];
+                var lightHoverColor = token[$@"{colorKey}2"];
+                var lightBorderColor = token[$@"{colorKey}3"];
+                var activeColor = token[$@"{colorKey}7"];
+                var boxShadow = $@"{token.ControlOutlineWidth} 0 {token[$@"{colorKey}1"]}";
+                return new object
+                {
+                    ["..."] = prev,
+                    [$@"{componentCls}-color-{colorKey}"] = new object
+                    {
+                        Color = darkColor,
+                        ["..."] = GenSolidButtonStyle(token, token.ColorTextLightSolid, darkColor, new object { Background = hoverColor, }, new object { Background = activeColor, }),
+                        ["..."] = GenOutlinedDashedButtonStyle(token, darkColor, token.ColorBgContainer, new object { Color = hoverColor, BorderColor = hoverColor, Background = token.ColorBgContainer, }, new object { Color = activeColor, BorderColor = activeColor, Background = token.ColorBgContainer, }),
+                        ["..."] = GenDashedButtonStyle(token),
+                        ["..."] = GenFilledButtonStyle(token, lightColor, new object { Background = lightHoverColor, }, new object { Background = lightBorderColor, }),
+                        ["..."] = GenTextLinkButtonStyle(token, darkColor, "link", new object { Color = hoverColor, }, new object { Color = activeColor, }),
+                        ["..."] = GenTextLinkButtonStyle(token, darkColor, "text", new object { Color = hoverColor, Background = lightColor, }, new object { Color = activeColor, Background = lightBorderColor, }),
+                    },
+                };
+            }, new object { });
+        }
+
         public static CSSObject GenDefaultButtonStyle(ButtonToken token)
         {
             return new CSSObject
@@ -353,6 +382,7 @@ namespace AntDesign.Styles
                 [$@"{componentCls}-color-default"] = GenDefaultButtonStyle(token),
                 [$@"{componentCls}-color-primary"] = GenPrimaryButtonStyle(token),
                 [$@"{componentCls}-color-dangerous"] = GenDangerousStyle(token),
+                ["..."] = GenPresetColorStyle(token),
             };
         }
 

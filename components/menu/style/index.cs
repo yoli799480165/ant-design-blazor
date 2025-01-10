@@ -32,6 +32,7 @@ namespace AntDesign.Styles
             public string HorizontalItemHoverColor { get; set; }
             public string ColorItemTextSelected { get; set; }
             public string ItemSelectedColor { get; set; }
+            public string SubMenuItemSelectedColor { get; set; }
             public string ColorItemTextSelectedHorizontal { get; set; }
             public string HorizontalItemSelectedColor { get; set; }
             public string ColorItemTextDisabled { get; set; }
@@ -356,7 +357,6 @@ namespace AntDesign.Styles
                             {
                                 MarginInlineStart = "auto",
                                 PaddingInlineStart = token.Padding,
-                                FontSize = token.FontSizeSM,
                             },
                         },
                         [$@"{componentCls}-item a"] = new object
@@ -536,7 +536,7 @@ namespace AntDesign.Styles
             var activeBarWidth = 0;
             var activeBarBorderWidth = lineWidth;
             var itemMarginInline = token.MarginXXS;
-            var colorTextDark = new TinyColor(colorTextLightSolid).SetAlpha(0.65).ToRgbString();
+            var colorTextDark = new FastColor(colorTextLightSolid).SetA(0.65).ToRgbString();
             return new MenuToken
             {
                 DropdownWidth = 160,
@@ -555,6 +555,7 @@ namespace AntDesign.Styles
                 GroupTitleColor = colorTextDescription,
                 ColorItemTextSelected = colorPrimary,
                 ItemSelectedColor = colorPrimary,
+                SubMenuItemSelectedColor = colorPrimary,
                 ColorItemTextSelectedHorizontal = colorPrimary,
                 HorizontalItemSelectedColor = colorPrimary,
                 ColorItemBg = colorBgContainer,
@@ -598,7 +599,7 @@ namespace AntDesign.Styles
                 IconMarginInlineEnd = controlHeightSM - fontSize,
                 CollapsedIconSize = fontSizeLG,
                 GroupTitleFontSize = fontSize,
-                DarkItemDisabledColor = new TinyColor(colorTextLightSolid).SetAlpha(0.25).ToRgbString(),
+                DarkItemDisabledColor = new FastColor(colorTextLightSolid).SetA(0.25).ToRgbString(),
                 DarkItemColor = colorTextDark,
                 DarkDangerItemColor = colorError,
                 DarkItemBg = "#001529",

@@ -382,7 +382,7 @@ namespace AntDesign.Styles
             var handleLineWidth = token.LineWidth + increaseHandleWidth;
             var handleLineWidthHover = token.LineWidth + increaseHandleWidth * 1.5;
             var handleActiveColor = token.ColorPrimary;
-            var handleActiveOutlineColor = new TinyColor(handleActiveColor).SetAlpha(0.2).ToRgbString();
+            var handleActiveOutlineColor = new FastColor(handleActiveColor).SetA(0.2).ToRgbString();
             return new SliderToken
             {
                 RailSize = 4,
@@ -394,7 +394,7 @@ namespace AntDesign.Styles
                 TrackBg = token.ColorPrimaryBorder,
                 TrackHoverBg = token.ColorPrimaryBorderHover,
                 HandleColor = token.ColorPrimaryBorder,
-                HandleColorDisabled = new TinyColor(token.ColorTextDisabled).OnBackground(token.ColorBgContainer).ToHexShortString(),
+                HandleColorDisabled = new FastColor(token.ColorTextDisabled).OnBackground(token.ColorBgContainer).ToHexString(),
                 DotBorderColor = token.ColorBorderSecondary,
                 DotActiveBorderColor = token.ColorPrimaryBorder,
                 TrackBgDisabled = token.ColorBgContainerDisabled,

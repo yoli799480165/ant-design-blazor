@@ -248,8 +248,8 @@ namespace AntDesign.Styles
             {
                 ZIndexPopup = token.ZIndexPopupBase + 70,
                 CloseBtnSize = token.FontSize * token.LineHeight,
-                PrimaryPrevBtnBg = new TinyColor(token.ColorTextLightSolid).SetAlpha(0.15).ToRgbString(),
-                PrimaryNextBtnHoverBg = new TinyColor(token.ColorBgTextHover).OnBackground(token.ColorWhite).ToRgbString(),
+                PrimaryPrevBtnBg = new FastColor(token.ColorTextLightSolid).SetA(0.15).ToRgbString(),
+                PrimaryNextBtnHoverBg = new FastColor(token.ColorBgTextHover).OnBackground(token.ColorWhite).ToRgbString(),
                 ["..."] = GetArrowOffsetToken(new object { ContentRadius = token.BorderRadiusLG, LimitVerticalRadius = true, }),
                 ["..."] = GetArrowToken(token),
             };

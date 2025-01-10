@@ -25,6 +25,7 @@ namespace AntDesign.Styles
             var componentCls = token.ComponentCls;
             var itemColor = token.ItemColor;
             var itemSelectedColor = token.ItemSelectedColor;
+            var subMenuItemSelectedColor = token.SubMenuItemSelectedColor;
             var groupTitleColor = token.GroupTitleColor;
             var itemBg = token.ItemBg;
             var subMenuItemBg = token.SubMenuItemBg;
@@ -71,12 +72,9 @@ namespace AntDesign.Styles
                             Color = groupTitleColor,
                         },
                     },
-                    [$@"{componentCls}-submenu-selected"] = new CSSInterpolation
+                    [$@"{componentCls}-submenu-selected > {componentCls}-submenu-title"] = new CSSInterpolation
                     {
-                        [$@"{componentCls}-submenu-title"] = new CSSInterpolation
-                        {
-                            Color = itemSelectedColor,
-                        },
+                        Color = subMenuItemSelectedColor,
                     },
                     [$@"{componentCls}-item, {componentCls}-submenu-title"] = new CSSInterpolation
                     {

@@ -31,6 +31,8 @@ namespace AntDesign.Styles
                 [componentCls] = new CSSObject
                 {
                     Display = "flex",
+                    Margin = 0,
+                    Padding = 0,
                     ["&-vertical"] = new CSSObject
                     {
                         FlexDirection = "column",

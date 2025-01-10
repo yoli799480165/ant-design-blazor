@@ -143,17 +143,24 @@ namespace AntDesign.Styles
         }
 
         public object useRowStyle = GenStyleHooks("Grid", GenGridRowStyle, PrepareRowComponentToken);
+        public static object GetMediaSize(AliasToken token)
+        {
+            var mediaSizesMap = new object
+            {
+                Xs = token.ScreenXSMin,
+                Sm = token.ScreenSMMin,
+                Md = token.ScreenMDMin,
+                Lg = token.ScreenLGMin,
+                Xl = token.ScreenXLMin,
+                Xxl = token.ScreenXXLMin,
+            };
+            return mediaSizesMap;
+        }
+
         public object useColStyle = GenStyleHooks("Grid", (GridToken token) =>
         {
             var gridToken = MergeToken(token, new object { GridColumns = 24, });
-            var gridMediaSizesMap = new object
-            {
-                ["-sm"] = gridToken.ScreenSMMin,
-                ["-md"] = gridToken.ScreenMDMin,
-                ["-lg"] = gridToken.ScreenLGMin,
-                ["-xl"] = gridToken.ScreenXLMin,
-                ["-xxl"] = gridToken.ScreenXXLMin,
-            };
+            var gridMediaSizesMap = GetMediaSize(gridToken);
             return new object[]
             {
                 GenGridColStyle(gridToken),
@@ -161,7 +168,7 @@ namespace AntDesign.Styles
                 GenGridStyle(gridToken, "-xs"),
                 Object.Keys(gridMediaSizesMap).Map((object key) =>
                 {
-                    return GenGridMediaStyle(gridToken, gridMediaSizesMap[key as GridMediaSize], key);
+                    return GenGridMediaStyle(gridToken, gridMediaSizesMap[key], $@"{key}");
                 }).Reduce((object pre, object cur) =>
                 {
                     return new object

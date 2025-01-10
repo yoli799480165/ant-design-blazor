@@ -312,6 +312,35 @@ namespace AntDesign.Styles
             };
         }
 
+        public static CSSObject GenResponsiveWidthStyle(ModalToken token)
+        {
+            var componentCls = token.ComponentCls;
+            var gridMediaSizesMap = GetMediaSize(token);
+            var responsiveStyles = Object.Keys(gridMediaSizesMap).Map((object key) =>
+            {
+                return new object
+                {
+                    [$@"{Unit(gridMediaSizesMap[key])})"] = new object
+                    {
+                        Width = $@"{componentCls.Replace(".", "")}-{key}-width)",
+                    },
+                };
+            });
+            return new CSSObject
+            {
+                [$@"{componentCls}-root"] = new CSSObject
+                {
+                    [componentCls] = new object[]
+                    {
+                        new object
+                        {
+                            Width = $@"{componentCls.Replace(".", "")}-xs-width)",
+                        }
+                    }.Union(responsiveStyles).ToArray(),
+                },
+            };
+        }
+
         public static object PrepareToken(ModalToken token)
         {
             var headerPaddingVertical = token.Padding;
@@ -356,7 +385,8 @@ namespace AntDesign.Styles
                     GenModalStyle(modalToken),
                     GenRTLStyle(modalToken),
                     GenModalMaskStyle(modalToken),
-                    InitZoomMotion(modalToken, "zoom")
+                    InitZoomMotion(modalToken, "zoom"),
+                    GenResponsiveWidthStyle(modalToken)
                 };
             }, PrepareComponentToken, new object { Unitless = new object { TitleLineHeight = true, }, });
         }

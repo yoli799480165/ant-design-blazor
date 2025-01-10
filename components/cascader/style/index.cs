@@ -18,6 +18,7 @@ namespace AntDesign.Styles
             public string ControlItemWidth { get; set; }
             public string DropdownHeight { get; set; }
             public string OptionSelectedBg { get; set; }
+            public string OptionSelectedColor { get; set; }
             public string OptionSelectedFontWeight { get; set; }
             public string OptionPadding { get; set; }
             public string MenuPadding { get; set; }
@@ -77,6 +78,7 @@ namespace AntDesign.Styles
                 OptionSelectedFontWeight = token.FontWeightStrong,
                 OptionPadding = $@"{itemPaddingVertical}px {token.PaddingSM}px",
                 MenuPadding = token.PaddingXXS,
+                OptionSelectedColor = token.ColorText,
             };
         }
 

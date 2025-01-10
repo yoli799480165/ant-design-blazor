@@ -97,8 +97,8 @@ namespace AntDesign.Styles
             {
                 CellHoverBg = token.ControlItemBgHover,
                 CellActiveWithRangeBg = token.ControlItemBgActive,
-                CellHoverWithRangeBg = new TinyColor(token.ColorPrimary).Lighten(35).ToHexString(),
-                CellRangeBorderColor = new TinyColor(token.ColorPrimary).Lighten(20).ToHexString(),
+                CellHoverWithRangeBg = new FastColor(token.ColorPrimary).Lighten(35).ToHexString(),
+                CellRangeBorderColor = new FastColor(token.ColorPrimary).Lighten(20).ToHexString(),
                 CellBgDisabled = colorBgContainerDisabled,
                 TimeColumnWidth = controlHeightLG * 1.4,
                 TimeColumnHeight = 28 * 8,
